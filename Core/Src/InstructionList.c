@@ -58,6 +58,7 @@ void insertInstruction(uint8_t pPos)
     }
 
     putInstruction(emptyInstruction, pPos);
+
 }
 
 /**
@@ -394,10 +395,11 @@ void programmingMode(void)
 		else
 		{
 			if(linePos == 6)
-			for(int i = 0; i < 9; i++)
-			{
-				Display_WriteCharacter(' ',6+i,(ind!=0)*2);
-			}
+				for(int i = 0; i < 9; i++)
+				{
+					Display_WriteCharacter(' ',6+i,(ind!=0)*2);
+				}
+
 			if(linePos < 13)
 			{
 				instructionKeys[linePos-6] = ch;
