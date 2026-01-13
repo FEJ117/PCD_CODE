@@ -1,0 +1,89 @@
+#include "main.h"
+#include "InstructionList.h"
+#include "STM_FUNCTIONS.h"
+#include "BA_EEPROM.h"
+
+/**
+ * @brief Von HAL erstelltes I2C Objekt
+ */
+extern I2C_HandleTypeDef hi2c1;
+
+/**
+  * @brief Liest ein Byte Daten aus dem EEPROM-Speicher
+  * @param address Die Adresse, an der das Byte gelesen werden soll
+  * @return Das Byte an der Adresse
+  */
+uint8_t readByte(uint16_t address)
+{
+	uint8_t data;
+
+	HAL_I2C_Mem_Read(&hi2c1,
+	                 0x50 << 1,
+	                 address,
+	                 I2C_MEMADD_SIZE_16BIT,
+	                 &data,
+	                 1,
+	                 HAL_MAX_DELAY);
+
+	return data;
+}
+
+/**
+  * @brief Schreibt ein Byte Daten auf den EEPROM-Speicher
+  * @param address Die Adresse, an der das Byte geschrieben werden soll
+  * @param data Das Byte, dass an die Adresse geschrieben werden soll
+  */
+void writeByte(uint16_t address, uint8_t data)
+{
+
+	HAL_I2C_Mem_Write(&hi2c1,
+	                  0x50 << 1,
+	                  address,
+	                  I2C_MEMADD_SIZE_16BIT,
+	                  &data,
+	                  1,
+	                  HAL_MAX_DELAY);
+
+	while (HAL_I2C_IsDeviceReady(&hi2c1, 0x50 << 1, 1, HAL_MAX_DELAY) != HAL_OK);
+}
+
+
+//Dokumentation in .h
+Instruction getInstruction(int position)
+{
+	position = position*4;
+	Instruction in;
+	in.functionNumber = readByte(position);
+	in.data = readByte(position+1);
+	in.data2 = readByte(position+2);
+	in.data3 = readByte(position+3);
+	return in;
+}
+
+//Dokumentation in .h
+uint8_t getFunctionNumberByPosition(int position)
+{
+	position = position*4;
+	return(readByte(position));
+}
+
+//Dokumentation in .h
+void putInstruction(Instruction in, int position)
+{
+	position = position*4;
+	writeByte(position, in.functionNumber);
+	writeByte(position+1, in.data);
+	writeByte(position+2, in.data2);
+	writeByte(position+3, in.data3);
+}
+
+
+//Dokumentation in .h
+void EEPROM_eraseAll()
+{
+	for(int i = 0; i <= 0xFFF; i++)
+	{
+		writeByte(i,0);
+	}
+}
+
