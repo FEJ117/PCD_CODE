@@ -137,9 +137,9 @@ void InstructionList_UpdateInstructions()
 * 			- If BEG and END are not being used:
 * 				# If the condition is true: Jumps to the next instruction
 * 				# If the contition is false: Jumps to the instruction after the next
-  * @param condition The condition which is being processed (This is technically a bool, but this datatype is not being used)
+  * @param condition The condition which is being processed
   */
-void InstructionList_EvaluateCondition(uint8_t condition) {
+void InstructionList_EvaluateCondition(bool condition) {
 
 	if(!condition)
 	{
