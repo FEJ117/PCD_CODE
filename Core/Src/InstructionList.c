@@ -10,7 +10,7 @@
 #include "STM_FUNCTIONS.h"
 
 //Documented in .h
-uint16_t ind = 0;
+uint16_t programIndex = 0;
 
 /**
  * @brief Values of the 100 virtual storage registers
@@ -37,12 +37,12 @@ Instruction emptyInstruction = {0,0,0,0};
   * @brief Deletes the instruction at the given position
   * @param pPos Position of the instruction
   */
-void removeInstruction(uint8_t pPos)
+void InstructionList_RemoveInstruction(uint8_t pPos)
 {
     for(int i = pPos; i < 0xFF0; i++)
     {
-    	Instruction in = getInstruction(i+1);
-    	putInstruction(in,i);
+    	Instruction in = EEPROM_GetInstruction(i+1);
+    	EEPROM_PutInstruction(in,i);
     	if(in.functionNumber == FUNCTION_EMPTY) break;
     }
 }
@@ -52,17 +52,17 @@ void removeInstruction(uint8_t pPos)
   * @brief Inserts an instruction at the given position
   * @param pPos Position at which to insert the instruction
   */
-void insertInstruction(uint8_t pPos)
+void InstructionList_InsertEmpty(uint8_t pPos)
 {
 	int firstEmpty = 0;
-	while(getFunctionNumberByPosition(firstEmpty) != FUNCTION_EMPTY){firstEmpty++;}
+	while(EEPROM_GetFunctionNumber(firstEmpty) != FUNCTION_EMPTY){firstEmpty++;}
     for(int i = firstEmpty; i > pPos; i--)
     {
-    	Instruction in = getInstruction(i-1);
-		putInstruction(in,i);
+    	Instruction in = EEPROM_GetInstruction(i-1);
+		EEPROM_PutInstruction(in,i);
     }
 
-    putInstruction(emptyInstruction, pPos);
+    EEPROM_PutInstruction(emptyInstruction, pPos);
 
 }
 
@@ -71,7 +71,7 @@ void insertInstruction(uint8_t pPos)
   * @param pIn The instruction to be processed
   * @param arr The array in which to write the identifier
   */
-void GetFunctionName(Instruction pIn, char arr[3])
+void InstructionList_GetFunctionName(Instruction pIn, char arr[3])
 {
     for (uint16_t i = 0; i < sizeof(functionNames) / sizeof(FunctionNameEntry); i++) {
         if (pIn.functionNumber == functionNames[i].functionNumber) {
@@ -91,12 +91,12 @@ void GetFunctionName(Instruction pIn, char arr[3])
   * @param i2 The second instruction to be displayed
   * @param pIndex Index of the first instruction (used for line numbers)
   */
-void writeInstructions(Instruction i1, Instruction i2, uint16_t pIndex)
+void InstructionList_WriteInstructions(Instruction i1, Instruction i2, uint16_t pIndex)
 {
 	char functionName[3];
 	char numChars[3];
-	GetFunctionName(i1,functionName);
-	number3ToChar(pIndex, numChars);
+	InstructionList_GetFunctionName(i1,functionName);
+	STM_Number3ToChar(pIndex, numChars);
 	char instChars[] =
 	{
 			numChars[0],numChars[1],numChars[2],' ',':',' ',
@@ -104,8 +104,8 @@ void writeInstructions(Instruction i1, Instruction i2, uint16_t pIndex)
 			i1.data,i1.data2,i1.data3
 	};
 
-	GetFunctionName(i2,functionName);
-	number3ToChar(pIndex+1, numChars);
+	InstructionList_GetFunctionName(i2,functionName);
+	STM_Number3ToChar(pIndex+1, numChars);
 	char instChars2[] =
 	{
 			numChars[0],numChars[1],numChars[2],' ',':',' ',
@@ -118,15 +118,15 @@ void writeInstructions(Instruction i1, Instruction i2, uint16_t pIndex)
 }
 
 /**
-  * @brief 	Writes the instruction pointed at by the index variable (ind) and the instruction next to it onto the display
+  * @brief 	Writes the instruction pointed at by the index variable (programIndex) and the instruction next to it onto the display
   together with line numbers and an arrow pointing at the active iinstruction.
-  * @details The active instruction will always be the one on the bottom, except for when the index (ind) is zero.
+  * @details The active instruction will always be the one on the bottom, except for when the index (programIndex) is zero.
   In this case the arrow will point at line number zero at the top, with line 1 being underneith it.
   */
-void updateInstructions()
+void InstructionList_UpdateInstructions()
 {
-	writeInstructions(getInstruction(ind-(ind != 0)),getInstruction(ind+1-(ind != 0)),ind-(ind != 0));
-	writeLeftArrow(3*(ind != 0));
+	InstructionList_WriteInstructions(EEPROM_GetInstruction(programIndex-(programIndex != 0)),EEPROM_GetInstruction(programIndex+1-(programIndex != 0)),programIndex-(programIndex != 0));
+	Display_LeftArrow(3*(programIndex != 0));
 }
 
 /**
@@ -139,22 +139,22 @@ void updateInstructions()
 * 				# If the contition is false: Jumps to the instruction after the next
   * @param condition The condition which is being processed (This is technically a bool, but this datatype is not being used)
   */
-void evaluate(uint8_t condition) {
+void InstructionList_EvaluateCondition(uint8_t condition) {
 
 	if(!condition)
 	{
 		uint8_t openedBrackets = 1;
-		if (getFunctionNumberByPosition(ind) == FUNCTION_BEG) {
-			while (getFunctionNumberByPosition(ind) != FUNCTION_END
+		if (EEPROM_GetFunctionNumber(programIndex) == FUNCTION_BEG) {
+			while (EEPROM_GetFunctionNumber(programIndex) != FUNCTION_END
 					|| openedBrackets > 0) {
-				ind++;
-				if (getFunctionNumberByPosition(ind) == FUNCTION_BEG)
+				programIndex++;
+				if (EEPROM_GetFunctionNumber(programIndex) == FUNCTION_BEG)
 					openedBrackets++;
-				if (getFunctionNumberByPosition(ind) == FUNCTION_END)
+				if (EEPROM_GetFunctionNumber(programIndex) == FUNCTION_END)
 					openedBrackets--;
 			}
 		}
-		ind++;
+		programIndex++;
 	}
 }
 
@@ -163,7 +163,7 @@ void evaluate(uint8_t condition) {
   * @brief Writes up to 3 characters at the current position of the cursor variable (cursPos)
   * @param str Characters to be written (character that equal 0 will be ignored)
   */
-void writeCharsAtCursorPosition(char str[3])
+void InstructionList_WriteAtCursor(char str[3])
 {
 	Display_WriteString(str, 3, cursPos, 0);
 	for(uint8_t i = 0; i < 3; i++)
@@ -178,7 +178,7 @@ void writeCharsAtCursorPosition(char str[3])
   * @param chars The characters representing the function
   * @return The function number corresponding to the characters (or 255 if none was found)
   */
-uint8_t charsToFunctionNumber(char chars[3])
+uint8_t InstructionList_CharsToFunctionNumber(char chars[3])
 {
 	for (uint16_t i = 0; i < sizeof(functionNames) / sizeof(FunctionNameEntry); i++)
 	{
@@ -194,11 +194,11 @@ uint8_t charsToFunctionNumber(char chars[3])
 
 
 /**
-  * @brief Executes the function of the instruction pointed to by the index (ind)
+  * @brief Executes the function of the instruction pointed to by the index (programIndex)
   */
-void executeInstruction() {
-	Instruction exe = getInstruction(ind);
-	ind++;
+void InstructionList_ExecuteNext() {
+	Instruction exe = EEPROM_GetInstruction(programIndex);
+	programIndex++;
 	if (exe.data == 'R') {
 		uint8_t regNumber;
 		if (exe.data3 >= 58 || exe.data3 <= 48)
@@ -220,30 +220,30 @@ void executeInstruction() {
 			registers[regPointer] -= registers[regNumber];
 			break;
 		case FUNCTION_SMA:
-			evaluate(registers[regPointer] < registers[regNumber]);
+			InstructionList_EvaluateCondition(registers[regPointer] < registers[regNumber]);
 			break;
 		case FUNCTION_BIG:
-			evaluate(registers[regPointer] > registers[regNumber]);
+			InstructionList_EvaluateCondition(registers[regPointer] > registers[regNumber]);
 			break;
 		case FUNCTION_REQ:
-			evaluate(registers[regPointer] == registers[regNumber]);
+			InstructionList_EvaluateCondition(registers[regPointer] == registers[regNumber]);
 			break;
 		case FUNCTION_RNQ:
-			evaluate(registers[regPointer] != registers[regNumber]);
+			InstructionList_EvaluateCondition(registers[regPointer] != registers[regNumber]);
 			break;
 		case FUNCTION_PTR:
 			char str[3];
-			number3ToChar(registers[regNumber], str);
-			writeCharsAtCursorPosition(str);
+			STM_Number3ToChar(registers[regNumber], str);
+			InstructionList_WriteAtCursor(str);
 			break;
 		case FUNCTION_SPO:
-			registers[regNumber] = ind-1;
+			registers[regNumber] = programIndex-1;
 			break;
 		case FUNCTION_JPO:
-			ind = registers[regNumber];
+			programIndex = registers[regNumber];
 			break;
 		default:
-			fehlerMeldung(ind-1);
+			Display_ShowErrorMessage(programIndex-1);
 			break;
 		}
 	}
@@ -266,7 +266,7 @@ void executeInstruction() {
 			registers[regPointer] = datNumber;
 			break;
 		case FUNCTION_WAI:
-			wait(datNumber);
+			STM_Wait(datNumber);
 			break;
 		case FUNCTION_INC:
 			registers[regPointer] = registers[regPointer] + datNumber;
@@ -275,48 +275,48 @@ void executeInstruction() {
 			registers[regPointer] = registers[regPointer] - datNumber;
 			break;
 		case FUNCTION_VEQ:
-			evaluate(datNumber == registers[regPointer]);
+			InstructionList_EvaluateCondition(datNumber == registers[regPointer]);
 			break;
 		case FUNCTION_VNQ:
-			evaluate(!(datNumber == registers[regPointer]));
+			InstructionList_EvaluateCondition(!(datNumber == registers[regPointer]));
 			break;
 		case FUNCTION_TON:
-			activateBuzzer(exe);
+			STM_ActivateBuzzer(exe);
 			break;
 		case FUNCTION_ANH:
-			evaluate(registers[regPointer] < STM_readADC(datNumber));
+			InstructionList_EvaluateCondition(registers[regPointer] < STM_ReadADC(datNumber));
 			break;
 		case FUNCTION_ANL:
-			evaluate(!(registers[regPointer] < STM_readADC(datNumber)));
+			InstructionList_EvaluateCondition(!(registers[regPointer] < STM_ReadADC(datNumber)));
 			break;
 		case FUNCTION_SVA:
-			registers[regPointer] = STM_readADC(datNumber);
+			registers[regPointer] = STM_ReadADC(datNumber);
 			break;
 		case FUNCTION_INH:
-			evaluate(isInputHigh(datNumber));
+			InstructionList_EvaluateCondition(STM_IsInputHigh(datNumber));
 			break;
 		case FUNCTION_INL:
-			evaluate(!(isInputHigh(datNumber)));
+			InstructionList_EvaluateCondition(!(STM_IsInputHigh(datNumber)));
 			break;
 		case FUNCTION_JUM:
-			ind = datNumber;
+			programIndex = datNumber;
 			break;
 		case FUNCTION_LD1:
 		case FUNCTION_LD2:
-			setLED(exe.functionNumber, exe.data);
+			STM_SetLED(exe.functionNumber, exe.data);
 			break;
 		case FUNCTION_PCH:
 			char str[] = {exe.data, exe.data2, exe.data3};
-			writeCharsAtCursorPosition(str);
+			InstructionList_WriteAtCursor(str);
 			break;
 		case FUNCTION_CLR:
 			cursPos = 0;
-			FillBlack();
+			Display_FillBlack();
 			break;
 		case FUNCTION_EMPTY:
 			break;
 		default:
-			fehlerMeldung(ind-1);
+			Display_ShowErrorMessage(programIndex-1);
 			break;
 		}
 	}
@@ -324,7 +324,7 @@ void executeInstruction() {
 
 
 //Documented in .h
-void init()
+void InstructionList_Init()
 {
     for(uint16_t i = 0; i < 100; i++)
     {
@@ -334,23 +334,23 @@ void init()
 
 
 //Documented in .h
-void programmingMode(void)
+void InstructionList_ProgrammingMode(void)
 {
 
     if(!(isProgrammingMode()))
         return;
 
-    activateBuzzer(emptyInstruction);
-    setLED(FUNCTION_LD1, 'A');
-    setLED(FUNCTION_LD2, 'A');
-    showProgrammingModeMessage();
+    STM_ActivateBuzzer(emptyInstruction);
+    STM_SetLED(FUNCTION_LD1, 'A');
+    STM_SetLED(FUNCTION_LD2, 'A');
+    Display_ShowProgrammingMessage();
 
-    ind = 0;
-    while((ind < 0x0FF0) && !(getFunctionNumberByPosition(ind) == FUNCTION_EMPTY))
-        ind++;
+    programIndex = 0;
+    while((programIndex < 0x0FF0) && !(EEPROM_GetFunctionNumber(programIndex) == FUNCTION_EMPTY))
+        programIndex++;
 
-    FillBlack();
-    updateInstructions();
+    Display_FillBlack();
+    InstructionList_UpdateInstructions();
 
     char ch = 0;
     char linePos = 6;
@@ -360,7 +360,7 @@ void programmingMode(void)
     {
 		while(ch == 0)
 		{
-			ch = getKey();
+			ch = PS2_GetKey();
 			if(!isProgrammingMode())
 				return;
 		}
@@ -370,33 +370,33 @@ void programmingMode(void)
 			if(instructionKeys[0] != 0)
 			{
 				char fName[] = {instructionKeys[0],instructionKeys[1],instructionKeys[2]};
-				in.functionNumber = charsToFunctionNumber(fName);
+				in.functionNumber = InstructionList_CharsToFunctionNumber(fName);
 
 				in.data = instructionKeys[4];
 				in.data2 = instructionKeys[5];
 				in.data3 = instructionKeys[6];
-				putInstruction(in,ind);
+				EEPROM_PutInstruction(in,programIndex);
 			}
-			ind++;
+			programIndex++;
 		}
-		else if(ch == '^' && ind > 0)
+		else if(ch == '^' && programIndex > 0)
 		{
-			ind--;
+			programIndex--;
 		}
 		else if(ch == '.')
 		{
-			insertInstruction(ind);
+			InstructionList_InsertEmpty(programIndex);
 		}
 		else if(ch == ',')
 		{
-			removeInstruction(ind);
+			InstructionList_RemoveInstruction(programIndex);
 		}
 		else if(ch == '<')
 		{
 			if(linePos > 6)
 			{
 				instructionKeys[linePos-7] = 0;
-				Display_WriteCharacter(' ', --linePos,(ind != 0)*2);
+				Display_WriteCharacter(' ', --linePos,(programIndex != 0)*2);
 			}
 		}
 		else
@@ -404,19 +404,19 @@ void programmingMode(void)
 			if(linePos == 6)
 				for(int i = 0; i < 9; i++)
 				{
-					Display_WriteCharacter(' ',6+i,(ind!=0)*2);
+					Display_WriteCharacter(' ',6+i,(programIndex!=0)*2);
 				}
 
 			if(linePos < 13)
 			{
 				instructionKeys[linePos-6] = ch;
-				Display_WriteCharacter(ch, linePos++,(ind!=0)*2);
+				Display_WriteCharacter(ch, linePos++,(programIndex!=0)*2);
 			}
 		}
 
 		if(ch == ']' || ch == '^' || ch == '.' || ch == ',')
 		{
-			updateInstructions();
+			InstructionList_UpdateInstructions();
 
 			for(int i = 0; i < 7; i++)
 			{
@@ -435,28 +435,28 @@ void programmingMode(void)
 }
 
 //Documented in .h
-void executionMode(void)
+void InstructionList_ExecutingMode(void)
 {
     if(isProgrammingMode())
         return;
 
-    showExecutionModeMessage();
+    Display_ShowExecutingMessage();
 
     for(uint8_t i = 0; i < 100; i++)
     {
     	registers[i] = 0;
     }
-    ind = 0;
+    programIndex = 0;
     regPointer = 0;
     cursPos = 0;
 
-    lastTick = HAL_GetTick();
+    lastWaitTick = HAL_GetTick();
     while(!(isProgrammingMode()))
     {
-        if(getFunctionNumberByPosition(ind) == FUNCTION_EMPTY || ind > 0xFF0)
-            showProgramTerminatedMessage();
+        if(EEPROM_GetFunctionNumber(programIndex) == FUNCTION_EMPTY || programIndex > 0xFF0)
+            Display_ShowTerminatedMessage();
         else
-            executeInstruction();
+            InstructionList_ExecuteNext();
     }
 }
 

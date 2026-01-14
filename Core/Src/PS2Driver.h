@@ -20,7 +20,7 @@ extern char framePos;
   * @brief  Returns the key last pressed on the keyboard and empties the buffer
   * @retval Key that has been pressed (not all keys supported. Unsupported keys result in return 0)
   */
-char getKey();
+char PS2_GetKey();
 
 
 

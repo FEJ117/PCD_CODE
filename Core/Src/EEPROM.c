@@ -18,7 +18,7 @@ extern I2C_HandleTypeDef hi2c1;
   * @param address Address of the byte
   * @return The byte at the given address
   */
-uint8_t readByte(uint16_t address)
+uint8_t EEPROM_ReadByte(uint16_t address)
 {
 	uint8_t data;
 
@@ -38,7 +38,7 @@ uint8_t readByte(uint16_t address)
   * @param address Address to write the byte at
   * @param data The byte to be written
   */
-void writeByte(uint16_t address, uint8_t data)
+void EEPROM_WriteByte(uint16_t address, uint8_t data)
 {
 
 	HAL_I2C_Mem_Write(&hi2c1,
@@ -54,41 +54,41 @@ void writeByte(uint16_t address, uint8_t data)
 
 
 //Documented in .h
-Instruction getInstruction(int position)
+Instruction EEPROM_GetInstruction(int position)
 {
 	position = position*4;
 	Instruction in;
-	in.functionNumber = readByte(position);
-	in.data = readByte(position+1);
-	in.data2 = readByte(position+2);
-	in.data3 = readByte(position+3);
+	in.functionNumber = EEPROM_ReadByte(position);
+	in.data = EEPROM_ReadByte(position+1);
+	in.data2 = EEPROM_ReadByte(position+2);
+	in.data3 = EEPROM_ReadByte(position+3);
 	return in;
 }
 
 //Documented in .h
-uint8_t getFunctionNumberByPosition(int position)
+uint8_t EEPROM_GetFunctionNumber(int position)
 {
 	position = position*4;
-	return(readByte(position));
+	return(EEPROM_ReadByte(position));
 }
 
 //Documented in .h
-void putInstruction(Instruction in, int position)
+void EEPROM_PutInstruction(Instruction in, int position)
 {
 	position = position*4;
-	writeByte(position, in.functionNumber);
-	writeByte(position+1, in.data);
-	writeByte(position+2, in.data2);
-	writeByte(position+3, in.data3);
+	EEPROM_WriteByte(position, in.functionNumber);
+	EEPROM_WriteByte(position+1, in.data);
+	EEPROM_WriteByte(position+2, in.data2);
+	EEPROM_WriteByte(position+3, in.data3);
 }
 
 
 //Documented in .h
-void EEPROM_eraseAll()
+void EEPROM_EraseAll()
 {
 	for(int i = 0; i <= 0xFFF; i++)
 	{
-		writeByte(i,0);
+		EEPROM_WriteByte(i,0);
 	}
 }
 

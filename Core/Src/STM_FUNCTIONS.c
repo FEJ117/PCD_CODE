@@ -14,10 +14,10 @@
 /**
  * @brief Frequency of the buzzer
  */
-uint32_t frequency = 0;
+uint32_t buzzerFrequency = 0;
 
 //Documented in .h
-uint32_t lastTick = 0;
+uint32_t lastWaitTick = 0;
 
 
 /**
@@ -32,14 +32,14 @@ extern ADC_HandleTypeDef hadc;
 
 
 //Documented in .h
-void wait(uint16_t pData)
+void STM_Wait(uint16_t pData)
 {
-    lastTick = lastTick+(pData*100);
-    while(HAL_GetTick() < lastTick && !isProgrammingMode());
+    lastWaitTick = lastWaitTick+(pData*100);
+    while(HAL_GetTick() < lastWaitTick && !isProgrammingMode());
 }
 
 //Documented in .h
-void setLED(uint8_t fNumber, char colour)
+void STM_SetLED(uint8_t fNumber, char colour)
 {
 	char colourCode = 0b111;
 	switch(colour)
@@ -100,7 +100,7 @@ static const NoteEntry notes[] = {
 };
 
 //Documented in .h
-void activateBuzzer(Instruction ex)
+void STM_ActivateBuzzer(Instruction ex)
 {
 
 	if(ex.data == '0'||ex.data == 0)
@@ -113,7 +113,7 @@ void activateBuzzer(Instruction ex)
 
 	for(uint8_t i=0;i<7;i++) {
 		if(notes[i].note == ex.data) {
-			frequency = (ex.data2 == '#') ? notes[i].sharp : notes[i].freq;
+			buzzerFrequency = (ex.data2 == '#') ? notes[i].sharp : notes[i].freq;
 			break;
 		}
 	}
@@ -129,11 +129,11 @@ void activateBuzzer(Instruction ex)
 
     for(uint8_t i = 0; i < 7-pitch; i++)
     {
-    	frequency = frequency/2;
+    	buzzerFrequency = buzzerFrequency/2;
     }
 
     uint32_t timer_freq = (uint32_t)((uint32_t)HAL_RCC_GetPCLK1Freq() / (uint32_t)(htim14.Init.Prescaler + 1));
-    uint32_t new_period = (uint32_t)((uint32_t)timer_freq*10) / (uint32_t)(2 * frequency);
+    uint32_t new_period = (uint32_t)((uint32_t)timer_freq*10) / (uint32_t)(2 * buzzerFrequency);
 
 	HAL_TIM_Base_Stop(&htim14);
 
@@ -149,7 +149,7 @@ void activateBuzzer(Instruction ex)
 
 
 //Documented in .h
-int STM_readADC(uint8_t channel)
+int STM_ReadADC(uint8_t channel)
 {
 
 	uint8_t adc_value = 0;
@@ -166,7 +166,7 @@ int STM_readADC(uint8_t channel)
 
 
 //Documented in .h
-bool isInputHigh(uint8_t port)
+bool STM_IsInputHigh(uint8_t port)
 {
 	HAL_Delay(10);
 	switch(port)
@@ -189,7 +189,7 @@ bool isInputHigh(uint8_t port)
 
 
 //Documented in .h
-void number3ToChar(uint16_t pNum, char pOut[3])
+void STM_Number3ToChar(uint16_t pNum, char pOut[3])
 {
 	pOut[0] = 48;
 	pOut[1] = 48;

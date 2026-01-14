@@ -42,14 +42,14 @@
  * @brief Saves the system time of the last WAI instruction to allow for compensation of other functions runtime
  * @details (system time rolls over every 50 days so roll over protection is unnecessary)
  */
-extern uint32_t lastTick;
+extern uint32_t lastWaitTick;
 
 
 /**
   * @brief Waits the given amount of time (in 1/10 seconds)
   * @param pData Delay time (in 1/10 seconds)
   */
-void wait(uint16_t pData);
+void STM_Wait(uint16_t pData);
 
 
 /**
@@ -60,34 +60,34 @@ void wait(uint16_t pData);
   * @param colour Wanted colour: 'R' = red, 'G' = green, 'B' = blue,
   * 'O' = orange, 'V' = violet, 'T' = turquoise, 'W' = white, Everything else = off
   */
-void setLED(uint8_t fNumber, char colour);
+void STM_SetLED(uint8_t fNumber, char colour);
 
 /**
   * @brief Activates the buzzer with the tone and pitch information provided by an instruction
   * @param ex Instruction containing the tone's information
   */
-void activateBuzzer(Instruction ex);
+void STM_ActivateBuzzer(Instruction ex);
 
 /**
   * @brief Reads one of the 9 ADC-Channels
   * @param channel The chosen channel
   * @return The analog value of the channel
   */
-int STM_readADC(uint8_t channel);
+int STM_ReadADC(uint8_t channel);
 
 /**
   * @brief Determines, if a certain input is high
   * @param port The input to be processed: 0: Button 1, 1: Button 2, 2: Button 3, 3: Button 4
   * @return Bool that states if the input is high
   */
-bool isInputHigh(uint8_t port);
+bool STM_IsInputHigh(uint8_t port);
 
 /**
   * @brief Returns the chars corresponding to a number with 3 decimal places
   * @param pNum The number to be converted
   * @param pOut The array in which to write the corresponding characters
   */
-void number3ToChar(uint16_t pNum, char pOut[3]);
+void STM_Number3ToChar(uint16_t pNum, char pOut[3]);
 
 
 #endif

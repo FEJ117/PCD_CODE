@@ -102,24 +102,24 @@ static const FunctionNameEntry functionNames[] = {
 /**
  * @brief Current position in the programm (both used in programming and executing)
  */
-extern uint16_t ind;
+extern uint16_t programIndex;
 
 /**
   * @brief Sets all registers to 0
   */
-void init();
+void InstructionList_Init();
 
 /**
   * @brief 	Allows for programming the PCD if set into programming mode. Writes instructions into EEPROM
   */
-void programmingMode(void);
+void InstructionList_ProgrammingMode(void);
 
 
 /**
   * @brief Executes commands from the eeprom begining at position 0.
   Stops only if an error occurs, an empty function is encountered or the divice is switched back into programming mode.
   */
-void executionMode(void);
+void InstructionList_ExecutingMode(void);
 
 
 

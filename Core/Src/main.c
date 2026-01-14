@@ -108,7 +108,7 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim14);
 	HAL_Delay(1);
   HAL_Delay(100);
-  SSDINIT();
+  Display_Init();
   HAL_Delay(100);
   /* USER CODE END 2 */
 
@@ -119,14 +119,14 @@ int main(void)
   {
 	  /*
 	  char numChars[3];
-	  number3ToChar(STM_readADC(8), numChars);
+	  STM_Number3ToChar(STM_ReadADC(8), numChars);
 	  for(int i = 0; i < 3; i++)
 	  {
 		  Display_WriteCharacter(numChars[i],i,0);
 	  }
 	  */
-	  programmingMode();
-	  executionMode();
+	  InstructionList_ProgrammingMode();
+	  InstructionList_ExecutingMode();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

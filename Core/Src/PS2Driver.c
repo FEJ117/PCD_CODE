@@ -7,7 +7,7 @@
 #include "main.h"
 
 //Documented in .h
-char getKey()
+char PS2_GetKey()
 {
 	if(framePos < 11)
 		return 0;

@@ -18,7 +18,7 @@
   * @param position Position of the instruction
   * @return Read instruction
   */
-Instruction getInstruction(int position);
+Instruction EEPROM_GetInstruction(int position);
 
 
 /**
@@ -28,7 +28,7 @@ Instruction getInstruction(int position);
   * @param position Position of the instruction
   * @return Function number of the instruction
   */
-uint8_t getFunctionNumberByPosition(int position);
+uint8_t EEPROM_GetFunctionNumber(int position);
 
 
 /**
@@ -38,13 +38,13 @@ uint8_t getFunctionNumberByPosition(int position);
   * @param in The instruction to be written
   * @param position The position at which to write the Instruction.
   */
-void putInstruction(Instruction in, int position);
+void EEPROM_PutInstruction(Instruction in, int position);
 
 
 /**
   * @brief Sets all bits of the EEPROM to zero
   */
-void EEPROM_eraseAll();
+void EEPROM_EraseAll();
 
 
 #endif

@@ -25,7 +25,7 @@ uint16_t addr = 0x3C;
   * @param pCommands[] List of commands
   * @param pSize Size of pCommands[] in bytes
   */
-void SSD_WriteCommands(uint8_t pCommands[], uint16_t pSize)
+void Display_WriteCommands(uint8_t pCommands[], uint16_t pSize)
 {
 	uint8_t buffer[2];
 	buffer[0] = 0x00;  // Control byte for command
@@ -38,19 +38,22 @@ void SSD_WriteCommands(uint8_t pCommands[], uint16_t pSize)
 
 
 //Documented in .h
-void SetCursor(uint8_t x, uint8_t page)
+void Display_SetCursor(uint8_t x, uint8_t page)
 {
 	uint8_t com[] = {(0xB0 | (page & 0x07)),(0x00 | (x & 0x0F)),(0x10 | ((x >> 4) & 0x0F))};
-	SSD_WriteCommands(com, sizeof(com));
+	Display_WriteCommands(com, sizeof(com));
 }
 
 //Documented in .h
-void setContrast(uint8_t value)
+void Display_SetContrast(uint8_t value)
 {
-	uint8_t buffer[3];
-	buffer[0] = 0x00;  // Control byte for command
-	buffer[1] = 0x81;
-	buffer[2] = value;
+	uint8_t buffer[] =
+	{
+	0x00,	  // Control byte for command
+	0x81,
+	value
+	};
+
 	HAL_I2C_Master_Transmit (&hi2c1, 0x3C << 1, buffer, sizeof(buffer), 10000);
 }
 
@@ -58,16 +61,19 @@ void setContrast(uint8_t value)
   * @brief Writes a byte of data to the display (The display automatically increments the cursor psoition)
   * @param data Byte of data that is sent to the Display
   */
-void SSD1306_WriteData(uint8_t data)
+void Display_WriteData(uint8_t data)
 {
-    uint8_t buffer[2];
-    buffer[0] = 0x40;  // Control byte for data
-    buffer[1] = data;
+    uint8_t buffer[2]=
+	{
+    0x40, // Control byte for data
+    data
+	};
+
     HAL_I2C_Master_Transmit (&hi2c1, 0x3C << 1, buffer, sizeof(buffer), 10000);
 }
 
 //Documented in .h
-void SSDINIT()
+void Display_Init()
 {
 	uint8_t initCommands[] =
 	{
@@ -77,28 +83,25 @@ void SSDINIT()
 			0x22,0x00,0x03
 	};
 
-	SSD_WriteCommands(initCommands, sizeof(initCommands));
+	Display_WriteCommands(initCommands, sizeof(initCommands));
 
-    for (uint16_t i = 0; i < 512; i++)
-    {
-        SSD1306_WriteData(0x00);
-    }
+    Display_FillBlack();
 
 }
 
 //Documented in .h
-void FillBlack(void)
+void Display_FillBlack(void)
 {
 	uint8_t commands[]=
 	{
 			0x20,0x00,0x21,0x00,0x7F,0x22,0x00,0x03
 	};
 
-	SSD_WriteCommands(commands, sizeof(commands));
+	Display_WriteCommands(commands, sizeof(commands));
 
     for (uint16_t i = 0; i < 512; i++)
     {
-        SSD1306_WriteData(0x00);
+        Display_WriteData(0x00);
     }
 
 }
@@ -120,20 +123,20 @@ const char leftArrow[8] =
 };
 
 //Documented in .h
-void writeLeftArrow(uint8_t line)
+void Display_LeftArrow(uint8_t line)
 {
     for(uint8_t j = 0; j < 4; j++)
     {
-        SetCursor(112,j);
+        Display_SetCursor(112,j);
         for(uint8_t i = 0; i < 8; i++)
         {
-            SSD1306_WriteData(0x00);
+            Display_WriteData(0x00);
         }
     }
-    SetCursor(112,line);
+    Display_SetCursor(112,line);
     for(uint8_t i = 0; i < 8; i++)
     {
-        SSD1306_WriteData(leftArrow[i]);
+        Display_WriteData(leftArrow[i]);
     }
 }
 
@@ -142,16 +145,16 @@ void writeLeftArrow(uint8_t line)
 void Display_WriteCharacter(char ch, uint8_t pos, uint8_t line)
 {
 	if(ch == 0) ch = ' ';
-    SetCursor(pos*8,line);
+    Display_SetCursor(pos*8,line);
     for(uint16_t i = (ch-32)*8; i < (ch-31)*8; i++)
     {
-        SSD1306_WriteData(display_font[i]);
+        Display_WriteData(display_font[i]);
     }
 
-    SetCursor(pos*8,line+1);
+    Display_SetCursor(pos*8,line+1);
     for(uint16_t i = (ch+63)*8; i < (ch+64)*8; i++)
     {
-        SSD1306_WriteData(display_font[i]);
+        Display_WriteData(display_font[i]);
     }
 }
 
@@ -173,39 +176,39 @@ void Display_WriteString(char str[], uint8_t size, uint8_t pos, uint8_t line)
 
 
 //Documented in .h
-void showProgrammingModeMessage()
+void Display_ShowProgrammingMessage()
 {
 	char progMsg[] =
 	{
 			'P','R','O','G','R','A','M','M','I','E','R','E','N'
 	};
 
-	FillBlack();
+	Display_FillBlack();
 	Display_WriteString(progMsg, sizeof(progMsg), 2, 1);
 	HAL_Delay(500);
 
-	FillBlack();
+	Display_FillBlack();
 }
 
 
 //Documented in .h
-void showExecutionModeMessage()
+void Display_ShowExecutingMessage()
 {
 	char startMsg[] =
 	{
 			'S','T','A','R','T','E','N'
 	};
 
-	FillBlack();
+	Display_FillBlack();
 	Display_WriteString(startMsg, sizeof(startMsg), 4, 1);
 	HAL_Delay(500);
 
-	FillBlack();
+	Display_FillBlack();
 }
 
 
 //Documented in .h
-void showProgramTerminatedMessage()
+void Display_ShowTerminatedMessage()
 {
 	char letters1[] =
 	{
@@ -215,7 +218,7 @@ void showProgramTerminatedMessage()
 	{
 			'B','E','E','N','D','E','T'
 	};
-    FillBlack();
+    Display_FillBlack();
     HAL_Delay(500);
     Display_WriteString(letters1, sizeof(letters1), 4, 0);
     Display_WriteString(letters2, sizeof(letters2), 4, 2);
@@ -223,10 +226,10 @@ void showProgramTerminatedMessage()
 }
 
 //Documented in .h
-void fehlerMeldung(int line)
+void Display_ShowErrorMessage(int line)
 {
 	char numChars[3];
-	number3ToChar(line, numChars);
+	STM_Number3ToChar(line, numChars);
 
 	char letters1[] =
 	{
@@ -237,7 +240,7 @@ void fehlerMeldung(int line)
 			'Z','E','I','L','E',' ',numChars[0],numChars[1],numChars[2]
 	};
 
-	FillBlack();
+	Display_FillBlack();
 	Display_WriteString(letters1, sizeof(letters1), 3, 0);
     Display_WriteString(letters2, sizeof(letters2), 3, 2);
 	while(!isProgrammingMode());
