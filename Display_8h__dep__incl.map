@@ -10,7 +10,7 @@
 <area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="418,32,582,76,805,149,803,155,581,81,417,37"/>
 <area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="391,109,139,155,138,149,390,104"/>
 <area shape="poly" id="edge7_Node000004_Node000003" title=" " alt="" coords="423,111,303,154,301,149,421,106"/>
-<area shape="rect" id="Node000005" href="$EEPROM_8c.html" title=" " alt="" coords="603,152,749,177"/>
+<area shape="rect" id="Node000005" href="$EEPROM_8c.html" title="Implementation of EEPROM&#45;Functions." alt="" coords="603,152,749,177"/>
 <area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="514,106,643,149,641,154,513,111"/>
 <area shape="rect" id="Node000006" href="$InstructionList_8c.html" title="Implementation of the main program logic for writing and executing commands." alt="" coords="395,152,578,177"/>
 <area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="476,117,486,151,481,153,471,118"/>

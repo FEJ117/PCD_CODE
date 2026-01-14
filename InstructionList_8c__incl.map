@@ -1,6 +1,6 @@
 <map id="Core/Src/InstructionList.c" name="Core/Src/InstructionList.c">
 <area shape="rect" id="Node000001" title="Implementation of the main program logic for writing and executing commands." alt="" coords="53,5,235,31"/>
-<area shape="rect" id="Node000002" href="$EEPROM_8h.html" title=" " alt="" coords="434,152,523,177"/>
+<area shape="rect" id="Node000002" href="$EEPROM_8h.html" title="Provides functions for the use of the EEPROM to other files." alt="" coords="434,152,523,177"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="224,28,300,46,339,60,377,76,423,107,460,140,457,144,420,111,375,81,337,65,298,51,223,33"/>
 <area shape="rect" id="Node000005" href="$Instruction_8h.html" title="Defines the struct &quot;Instruction&quot;." alt="" coords="82,225,185,251"/>
 <area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="125,33,97,52,64,79,33,113,10,153,8,164,10,174,22,193,44,207,71,219,69,224,42,212,19,196,5,176,3,164,5,151,28,110,60,75,94,48,122,29"/>

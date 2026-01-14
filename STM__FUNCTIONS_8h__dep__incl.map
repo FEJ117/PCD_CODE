@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Provides STM&#45;specific functions to other files." alt="" coords="329,5,533,31"/>
 <area shape="rect" id="Node000002" href="$Display_8c.html" title="Implementation of Display&#45;Functions." alt="" coords="5,79,144,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="361,36,133,81,132,76,360,31"/>
-<area shape="rect" id="Node000003" href="$EEPROM_8c.html" title=" " alt="" coords="168,79,315,104"/>
+<area shape="rect" id="Node000003" href="$EEPROM_8c.html" title="Implementation of EEPROM&#45;Functions." alt="" coords="168,79,315,104"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="388,38,273,81,271,76,387,33"/>
 <area shape="rect" id="Node000004" href="$InstructionList_8c.html" title="Implementation of the main program logic for writing and executing commands." alt="" coords="339,79,522,104"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="433,44,433,79,428,79,428,44"/>

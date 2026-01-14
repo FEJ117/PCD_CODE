@@ -10,7 +10,7 @@
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="269,28,321,49,379,76,432,109,476,142,473,146,429,114,376,81,319,54,267,33"/>
 <area shape="rect" id="Node000008" href="$STM__FUNCTIONS_8h.html" title="Provides STM&#45;specific functions to other files." alt="" coords="219,79,365,104"/>
 <area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="247,29,277,66,272,69,243,33"/>
-<area shape="rect" id="Node000010" href="$EEPROM_8h.html" title=" " alt="" coords="59,152,149,177"/>
+<area shape="rect" id="Node000010" href="$EEPROM_8h.html" title="Provides functions for the use of the EEPROM to other files." alt="" coords="59,152,149,177"/>
 <area shape="poly" id="edge16_Node000001_Node000010" title=" " alt="" coords="227,33,126,143,122,140,223,29"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="130,225,201,251"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="208,179,183,216,178,213,203,176"/>
