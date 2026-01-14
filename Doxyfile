@@ -1,5 +1,5 @@
 PROJECT_NAME           = "PCD_CODE"
-INPUT                  = Core/Src
+INPUT                  = README.md Core/Src
 RECURSIVE              = YES
 
 MARKDOWN_SUPPORT = YES
