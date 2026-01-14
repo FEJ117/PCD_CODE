@@ -3,8 +3,8 @@
  * @brief Contains hex values used to write characters to the display
  */
 
-#ifndef SSD1306fonts_H
-#define SSD1306fonts_H
+#ifndef FONT_H
+#define FONT_H
 #include<stdint.h>
 
 	/**

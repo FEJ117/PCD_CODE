@@ -4,8 +4,8 @@
  */
 
 
-#ifndef SRC_BA_EEPROM_H_
-#define SRC_BA_EEPROM_H_
+#ifndef SRC_EEPROM_H_
+#define SRC_EEPROM_H_
 #include<stdint.h>
 #include"main.h"
 #include"Instruction.h"
