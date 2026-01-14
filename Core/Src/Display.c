@@ -1,10 +1,10 @@
 /**
- * @file BA_Display.c
+ * @file Display.c
  * @brief Implementation of Display-Functions
  */
 
-#include "DisplayFonts.h"
-#include "BA_Display.h"
+#include "Font.h"
+#include "Display.h"
 #include "STM_FUNCTIONS.h"
 #include "main.h"
 #include<stdint.h>

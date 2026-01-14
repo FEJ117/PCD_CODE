@@ -25,8 +25,8 @@ set(MX_Application_Src
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/stm32f0xx_hal_msp.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/sysmem.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/syscalls.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/BA_Display.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/BA_EEPROM.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/Display.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/EEPROM.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/InstructionList.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/PS2Driver.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Core/Src/STM_FUNCTIONS.c

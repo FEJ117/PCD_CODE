@@ -7,8 +7,8 @@
 #define STM_FUNCTIONS_H
 
 #include <stdbool.h>
-#include "BA_Display.h"
-#include "BA_EEPROM.h"
+#include "Display.h"
+#include "EEPROM.h"
 #include "InstructionList.h"
 #include "Instruction.h"
 

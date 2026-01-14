@@ -1,11 +1,11 @@
 /**
- * @file BA_Display.h
+ * @file Display.h
  * @brief Provides functions for the use of the OLED-display to other files
  */
 
 
-#ifndef BA_DISPLAY_H
-#define	BA_DISPLAY_H
+#ifndef Display_H
+#define	Display_H
 #include<stdint.h>
 
 

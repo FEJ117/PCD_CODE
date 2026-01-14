@@ -1,5 +1,5 @@
 /**
- * @file DisplayFonts.h
+ * @file Font.h
  * @brief Contains hex values used to write characters to the display
  */
 

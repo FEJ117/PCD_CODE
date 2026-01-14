@@ -3,7 +3,7 @@
  * @brief Implementation of the main program logic for writing and executing commands
  */
 
-#include "BA_EEPROM.h"
+#include "EEPROM.h"
 #include "Instruction.h"
 #include "PS2Driver.h"
 #include "InstructionList.h"

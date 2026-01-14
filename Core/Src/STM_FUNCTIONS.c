@@ -6,8 +6,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "InstructionList.h"
-#include "BA_Display.h"
-#include "BA_EEPROM.h"
+#include "Display.h"
+#include "EEPROM.h"
 #include "STM_FUNCTIONS.h"
 #include "main.h"
 

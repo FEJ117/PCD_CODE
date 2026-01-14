@@ -23,11 +23,11 @@
 /* USER CODE BEGIN Includes */
 long keyBuffer = 0;
 char framePos = 0;
-#include "BA_Display.h"
+#include "Display.h"
 #include "PS2Driver.h"
 #include "InstructionList.h"
 #include "STM_FUNCTIONS.h"
-#include "BA_EEPROM.h"
+#include "EEPROM.h"
 
 /* USER CODE END Includes */
 
