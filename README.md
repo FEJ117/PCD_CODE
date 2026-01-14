@@ -1,4 +1,4 @@
-# Dokumentation hier abrufbar: [![Documentation](https://img.shields.io/badge/docs-doxygen-blue.svg)](https://FEJ117.github.io/PCD_CODE/index.html)
+# Full documentation can be accessed here: [![Documentation](https://img.shields.io/badge/docs-doxygen-blue.svg)](https://FEJ117.github.io/PCD_CODE/index.html)
 
 # The programs main logic
 The files InstructionList.h, InstructionList.c and Instruction.h contain the logical structure used to program the device and execute instructions. They contain all defined function identifiers and the way the functions are being called. They do not contain STM32-specific functions. This means they can be exported to other projects using (for example) ATmega or PIC.
