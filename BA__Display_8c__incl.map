@@ -1,0 +1,28 @@
+<map id="Core/Src/BA_Display.c" name="Core/Src/BA_Display.c">
+<area shape="rect" id="Node000001" title="Implementation von Display&#45;Funktionen." alt="" coords="104,5,266,31"/>
+<area shape="rect" id="Node000002" href="$DisplayFonts_8h.html" title="Enthält Schriftart zur Textausgabe auf dem Display." alt="" coords="28,79,147,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,33,117,72,113,68,168,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="51,225,122,251"/>
+<area shape="poly" id="edge16_Node000001_Node000003" title=" " alt="" coords="104,30,56,48,35,62,18,80,10,97,8,114,12,132,19,151,41,186,66,214,62,217,37,189,14,153,6,134,3,114,5,95,14,77,32,58,54,43,102,25"/>
+<area shape="rect" id="Node000004" href="$BA__Display_8h.html" title="Stellt Funktionen zur Benutzung des OLED&#45;Displays zur Verfügung." alt="" coords="78,152,185,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="184,32,161,105,146,141,141,138,156,103,179,30"/>
+<area shape="rect" id="Node000005" href="$STM__FUNCTIONS_8h.html" title="Enthält alle STM&#45;Spezifischen Funktionen für InstructionList.h." alt="" coords="276,79,422,104"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="213,28,311,71,309,76,210,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="618,225,685,251"/>
+<area shape="poly" id="edge15_Node000001_Node000008" title=" " alt="" coords="267,20,349,31,442,53,490,70,536,91,579,118,618,150,638,180,649,211,644,213,633,182,614,154,576,122,533,96,488,75,441,58,348,36,266,25"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,105,69,152,70,183,78,212,73,213,65,184,64,152,80,103"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="127,179,103,215,99,212,122,176"/>
+<area shape="poly" id="edge7_Node000005_Node000004" title=" " alt="" coords="315,107,181,150,179,145,313,101"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="361,152,444,177"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="360,103,388,140,384,143,356,106"/>
+<area shape="rect" id="Node000007" href="$BA__EEPROM_8h.html" title="Stellt Funktionen zur Speicherung und Abfrage von Daten aus dem EEPROM&#45;Speicher bereit." alt="" coords="468,152,582,177"/>
+<area shape="poly" id="edge8_Node000005_Node000007" title=" " alt="" coords="378,102,485,144,483,149,376,106"/>
+<area shape="rect" id="Node000009" href="$Instruction_8h.html" title="Definiert Struct Instruction." alt="" coords="474,225,576,251"/>
+<area shape="poly" id="edge14_Node000005_Node000009" title=" " alt="" coords="423,98,525,117,569,131,597,150,603,170,595,189,579,206,559,220,556,216,575,202,590,186,597,170,592,154,567,136,524,122,422,103"/>
+<area shape="rect" id="Node000010" href="$InstructionList_8h.html" title="Enthält Funktionen zum Programmieren des PCD und Ausführen des Programms." alt="" coords="210,152,336,177"/>
+<area shape="poly" id="edge12_Node000005_Node000010" title=" " alt="" coords="339,106,297,144,294,141,335,102"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="468,178,456,180,136,231,135,226,455,175,467,173"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="547,175,620,216,618,221,544,180"/>
+<area shape="poly" id="edge11_Node000007_Node000009" title=" " alt="" coords="528,178,528,212,522,212,522,178"/>
+<area shape="poly" id="edge13_Node000010_Node000009" title=" " alt="" coords="314,175,472,219,470,224,313,180"/>
+</map>
