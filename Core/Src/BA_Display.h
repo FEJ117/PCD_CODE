@@ -1,6 +1,6 @@
 /**
  * @file BA_Display.h
- * @brief Stellt Funktionen zur Benutzung des OLED-Displays zur Verfügung
+ * @brief Provides functions for the use of the OLED-display to other files
  */
 
 
@@ -10,81 +10,83 @@
 
 
 /**
-  * @brief Setzt den Cursor des Displays an die gegebene Stelle
-  * @param x Horizontale Position des Cursors
-  * @param page Auszuwählende Zeile
+  * @brief Sets position of the cursor
+  * @param x Horizontal position of the cursor
+  * @param page Selected line
   */
 void SetCursor(uint8_t x, uint8_t page);
 
 
 
 /**
-  * @brief Setzt den Kontrast des Displays
-  * @param value Gewählter Kontrast
+  * @brief Sets the contrast of the Display
+  * @param value Chosen contrast
   */
 void setContrast(uint8_t value);
 
 
 /**
-  * @brief Initialisiert das Display
+  * @brief Initializes the display
+  * @warning Must be run in order for the Display to work
   */
 void SSDINIT();
 
 
 /**
-  * @brief Setzt alle Pixel des Displays auf schwarz
+  * @brief Sets all pixels to black
   */
 void FillBlack(void);
 
 
 /**
-  * @brief Schreibt in der gegebenen Zeile einen nach links zeigenden Pfeil an die rechte Seite des Displays
-  * @param line Zeile, in die der Pfeil geschrieben werden soll
+  * @brief Writes a left-facing arrow on the right side of the chosen line
+  * @param line Line in which to write the arrow
   */
 void writeLeftArrow(uint8_t line);
 
 /**
-  * @brief Schreibt eine Zeichenfolge an die gewünschte Stelle im Display (automatischer Zeilenumbruch bei Überschreiten des Displaybereichs)
-  * @param str[] Zeichenfolge, die geschrieben werden soll
-  * @param size Größe von str[] in Bytes
-  * @param pos Die horizontale Position, an die die Zeichen geschrieben werden sollen
-  * @param line Die Zeile, in die die Zeichen geschrieben werden sollen
+  * @brief Writes a string of characters onto the display
+  * @details Automatically breaks the line if necessary
+  * @param str[] String of data to be written
+  * @param size Size of str[] in bytes
+  * @param pos Horizontal position of the first character
+  * @param line Line of the first character
   */
 void Display_WriteString(char str[], uint8_t size, uint8_t pos, uint8_t line);
 
 
 /**
-  * @brief Schreibt ein einzelnes Zeichen an die gegebene Position
-  * @param ch Das Zeichen, das geschrieben werden soll
-  * @param pos Die horizontale Position, an die das Zeichen geschrieben werden soll
-  * @param line Die Zeile, in die das Zeichen geschrieben werden soll
+  * @brief Writes a single character onto the display
+  * @param ch Character to be written
+  * @param pos Horizontal position of the character
+  * @param line Line of the character
   */
 void Display_WriteCharacter(char ch, uint8_t pos, uint8_t line);
 
 
 /**
-  * @brief 	Zeigt auf dem Display an, dass in den Programmiermodus gewechselt wurde.
-  * 		Wird bei einem Wechsel automatisch aufgerufen.
+  * @brief Shows a message to tell the user the device has been switched into programming mode
+  * @details Is automatically called everytime the mode switches to programming mode
   */
 void showProgrammingModeMessage();
 
 
 /**
-  * @brief 	Zeigt auf dem Display an, dass in den Ausführen-Modus gewechselt wurde.
-  * 		Wird bei einem Wechsel automatisch aufgerufen.
+  * @brief Shows a message to tell the user the device has been switched into execution mode
+  * @details Is automatically called everytime the mode switches into execution mode
   */
 void showExecutionModeMessage();
 
 
 /**
-  * @brief 	Zeigt auf dem Display an, dass das Programm beendet wurde.
+  * @brief Shows a message to tell the user the program has been terminated
+  * @details Is automatically called once the program is terminated
   */
 void showProgramTerminatedMessage();
 
 /**
-  * @brief 	Zeigt auf dem Display an, dass ein Fehler aufgetreten ist.
-  * 		Gibt die Zeile an, in der der Fehler erkannt wurde.
-  * @param 	line Zeile, in der der Fehler aufgetreten ist
+  * @brief 	Shows a message stating that an error has occured and provides the line of code the error occured in
+  * @param 	line Line of Code the error occured in
   */
 void fehlerMeldung(int line);
 

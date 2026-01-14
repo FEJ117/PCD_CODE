@@ -1,6 +1,6 @@
 /**
  * @file BA_Display.c
- * @brief Implementation von Display-Funktionen
+ * @brief Implementation of Display-Functions
  */
 
 #include "DisplayFonts.h"
@@ -10,19 +10,20 @@
 #include<stdint.h>
 
 /**
-  *	@brief Von HAL erstelltes I2C Objekt
+  *	@brief I2C object created by HAL
   */
 extern I2C_HandleTypeDef hi2c1;
 
 /**
-  *	@brief I2C-Adresse des Displays
+  *	@brief I2C-address of the display
   */
 uint16_t addr = 0x3C;
 
 /**
-  * @brief Schreibt eine Reihe von gegebenen Befehlen an das Display
-  * @param pCommands[] Liste der Befehle
-  * @param pSize Größe von pCommands[] in Bytes
+  * @brief Writes one or more commands to the display
+  * @details Can be used to initialize the display, set the cursor or set brightness
+  * @param pCommands[] List of commands
+  * @param pSize Size of pCommands[] in bytes
   */
 void SSD_WriteCommands(uint8_t pCommands[], uint16_t pSize)
 {
@@ -36,17 +37,14 @@ void SSD_WriteCommands(uint8_t pCommands[], uint16_t pSize)
 }
 
 
-/**
- * @fn void SetCursor(uint8_t x, uint8_t page)
- */
-//Dokumentation in .h
+//Documented in .h
 void SetCursor(uint8_t x, uint8_t page)
 {
 	uint8_t com[] = {(0xB0 | (page & 0x07)),(0x00 | (x & 0x0F)),(0x10 | ((x >> 4) & 0x0F))};
 	SSD_WriteCommands(com, sizeof(com));
 }
 
-//Dokumentation in .h
+//Documented in .h
 void setContrast(uint8_t value)
 {
 	uint8_t buffer[3];
@@ -57,8 +55,8 @@ void setContrast(uint8_t value)
 }
 
 /**
-  * @brief Schreibt ein Byte Daten an das Display (Das display erhöht die Position des Cursors automatisch)
-  * @param data Datenbyte, das an das Display geschrieben wird
+  * @brief Writes a byte of data to the display (The display automatically increments the cursor psoition)
+  * @param data Byte of data that is sent to the Display
   */
 void SSD1306_WriteData(uint8_t data)
 {
@@ -68,7 +66,7 @@ void SSD1306_WriteData(uint8_t data)
     HAL_I2C_Master_Transmit (&hi2c1, 0x3C << 1, buffer, sizeof(buffer), 10000);
 }
 
-//Dokumentation in .h
+//Documented in .h
 void SSDINIT()
 {
 	uint8_t initCommands[] =
@@ -88,7 +86,7 @@ void SSDINIT()
 
 }
 
-//Dokumentation in .h
+//Documented in .h
 void FillBlack(void)
 {
 	uint8_t commands[]=
@@ -107,7 +105,7 @@ void FillBlack(void)
 
 
 /**
-  *	@brief Pixelstruktur eines Pfeils, der nach links zeigt
+  *	@brief Structure of pixels of a left-facing arrow
   */
 const char leftArrow[8] =
 {
@@ -121,7 +119,7 @@ const char leftArrow[8] =
     0b11111111
 };
 
-//Dokumentation in .h
+//Documented in .h
 void writeLeftArrow(uint8_t line)
 {
     for(uint8_t j = 0; j < 4; j++)
@@ -140,7 +138,7 @@ void writeLeftArrow(uint8_t line)
 }
 
 
-//Dokumentation in .h
+//Documented in .h
 void Display_WriteCharacter(char ch, uint8_t pos, uint8_t line)
 {
 	if(ch == 0) ch = ' ';
@@ -157,7 +155,7 @@ void Display_WriteCharacter(char ch, uint8_t pos, uint8_t line)
     }
 }
 
-//Dokumentation in .h
+//Documented in .h
 void Display_WriteString(char str[], uint8_t size, uint8_t pos, uint8_t line)
 {
 	for(uint8_t j = 0; j < size; j++)
@@ -174,7 +172,7 @@ void Display_WriteString(char str[], uint8_t size, uint8_t pos, uint8_t line)
 }
 
 
-//Dokumentation in .h
+//Documented in .h
 void showProgrammingModeMessage()
 {
 	char progMsg[] =
@@ -190,7 +188,7 @@ void showProgrammingModeMessage()
 }
 
 
-//Dokumentation in .h
+//Documented in .h
 void showExecutionModeMessage()
 {
 	char startMsg[] =
@@ -206,7 +204,7 @@ void showExecutionModeMessage()
 }
 
 
-//Dokumentation in .h
+//Documented in .h
 void showProgramTerminatedMessage()
 {
 	char letters1[] =
@@ -224,7 +222,7 @@ void showProgramTerminatedMessage()
     HAL_Delay(500);
 }
 
-//Dokumentation in .h
+//Documented in .h
 void fehlerMeldung(int line)
 {
 	char numChars[3];
