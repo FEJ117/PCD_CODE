@@ -1,7 +1,12 @@
+/**
+ * @file PS2Driver.c
+ * @brief Inplementation of function to use a PS/2 keyboard
+ */
+
 #include "PS2Driver.h"
 #include "main.h"
 
-//Dokumentation in .h
+//Documented in .h
 char getKey()
 {
 	if(framePos < 11)

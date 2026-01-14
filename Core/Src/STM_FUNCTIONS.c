@@ -1,3 +1,8 @@
+/**
+ * @file STM_FUNCTIONS.c
+ * @brief Inplementation of STM32-specific functions
+ */
+
 #include <stdbool.h>
 #include <stdint.h>
 #include "InstructionList.h"
@@ -7,35 +12,33 @@
 #include "main.h"
 
 /**
- * @brief Tonfrequenz des Lautsprechers
+ * @brief Frequency of the buzzer
  */
 uint32_t frequency = 0;
 
-/**
- * @brief Speichert die Systemzeit seit dem letzten WAI-Befehl. Wird zur Synchronisierung benutzt
- */
+//Documented in .h
 uint32_t lastTick = 0;
 
 
 /**
- * @brief Von HAL erstelltes Timer-Objekt zum Steuern des Lautsprechers
+ * @brief Timer object used for the buzzer (provided by HAL)
  */
 extern TIM_HandleTypeDef htim14;
 
 /**
- * @brief Von HAL erstelltes ADC-Objekt zum Auslesen der analogen Eingänge
+ * @brief ADC object for reading analog inputs (provided by HAL)
  */
 extern ADC_HandleTypeDef hadc;
 
 
-//Dokumentation in .h
+//Documented in .h
 void wait(uint16_t pData)
 {
     lastTick = lastTick+(pData*100);
     while(HAL_GetTick() < lastTick && !isProgrammingMode());
 }
 
-//Dokumentation in .h
+//Documented in .h
 void setLED(uint8_t fNumber, char colour)
 {
 	char colourCode = 0b111;
@@ -75,7 +78,7 @@ void setLED(uint8_t fNumber, char colour)
 }
 
 /**
- * @brief Struct zum Speichern der Frequenz einer Note, sowie der Frequenz des Halbtons über der Note
+ * @brief Struct to save the frequency of a note together with the semitone above it
  */
 typedef struct {
     char note;
@@ -84,7 +87,7 @@ typedef struct {
 } NoteEntry;
 
 /**
- * @brief Noten und ihre Frequenzen (7. Oktave)
+ * @brief All notes and their frequencies (all pitch 7)
  */
 static const NoteEntry notes[] = {
     {'C', 20930, 22175},
@@ -96,7 +99,7 @@ static const NoteEntry notes[] = {
     {'H', 39511, 41860},
 };
 
-//Dokumentation in .h
+//Documented in .h
 void activateBuzzer(Instruction ex)
 {
 
@@ -145,7 +148,7 @@ void activateBuzzer(Instruction ex)
 }
 
 
-//Dokumentation in .h
+//Documented in .h
 int STM_readADC(uint8_t channel)
 {
 
@@ -162,7 +165,7 @@ int STM_readADC(uint8_t channel)
 }
 
 
-//Dokumentation in .h
+//Documented in .h
 bool isInputHigh(uint8_t port)
 {
 	HAL_Delay(10);
@@ -185,7 +188,7 @@ bool isInputHigh(uint8_t port)
 }
 
 
-//Dokumentation in .h
+//Documented in .h
 void number3ToChar(uint16_t pNum, char pOut[3])
 {
 	pOut[0] = 48;

@@ -1,9 +1,14 @@
-#ifndef SSD1306fonts_Hs
+/**
+ * @file DisplayFonts.h
+ * @brief Contains hex values used to write characters to the display
+ */
+
+#ifndef SSD1306fonts_H
 #define SSD1306fonts_H
 #include<stdint.h>
 
 	/**
-	 * @brief Schriftart für das Ausgeben von Zeichen auf dem Display
+	 * @brief Font for text-output on the display
 	 */
 	const uint8_t display_font[] = {
 		//top half of characters

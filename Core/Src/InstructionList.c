@@ -1,36 +1,41 @@
+/**
+ * @file InstructionList.c
+ * @brief Implementation of the main program logic for writing and executing commands
+ */
+
 #include "BA_EEPROM.h"
 #include "Instruction.h"
 #include "PS2Driver.h"
 #include "InstructionList.h"
 #include "STM_FUNCTIONS.h"
 
-//Dokumentation in .h
+//Documented in .h
 uint16_t ind = 0;
 
 /**
- * @brief Die Werte der 100 Speicherregister
+ * @brief Values of the 100 virtual storage registers
  */
 uint16_t registers[100];
 
 /**
- * @brief Speichert, welches Register durch den Befehl PIC ausgewählt wurde
+ * @brief Points at the chosen register (used by PIC and other register commands)
  */
 uint8_t regPointer = 0;
 
 /**
- * @brief Position des Cursors während der Ausgabe von Zeichen durch PCH und PTR
+ * @brief Position of the cursor for PCH and PTR commands
  */
 uint8_t cursPos = 0;
 
 /**
- * @brief Leere Instruction (Wird beim Einfügen von Programmzeilen benötigt)
+ * @brief Empty instruction (is inserted when an instruction is deleted)
  */
 Instruction emptyInstruction = {0,0,0,0};
 
 
 /**
-  * @brief Löscht die Instruction an der gegebenen Position
-  * @param pPos Position der Instruction
+  * @brief Deletes the instruction at the given position
+  * @param pPos Position of the instruction
   */
 void removeInstruction(uint8_t pPos)
 {
@@ -44,8 +49,8 @@ void removeInstruction(uint8_t pPos)
 
 
 /**
-  * @brief Fügt eine Instruction an der gegebenen Position ein
-  * @param pPos Position, an der die Instruction eingefügt werden soll
+  * @brief Inserts an instruction at the given position
+  * @param pPos Position at which to insert the instruction
   */
 void insertInstruction(uint8_t pPos)
 {
@@ -62,9 +67,9 @@ void insertInstruction(uint8_t pPos)
 }
 
 /**
-  * @brief Schreibt den Bezeichner der Funktion einer gegebenen Instruction in das gegebene char-Array
-  * @param pIn die Instruction, die ausgewertet wird
-  * @param arr Das Array, in das der Bezeichner geschrieben wird
+  * @brief Writes the 3-character identifier of a given instruction into a char-array
+  * @param pIn The instruction to be processed
+  * @param arr The array in which to write the identifier
   */
 void GetFunctionName(Instruction pIn, char arr[3])
 {
@@ -81,10 +86,10 @@ void GetFunctionName(Instruction pIn, char arr[3])
 }
 
 /**
-  * @brief Schreibt den Inhalt von zwei Instructions zusammen mit den dazugehörigen Zeilennummern auf das Display
-  * @param i1 Erste Instruction, die abgebildet werden soll
-  * @param i2 Zweite Instruction, die abgebildet werden soll
-  * @param pIndex Index, an dem die Insructions liegen
+  * @brief Writes the contents of two instructions onto the display together with line numbers
+  * @param i1 The first instruction to be displayed
+  * @param i2 The second instruction to be displayed
+  * @param pIndex Index of the first instruction (used for line numbers)
   */
 void writeInstructions(Instruction i1, Instruction i2, uint16_t pIndex)
 {
@@ -113,8 +118,10 @@ void writeInstructions(Instruction i1, Instruction i2, uint16_t pIndex)
 }
 
 /**
-  * @brief 	Schreibt die Instruction, auf die der Index zeigt, sowie die vorherige Instruction auf das Display
-  * 		und makiert die aktuelle Instruction mit einem Pfeil.
+  * @brief 	Writes the instruction pointed at by the index variable (ind) and the instruction next to it onto the display
+  together with line numbers and an arrow pointing at the active iinstruction.
+  * @details The active instruction will always be the one on the bottom, except for when the index (ind) is zero.
+  In this case the arrow will point at line number zero at the top, with line 1 being underneith it.
   */
 void updateInstructions()
 {
@@ -123,14 +130,14 @@ void updateInstructions()
 }
 
 /**
-  * @brief 	Prüft, ob eine Bedingung gegeben ist.
-  * 		- Wird BEG und END benutzt:
-  * 			# Springt in den Programmblock, wenn die Bedingung zutrifft
-  * 			# Springt hinter den Programmblock, wenn die Bedingung nicht zutrifft
-* 			- Wird BEG und END nicht benutzt:
-* 				# Springt zum nächsten Befehl, wenn die Bedingung zutrifft
-* 				# Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft
-  * @param condition Die Bedingung, die abgefragt wird
+  * @brief 	Evaluates, if a condition is true
+  * 		- If BEG and END are being used:
+  * 			# If the condition is true: Jump into the block (one position after BEG)
+  * 			# If the condition is false: Jump one position after END
+* 			- If BEG and END are not being used:
+* 				# If the condition is true: Jumps to the next instruction
+* 				# If the contition is false: Jumps to the instruction after the next
+  * @param condition The condition which is being processed (This is technically a bool, but this datatype is not being used)
   */
 void evaluate(uint8_t condition) {
 
@@ -153,8 +160,8 @@ void evaluate(uint8_t condition) {
 
 
 /**
-  * @brief Schreibt bis zu 3 Zeichen an die aktuelle Position des Cursors
-  * @param str[3] Zeichen, die geschrieben werden sollen
+  * @brief Writes up to 3 characters at the current position of the cursor variable (cursPos)
+  * @param str Characters to be written (character that equal 0 will be ignored)
   */
 void writeCharsAtCursorPosition(char str[3])
 {
@@ -167,9 +174,9 @@ void writeCharsAtCursorPosition(char str[3])
 
 
 /**
-  * @brief Gibt die Funktionsnummer zurück, die zu der gegebenen Zeichenfolge passt
-  * @param chars[] Die Zeichenfolge, bestehend aus 3 Zeichen (zum Beispiel WAI)
-  * @return Die Funktionsnummer, die zu der Zeichenfolge passt. Wird keine Funktion gefunden: 255
+  * @brief Return the function number corresponding to the given characters
+  * @param chars The characters representing the function
+  * @return The function number corresponding to the characters (or 255 if none was found)
   */
 uint8_t charsToFunctionNumber(char chars[3])
 {
@@ -187,7 +194,7 @@ uint8_t charsToFunctionNumber(char chars[3])
 
 
 /**
-  * @brief Führt die Funktion der Instruction, auf die der Index Zeigt aus
+  * @brief Executes the function of the instruction pointed to by the index (ind)
   */
 void executeInstruction() {
 	Instruction exe = getInstruction(ind);
@@ -316,7 +323,7 @@ void executeInstruction() {
 }
 
 
-//Dokumentation in .h
+//Documented in .h
 void init()
 {
     for(uint16_t i = 0; i < 100; i++)
@@ -326,7 +333,7 @@ void init()
 }
 
 
-//Dokumentation in .h
+//Documented in .h
 void programmingMode(void)
 {
 
@@ -427,7 +434,7 @@ void programmingMode(void)
 
 }
 
-//Dokumentation in .h
+//Documented in .h
 void executionMode(void)
 {
     if(isProgrammingMode())

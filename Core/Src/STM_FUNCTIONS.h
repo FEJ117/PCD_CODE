@@ -1,6 +1,6 @@
 /**
  * @file STM_FUNCTIONS.h
- * @brief Enthält alle STM-Spezifischen Funktionen für InstructionList.h
+ * @brief Provides STM-specific functions to other files
  */
 
 #ifndef STM_FUNCTIONS_H
@@ -13,78 +13,79 @@
 #include "Instruction.h"
 
 /**
- * @brief Prüft, ob der erste Taster gedrückt ist
+ * @brief Determines if the first button is being pressed
  */
 #define isButton1Pressed() (HAL_GPIO_ReadPin(Button1_GPIO_Port, Button1_Pin) == GPIO_PIN_RESET)
 
 /**
- * @brief Prüft, ob der zweite Taster gedrückt ist
+ * @brief Determines if the second button is being pressed
  */
 #define isButton2Pressed() (HAL_GPIO_ReadPin(Button2_GPIO_Port, Button2_Pin) == GPIO_PIN_RESET)
 
 /**
- * @brief Prüft, ob der dritte Taster gedrückt ist
+ * @brief Determines if the third button is being pressed
  */
 #define isButton3Pressed() (HAL_GPIO_ReadPin(Button3_GPIO_Port, Button3_Pin) == GPIO_PIN_RESET)
 
 /**
- * @brief Prüft, ob der vierte Taster gedrückt ist
+ * @brief Determines if the fourth button is being pressed
  */
 #define isButton4Pressed() (HAL_GPIO_ReadPin(Button4_GPIO_Port, Button4_Pin) == GPIO_PIN_RESET)
 
 /**
- * @brief Prüft, ob der Modusschalter auf "Programmieren" steht
+ * @brief Determines if the mode switch is set to programming mode
  */
 #define isProgrammingMode() HAL_GPIO_ReadPin(ModeSwitch_GPIO_Port, ModeSwitch_Pin)
 
 
 /**
- * @brief Speichert die Systemzeit seit dem letzten WAI-Befehl. Wird zur Synchronisierung benutzt
+ * @brief Saves the system time of the last WAI instruction to allow for compensation of other functions runtime
+ * @details (system time rolls over every 50 days so roll over protection is unnecessary)
  */
 extern uint32_t lastTick;
 
 
 /**
-  * @brief Wartet um die gegebene Zeit in 1/10 Sekunden
-  * @param pData Die Zeit, um die das Programm angehalten werden soll in 1/10 Sekunden
+  * @brief Waits the given amount of time (in 1/10 seconds)
+  * @param pData Delay time (in 1/10 seconds)
   */
 void wait(uint16_t pData);
 
 
 /**
-  * @brief Setzt eine der beiden LEDs auf eine gegebene Farbe
+  * @brief Sets the colour of one of the two RGB-LEDs
   *
-  * @param fNumber Position der LED: 0 = LED1 (links), 1 = LED2 (rechts)
+  * @param fNumber Position of the LED: 0 = first, 1 = second
   *
-  * @param colour Gewünschte Farbe: 'R' = Rot, 'G' = Grün, 'B' = Blau,
-  * 'O' = Orange, 'V' = Violett, 'T' = Türkis, 'W' = Weiß, 'A' = Aus
+  * @param colour Wanted colour: 'R' = red, 'G' = green, 'B' = blue,
+  * 'O' = orange, 'V' = violet, 'T' = turquoise, 'W' = white, Everything else = off
   */
 void setLED(uint8_t fNumber, char colour);
 
 /**
-  * @brief Aktiviert den Lautsprecher anhand der in der gegebenen Instruction gespeicherten Noteninformation
-  * @param ex Die Instruction, die die Note enthält
+  * @brief Activates the buzzer with the tone and pitch information provided by an instruction
+  * @param ex Instruction containing the tone's information
   */
 void activateBuzzer(Instruction ex);
 
 /**
-  * @brief Liest einen der 9 ADC-Kanäle aus
-  * @param channel Der gewünschte Kanal
-  * @return Der analoge 8-Bit-Wert des Kanals
+  * @brief Reads one of the 9 ADC-Channels
+  * @param channel The chosen channel
+  * @return The analog value of the channel
   */
 int STM_readADC(uint8_t channel);
 
 /**
-  * @brief Prüft, ob ein gegebener Input logisch 1 ist
-  * @param port Der Input, der geprüft werden soll: 0: Taster 1, 1: Taster 2, 2: Taster 3, 3: Taster 4
-  * @return Wahrheitswert, der angibt, ob der Input logisch 1 ist
+  * @brief Determines, if a certain input is high
+  * @param port The input to be processed: 0: Button 1, 1: Button 2, 2: Button 3, 3: Button 4
+  * @return Bool that states if the input is high
   */
 bool isInputHigh(uint8_t port);
 
 /**
-  * @brief Gibt eine Zeichenfolge für eine dreistellige Zahl zurück.
-  * @param pNum Die Zahl, die konvertiert werden soll
-  * @param pOut Das Array, in das die Zeichen geschrieben werden sollen
+  * @brief Returns the chars corresponding to a number with 3 decimal places
+  * @param pNum The number to be converted
+  * @param pOut The array in which to write the corresponding characters
   */
 void number3ToChar(uint16_t pNum, char pOut[3]);
 

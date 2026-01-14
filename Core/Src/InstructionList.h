@@ -1,13 +1,13 @@
 /**
  * @file InstructionList.h
- * @brief Enthält Funktionen zum Programmieren des PCD und Ausführen des Programms
+ * @brief Provides functions for the programming and execution mode to other files as well as the function identifiers
  */
 
 #ifndef INSTRUCTIONLIST_H
 #define	INSTRUCTIONLIST_H
 #include "Instruction.h"
 /**
- * @brief Definiert alle Funktionsbezeichner und weist ihnen eine Nummer zu
+ * @brief Defines all function numbers
  */
 typedef enum {
     FUNCTION_EMPTY = 0,
@@ -46,22 +46,22 @@ typedef enum {
 } Function_t;
 
 /**
- * @brief Struct, die einer Funktionsnummer einen Funktionsbezeichner aus 3 Zeichen zuordnet
+ * @brief Struct which allows for allocating a function number to a function identifier
  */
 typedef struct {
 	/**
-	 * @brief Funktionsnummer
+	 * @brief Function number
 	 */
     uint8_t functionNumber;
 
     /**
-     * @brief Funktionsbezeichner bestehend aus 3 Zeichen
+     * @brief Function identifier
      */
     const char name[3];
 } FunctionNameEntry;
 
 /**
- * @brief Alle Funktionsnummern und zugehörige Funktionsbezeichner
+ * @brief All function numbers and allocated function identifiers
  */
 static const FunctionNameEntry functionNames[] = {
 	{ FUNCTION_EMPTY, { ' ', ' ', ' ' } },
@@ -100,26 +100,24 @@ static const FunctionNameEntry functionNames[] = {
 };
 
 /**
- * @brief Aktuelle Programmposition (sowohl bei der Programmierung, als auch bei Ausführen des Programms)
+ * @brief Current position in the programm (both used in programming and executing)
  */
 extern uint16_t ind;
 
 /**
-  * @brief Setzt alle Register auf 0
+  * @brief Sets all registers to 0
   */
 void init();
 
 /**
-  * @brief 	Erlaubt das Programmieren über die Tastatur wenn der Modus auf "Programmieren" gestellt ist.
-  * 		Wertet die Tastatureingaben aus und schreibt, beziehungsweise löscht entsprechend Daten des EEPROM
+  * @brief 	Allows for programming the PCD if set into programming mode. Writes instructions into EEPROM
   */
 void programmingMode(void);
 
 
 /**
-  * @brief 	Wird aufgerufen, wenn vom Programmiermodus in den Ausführen-Modus gewechselt wird.
-  * 		Setzt alle Register, sowie den Index zurück und führt solange Instructions aus,
-  * 		bis das Programmende erreicht ist oder der Modus gewechselt wird.
+  * @brief Executes commands from the eeprom begining at position 0.
+  Stops only if an error occurs, an empty function is encountered or the divice is switched back into programming mode.
   */
 void executionMode(void);
 

@@ -1,12 +1,8 @@
 /**
- * @file DisplayFonts.h
- * @brief Enthält Schriftart zur Textausgabe auf dem Display
+ * @file BA_EEPROM.h
+ * @brief Provides functions for the use of the EEPROM to other files
  */
 
-/**
- * @file BA_EEPROM.h
- * @brief Stellt Funktionen zur Speicherung und Abfrage von Daten aus dem EEPROM-Speicher bereit
- */
 
 #ifndef SRC_BA_EEPROM_H_
 #define SRC_BA_EEPROM_H_
@@ -16,31 +12,37 @@
 
 
 /**
-  * @brief Liest eine Instruction aus dem EEPROM-Speicher
-  * @param position Die Position der Instruction im Speicher
-  * @return Gelesene Insruction
+  * @brief Reads an instruction from the EEPROM
+  * @details 0 equals the first Instruction 1 the seconds and so on.
+  Even though the instructions take up 4 bytes of space this is accounted for inside the function
+  * @param position Position of the instruction
+  * @return Read instruction
   */
 Instruction getInstruction(int position);
 
 
 /**
-  * @brief Liest die Funktionsnummer einer Instruction and einer gegebenen Position im EEPROM
-  * @param position Die Position der Instruction, von der die Funktionsnummer bestimmt werden soll
-  * @return Die Funktionsnummer der Instruction
+  * @brief Reads the function number of an instruction in the EEPROM
+  * @details Position 0 equals the first instruction, 1 the seconds and so on.
+  Even though the instructions take up 4 bytes of space this is accounted for inside the function
+  * @param position Position of the instruction
+  * @return Function number of the instruction
   */
 uint8_t getFunctionNumberByPosition(int position);
 
 
 /**
-  * @brief Schreibt eine Instruction an gegebener Position in den EEPROM-Speicher
-  * @param in Die Instruction, die geschrieben werden soll
-  * @param position Die Position, an der die Instruction geschrieben werden soll
+  * @brief Writes an instruction into EEPROM at the given position
+  * @details Position 0 equals the first instruction, 1 the seconds and so on.
+  Even though the instructions take up 4 bytes of space this is accounted for inside the function
+  * @param in The instruction to be written
+  * @param position The position at which to write the Instruction.
   */
 void putInstruction(Instruction in, int position);
 
 
 /**
-  * @brief Löscht den gesamten EEPROM-Speicher
+  * @brief Sets all bits of the EEPROM to zero
   */
 void EEPROM_eraseAll();
 

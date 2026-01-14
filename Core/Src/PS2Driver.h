@@ -1,24 +1,24 @@
 /**
  * @file PS2Driver.h
- * @brief Stellt Funktionen zur Benutzung einer PS/2 Tastatur zur Verfügung
+ * @brief Provides function to read input from the PS/2 keyboard to other functions
  */
 
 #ifndef SRC_PS2DRIVER_H_
 #define SRC_PS2DRIVER_H_
 
 /**
- * @brief Speichert die zuletzt über den PS/2-Bus empfangenen Bits
+ * @brief Stores the bits last received by the keyboard
  */
 extern long keyBuffer;
 
 /**
- * @brief Speichert die aktuelle Position im PS/2 Frame
+ * @brief Stores the current position in the PS/2 dataframe
  */
 extern char framePos;
 
 /**
-  * @brief  Gibt die letzte Taste auf der Tastatur aus, die gedrückt wurde (nur ausgewählte Tasten) und leert den Buffer
-  * @retval Taste, die gedrückt wurde als Zeichen
+  * @brief  Returns the key last pressed on the keyboard and empties the buffer
+  * @retval Key that has been pressed (not all keys supported. Unsupported keys result in return 0)
   */
 char getKey();
 
