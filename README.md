@@ -1,8 +1,8 @@
 # Dokumentation hier abrufbar: [![Documentation](https://img.shields.io/badge/docs-doxygen-blue.svg)](https://FEJ117.github.io/PCD_CODE/index.html)
 
-# Programmlogik
-Die Dateien InstructionList.h, InstructionList.c und Instruction.h enthalten die eigentliche Struktur des Programms. Sie enthalten die möglichen Befehle, sowie die Art und Weise in der die Befehle eingegeben und ausgeführt werden. Die Dateien enthalten keine Funktionen, die STM32-Spezifisch sind. Das bedeutet, dass diese Dateien genau so in einem Projekt auf einer anderen Mikroprozessorplattform (Beispielsweise ATMega oder PIC) eingesetzt werden können.
+# The programs main logic
+The files InstructionList.h, InstructionList.c and Instruction.h contain the logical structure used to program the device and execute instructions. They contain all defined function identifiers and the way the functions are being called. They do not contain STM32-specific functions. This means they can be exported to other projects using (for example) ATmega or PIC.
 
-# STM32-Spezifische Programmelemente
-Im Gegensatz zu den in "Programmlogik" genannten Dateien enthalten die übrigen Dateien Funktionen, die nur im STM32-Entwicklungsumfeld eingesetzt werden können. Dazu gehören die Steuerung des Displays (BA_Display.c und BA_Display.h), das Auslesen der Tastatur (PS2Driver.c und PS2Driver.h), das Schreiben und Auslesen des EEPROM-Speichers (BA_EEPROM.c und BA_EEPROM.h), sowie weitere Funktionen, beispielsweise zur Steuerung der GPIO-Ports (STM_FUNCTIONS.c und STM_FUNCTIONS.h).
-Bei einem Wechsel auf eine andere Plattform muss davon ausgegangen werden, dass die in den Dateien enthaltenen Funktionen durch Funktionen ersetzt werden müssen, die mit der neuen Plattform kompatibel sind. Die Headerdateien (.h) geben dabei jeweils an, auf welche der Funktionen von Außen, das heißt innerhalb einer anderen Datei, zugegriffen wird. Die in den Headerdateien angegebenen Funktionen müssen bei einem Wechsel der Plattform zwingend zur Verfügung gestellt werden.
+# STM32-Specific elements
+All other files contain functions specific to the STM32 environment. This includes the files for communicating with the OLED display (BA_Display.c and BA_Display.h), reading the keyboard (PS2Driver.c and PS2Driver.h), reading from and writing to the EEPROM (BA_EEPROM.c and BA_EEPROM.h) and all other functions (STM_FUNCTIONS.c and STM_FUNCTIONS.h).
+When switching platforms, make sure to replace all STM32-specific functions with those suitable for your platform. The headers (.h) contain all functions accessed by outside functions in other files. Make sure to provide all of those functions.
