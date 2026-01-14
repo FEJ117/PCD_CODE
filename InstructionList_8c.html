@@ -79,6 +79,9 @@ $(function() {
   <div class="headertitle"><div class="title">InstructionList.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementation of the main program logic for writing and executing commands.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="BA__EEPROM_8h_source.html">BA_EEPROM.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Instruction_8h_source.html">Instruction.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="PS2Driver_8h_source.html">PS2Driver.h</a>&quot;</code><br />
@@ -89,16 +92,16 @@ Include dependency graph for InstructionList.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="InstructionList_8c__incl.png" border="0" usemap="#aCore_2Src_2InstructionList_8c" alt=""/></div>
 <map name="aCore_2Src_2InstructionList_8c" id="aCore_2Src_2InstructionList_8c">
-<area shape="rect" title=" " alt="" coords="53,5,235,31"/>
-<area shape="rect" href="BA__EEPROM_8h.html" title="Stellt Funktionen zur Speicherung und Abfrage von Daten aus dem EEPROM&#45;Speicher bereit." alt="" coords="459,152,573,177"/>
+<area shape="rect" title="Implementation of the main program logic for writing and executing commands." alt="" coords="53,5,235,31"/>
+<area shape="rect" href="BA__EEPROM_8h.html" title="Provides functions for the use of the EEPROM to other files." alt="" coords="459,152,573,177"/>
 <area shape="poly" title=" " alt="" coords="210,28,291,47,377,76,440,109,491,142,488,146,437,113,375,81,289,52,209,33"/>
-<area shape="rect" href="Instruction_8h.html" title="Definiert Struct Instruction." alt="" coords="82,225,185,251"/>
+<area shape="rect" href="Instruction_8h.html" title="Defines the struct &quot;Instruction&quot;." alt="" coords="82,225,185,251"/>
 <area shape="poly" title=" " alt="" coords="125,33,97,52,64,79,33,113,10,153,8,164,10,174,22,193,44,207,71,219,69,224,42,212,19,196,5,176,3,164,5,151,28,110,60,75,94,48,122,29"/>
-<area shape="rect" href="PS2Driver_8h.html" title="Stellt Funktionen zur Benutzung einer PS/2 Tastatur zur Verfügung." alt="" coords="95,79,193,104"/>
+<area shape="rect" href="PS2Driver_8h.html" title="Provides function to read input from the PS/2 keyboard to other functions." alt="" coords="95,79,193,104"/>
 <area shape="poly" title=" " alt="" coords="147,31,147,65,141,65,141,31"/>
-<area shape="rect" href="InstructionList_8h.html" title="Enthält Funktionen zum Programmieren des PCD und Ausführen des Programms." alt="" coords="19,152,146,177"/>
+<area shape="rect" href="InstructionList_8h.html" title="Provides functions for the programming and execution mode to other files as well as the function iden..." alt="" coords="19,152,146,177"/>
 <area shape="poly" title=" " alt="" coords="128,33,105,53,86,80,80,109,81,138,76,138,75,109,82,78,101,49,124,29"/>
-<area shape="rect" href="STM__FUNCTIONS_8h.html" title="Enthält alle STM&#45;Spezifischen Funktionen für InstructionList.h." alt="" coords="217,79,364,104"/>
+<area shape="rect" href="STM__FUNCTIONS_8h.html" title="Provides STM&#45;specific functions to other files." alt="" coords="217,79,364,104"/>
 <area shape="poly" title=" " alt="" coords="169,28,256,70,253,75,166,33"/>
 <area shape="rect" title=" " alt="" coords="366,225,437,251"/>
 <area shape="poly" title=" " alt="" coords="499,180,433,220,430,216,496,175"/>
@@ -120,61 +123,63 @@ Include dependency graph for InstructionList.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ac75d6b1a4585214cbb771d5ada7153a8" id="r_ac75d6b1a4585214cbb771d5ada7153a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#ac75d6b1a4585214cbb771d5ada7153a8">removeInstruction</a> (uint8_t pPos)</td></tr>
-<tr class="memdesc:ac75d6b1a4585214cbb771d5ada7153a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Löscht die <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> an der gegebenen Position.  <br /></td></tr>
+<tr class="memdesc:ac75d6b1a4585214cbb771d5ada7153a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the instruction at the given position.  <br /></td></tr>
 <tr class="separator:ac75d6b1a4585214cbb771d5ada7153a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15b3d00e168b799bca6fb3508cfc3e87" id="r_a15b3d00e168b799bca6fb3508cfc3e87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#a15b3d00e168b799bca6fb3508cfc3e87">insertInstruction</a> (uint8_t pPos)</td></tr>
-<tr class="memdesc:a15b3d00e168b799bca6fb3508cfc3e87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fügt eine <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> an der gegebenen Position ein.  <br /></td></tr>
+<tr class="memdesc:a15b3d00e168b799bca6fb3508cfc3e87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an instruction at the given position.  <br /></td></tr>
 <tr class="separator:a15b3d00e168b799bca6fb3508cfc3e87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a314ea3fb2344b6f55a55bc0f516b8c3d" id="r_a314ea3fb2344b6f55a55bc0f516b8c3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#a314ea3fb2344b6f55a55bc0f516b8c3d">GetFunctionName</a> (<a class="el" href="structInstruction.html">Instruction</a> pIn, char arr[3])</td></tr>
-<tr class="memdesc:a314ea3fb2344b6f55a55bc0f516b8c3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schreibt den Bezeichner der Funktion einer gegebenen <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> in das gegebene char-Array.  <br /></td></tr>
+<tr class="memdesc:a314ea3fb2344b6f55a55bc0f516b8c3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the 3-character identifier of a given instruction into a char-array.  <br /></td></tr>
 <tr class="separator:a314ea3fb2344b6f55a55bc0f516b8c3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dc2f2f6b38bdc73f3329dfb56bdecab" id="r_a5dc2f2f6b38bdc73f3329dfb56bdecab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#a5dc2f2f6b38bdc73f3329dfb56bdecab">writeInstructions</a> (<a class="el" href="structInstruction.html">Instruction</a> i1, <a class="el" href="structInstruction.html">Instruction</a> i2, uint16_t pIndex)</td></tr>
-<tr class="memdesc:a5dc2f2f6b38bdc73f3329dfb56bdecab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schreibt den Inhalt von zwei Instructions zusammen mit den dazugehörigen Zeilennummern auf das Display.  <br /></td></tr>
+<tr class="memdesc:a5dc2f2f6b38bdc73f3329dfb56bdecab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the contents of two instructions onto the display together with line numbers.  <br /></td></tr>
 <tr class="separator:a5dc2f2f6b38bdc73f3329dfb56bdecab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fd1505f1f7d8fbb4d0a447fb4ba4539" id="r_a5fd1505f1f7d8fbb4d0a447fb4ba4539"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#a5fd1505f1f7d8fbb4d0a447fb4ba4539">updateInstructions</a> ()</td></tr>
-<tr class="memdesc:a5fd1505f1f7d8fbb4d0a447fb4ba4539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schreibt die <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a>, auf die der Index zeigt, sowie die vorherige <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> auf das Display und makiert die aktuelle <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> mit einem Pfeil.  <br /></td></tr>
+<tr class="memdesc:a5fd1505f1f7d8fbb4d0a447fb4ba4539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the instruction pointed at by the index variable (ind) and the instruction next to it onto the display together with line numbers and an arrow pointing at the active iinstruction.  <br /></td></tr>
 <tr class="separator:a5fd1505f1f7d8fbb4d0a447fb4ba4539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76f3bcbce8a92722326228e11a422539" id="r_a76f3bcbce8a92722326228e11a422539"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#a76f3bcbce8a92722326228e11a422539">evaluate</a> (uint8_t condition)</td></tr>
-<tr class="memdesc:a76f3bcbce8a92722326228e11a422539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prüft, ob eine Bedingung gegeben ist.  <br /></td></tr>
+<tr class="memdesc:a76f3bcbce8a92722326228e11a422539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates, if a condition is true.  <br /></td></tr>
 <tr class="separator:a76f3bcbce8a92722326228e11a422539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a103a615b4a137ff450587d0f13ecba" id="r_a3a103a615b4a137ff450587d0f13ecba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#a3a103a615b4a137ff450587d0f13ecba">writeCharsAtCursorPosition</a> (char str[3])</td></tr>
-<tr class="memdesc:a3a103a615b4a137ff450587d0f13ecba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schreibt bis zu 3 Zeichen an die aktuelle Position des Cursors.  <br /></td></tr>
+<tr class="memdesc:a3a103a615b4a137ff450587d0f13ecba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes up to 3 characters at the current position of the cursor variable (cursPos)  <br /></td></tr>
 <tr class="separator:a3a103a615b4a137ff450587d0f13ecba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acaa5fdc47ae07ecdfd2f43e0619029fc" id="r_acaa5fdc47ae07ecdfd2f43e0619029fc"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#acaa5fdc47ae07ecdfd2f43e0619029fc">charsToFunctionNumber</a> (char chars[3])</td></tr>
-<tr class="memdesc:acaa5fdc47ae07ecdfd2f43e0619029fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt die Funktionsnummer zurück, die zu der gegebenen Zeichenfolge passt.  <br /></td></tr>
+<tr class="memdesc:acaa5fdc47ae07ecdfd2f43e0619029fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the function number corresponding to the given characters.  <br /></td></tr>
 <tr class="separator:acaa5fdc47ae07ecdfd2f43e0619029fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab12ff5d55c93ac34727e9544f312fc74" id="r_ab12ff5d55c93ac34727e9544f312fc74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#ab12ff5d55c93ac34727e9544f312fc74">executeInstruction</a> ()</td></tr>
-<tr class="memdesc:ab12ff5d55c93ac34727e9544f312fc74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Führt die Funktion der <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a>, auf die der Index Zeigt aus.  <br /></td></tr>
+<tr class="memdesc:ab12ff5d55c93ac34727e9544f312fc74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the function of the instruction pointed to by the index (ind)  <br /></td></tr>
 <tr class="separator:ab12ff5d55c93ac34727e9544f312fc74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02fd73d861ef2e4aabb38c0c9ff82947" id="r_a02fd73d861ef2e4aabb38c0c9ff82947"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#a02fd73d861ef2e4aabb38c0c9ff82947">init</a> ()</td></tr>
-<tr class="memdesc:a02fd73d861ef2e4aabb38c0c9ff82947"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt alle Register auf 0.  <br /></td></tr>
+<tr class="memdesc:a02fd73d861ef2e4aabb38c0c9ff82947"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all registers to 0.  <br /></td></tr>
 <tr class="separator:a02fd73d861ef2e4aabb38c0c9ff82947"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac032f6d5132ab94719acb7891e553bdf" id="r_ac032f6d5132ab94719acb7891e553bdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#ac032f6d5132ab94719acb7891e553bdf">programmingMode</a> (void)</td></tr>
-<tr class="memdesc:ac032f6d5132ab94719acb7891e553bdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erlaubt das Programmieren über die Tastatur wenn der Modus auf "Programmieren" gestellt ist. Wertet die Tastatureingaben aus und schreibt, beziehungsweise löscht entsprechend Daten des EEPROM.  <br /></td></tr>
+<tr class="memdesc:ac032f6d5132ab94719acb7891e553bdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows for programming the PCD if set into programming mode. Writes instructions into EEPROM.  <br /></td></tr>
 <tr class="separator:ac032f6d5132ab94719acb7891e553bdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9109ea7d172b047cc38d0bc7f1b2725b" id="r_a9109ea7d172b047cc38d0bc7f1b2725b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#a9109ea7d172b047cc38d0bc7f1b2725b">executionMode</a> (void)</td></tr>
-<tr class="memdesc:a9109ea7d172b047cc38d0bc7f1b2725b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wird aufgerufen, wenn vom Programmiermodus in den Ausführen-Modus gewechselt wird. Setzt alle Register, sowie den Index zurück und führt solange Instructions aus, bis das Programmende erreicht ist oder der Modus gewechselt wird.  <br /></td></tr>
+<tr class="memdesc:a9109ea7d172b047cc38d0bc7f1b2725b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes commands from the eeprom begining at position 0. Stops only if an error occurs, an empty function is encountered or the divice is switched back into programming mode.  <br /></td></tr>
 <tr class="separator:a9109ea7d172b047cc38d0bc7f1b2725b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:aee6f337846cbb527edb2f82d37cd5443" id="r_aee6f337846cbb527edb2f82d37cd5443"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#aee6f337846cbb527edb2f82d37cd5443">ind</a> = 0</td></tr>
-<tr class="memdesc:aee6f337846cbb527edb2f82d37cd5443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aktuelle Programmposition (sowohl bei der Programmierung, als auch bei Ausführen des Programms)  <br /></td></tr>
+<tr class="memdesc:aee6f337846cbb527edb2f82d37cd5443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current position in the programm (both used in programming and executing)  <br /></td></tr>
 <tr class="separator:aee6f337846cbb527edb2f82d37cd5443"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1084087054a873fe97dbe9da7f03a1e0" id="r_a1084087054a873fe97dbe9da7f03a1e0"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#a1084087054a873fe97dbe9da7f03a1e0">registers</a> [100]</td></tr>
-<tr class="memdesc:a1084087054a873fe97dbe9da7f03a1e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Die Werte der 100 Speicherregister.  <br /></td></tr>
+<tr class="memdesc:a1084087054a873fe97dbe9da7f03a1e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Values of the 100 virtual storage registers.  <br /></td></tr>
 <tr class="separator:a1084087054a873fe97dbe9da7f03a1e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5da2ccd484c1fe56118416aa05af48c" id="r_aa5da2ccd484c1fe56118416aa05af48c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#aa5da2ccd484c1fe56118416aa05af48c">regPointer</a> = 0</td></tr>
-<tr class="memdesc:aa5da2ccd484c1fe56118416aa05af48c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speichert, welches Register durch den Befehl PIC ausgewählt wurde.  <br /></td></tr>
+<tr class="memdesc:aa5da2ccd484c1fe56118416aa05af48c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Points at the chosen register (used by PIC and other register commands)  <br /></td></tr>
 <tr class="separator:aa5da2ccd484c1fe56118416aa05af48c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78354ea40ba9e3948ef0fc399e6f4adf" id="r_a78354ea40ba9e3948ef0fc399e6f4adf"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#a78354ea40ba9e3948ef0fc399e6f4adf">cursPos</a> = 0</td></tr>
-<tr class="memdesc:a78354ea40ba9e3948ef0fc399e6f4adf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position des Cursors während der Ausgabe von Zeichen durch PCH und PTR.  <br /></td></tr>
+<tr class="memdesc:a78354ea40ba9e3948ef0fc399e6f4adf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position of the cursor for PCH and PTR commands.  <br /></td></tr>
 <tr class="separator:a78354ea40ba9e3948ef0fc399e6f4adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad69d0a02f4484ea6d9b958ed438b0827" id="r_ad69d0a02f4484ea6d9b958ed438b0827"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structInstruction.html">Instruction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#ad69d0a02f4484ea6d9b958ed438b0827">emptyInstruction</a> = {0,0,0,0}</td></tr>
-<tr class="memdesc:ad69d0a02f4484ea6d9b958ed438b0827"><td class="mdescLeft">&#160;</td><td class="mdescRight">Leere <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> (Wird beim Einfügen von Programmzeilen benötigt)  <br /></td></tr>
+<tr class="memdesc:ad69d0a02f4484ea6d9b958ed438b0827"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty instruction (is inserted when an instruction is deleted)  <br /></td></tr>
 <tr class="separator:ad69d0a02f4484ea6d9b958ed438b0827"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of the main program logic for writing and executing commands. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="acaa5fdc47ae07ecdfd2f43e0619029fc" name="acaa5fdc47ae07ecdfd2f43e0619029fc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acaa5fdc47ae07ecdfd2f43e0619029fc">&#9670;&#160;</a></span>charsToFunctionNumber()</h2>
 
@@ -191,14 +196,14 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gibt die Funktionsnummer zurück, die zu der gegebenen Zeichenfolge passt. </p>
+<p>Return the function number corresponding to the given characters. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">chars[]</td><td>Die Zeichenfolge, bestehend aus 3 Zeichen (zum Beispiel WAI) </td></tr>
+    <tr><td class="paramname">chars</td><td>The characters representing the function </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Die Funktionsnummer, die zu der Zeichenfolge passt. Wird keine Funktion gefunden: 255 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The function number corresponding to the characters (or 255 if none was found) </dd></dl>
 
 </div>
 </div>
@@ -218,24 +223,24 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Prüft, ob eine Bedingung gegeben ist. </p>
+<p>Evaluates, if a condition is true. </p>
 <ul>
-<li>Wird BEG und END benutzt: </li>
+<li>If BEG and END are being used: </li>
 </ul>
 <h1><a class="anchor" id="autotoc_md3"></a>
-Springt in den Programmblock, wenn die Bedingung zutrifft</h1>
+If the condition is true: Jump into the block (one position after BEG)</h1>
 <h1><a class="anchor" id="autotoc_md4"></a>
-Springt hinter den Programmblock, wenn die Bedingung nicht zutrifft</h1>
+If the condition is false: Jump one position after END</h1>
 <ul>
-<li>Wird BEG und END nicht benutzt: </li>
+<li>If BEG and END are not being used: </li>
 </ul>
 <h1><a class="anchor" id="autotoc_md5"></a>
-Springt zum nächsten Befehl, wenn die Bedingung zutrifft</h1>
+If the condition is true: Jumps to the next instruction</h1>
 <h1><a class="anchor" id="autotoc_md6"></a>
-Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft</h1>
+If the contition is false: Jumps to the instruction after the next</h1>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">condition</td><td>Die Bedingung, die abgefragt wird </td></tr>
+    <tr><td class="paramname">condition</td><td>The condition which is being processed (This is technically a bool, but this datatype is not being used) </td></tr>
   </table>
   </dd>
 </dl>
@@ -257,7 +262,7 @@ Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft</h1>
       </table>
 </div><div class="memdoc">
 
-<p>Führt die Funktion der <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a>, auf die der Index Zeigt aus. </p>
+<p>Executes the function of the instruction pointed to by the index (ind) </p>
 
 </div>
 </div>
@@ -277,7 +282,7 @@ Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft</h1>
       </table>
 </div><div class="memdoc">
 
-<p>Wird aufgerufen, wenn vom Programmiermodus in den Ausführen-Modus gewechselt wird. Setzt alle Register, sowie den Index zurück und führt solange Instructions aus, bis das Programmende erreicht ist oder der Modus gewechselt wird. </p>
+<p>Executes commands from the eeprom begining at position 0. Stops only if an error occurs, an empty function is encountered or the divice is switched back into programming mode. </p>
 
 </div>
 </div>
@@ -307,11 +312,11 @@ Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft</h1>
       </table>
 </div><div class="memdoc">
 
-<p>Schreibt den Bezeichner der Funktion einer gegebenen <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> in das gegebene char-Array. </p>
+<p>Writes the 3-character identifier of a given instruction into a char-array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pIn</td><td>die <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a>, die ausgewertet wird </td></tr>
-    <tr><td class="paramname">arr</td><td>Das Array, in das der Bezeichner geschrieben wird </td></tr>
+    <tr><td class="paramname">pIn</td><td>The instruction to be processed </td></tr>
+    <tr><td class="paramname">arr</td><td>The array in which to write the identifier </td></tr>
   </table>
   </dd>
 </dl>
@@ -333,7 +338,7 @@ Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft</h1>
       </table>
 </div><div class="memdoc">
 
-<p>Setzt alle Register auf 0. </p>
+<p>Sets all registers to 0. </p>
 
 </div>
 </div>
@@ -353,10 +358,10 @@ Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft</h1>
       </table>
 </div><div class="memdoc">
 
-<p>Fügt eine <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> an der gegebenen Position ein. </p>
+<p>Inserts an instruction at the given position. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pPos</td><td>Position, an der die <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> eingefügt werden soll </td></tr>
+    <tr><td class="paramname">pPos</td><td>Position at which to insert the instruction </td></tr>
   </table>
   </dd>
 </dl>
@@ -379,7 +384,7 @@ Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft</h1>
       </table>
 </div><div class="memdoc">
 
-<p>Erlaubt das Programmieren über die Tastatur wenn der Modus auf "Programmieren" gestellt ist. Wertet die Tastatureingaben aus und schreibt, beziehungsweise löscht entsprechend Daten des EEPROM. </p>
+<p>Allows for programming the PCD if set into programming mode. Writes instructions into EEPROM. </p>
 
 </div>
 </div>
@@ -399,10 +404,10 @@ Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft</h1>
       </table>
 </div><div class="memdoc">
 
-<p>Löscht die <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> an der gegebenen Position. </p>
+<p>Deletes the instruction at the given position. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pPos</td><td>Position der <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> </td></tr>
+    <tr><td class="paramname">pPos</td><td>Position of the instruction </td></tr>
   </table>
   </dd>
 </dl>
@@ -424,7 +429,8 @@ Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft</h1>
       </table>
 </div><div class="memdoc">
 
-<p>Schreibt die <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a>, auf die der Index zeigt, sowie die vorherige <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> auf das Display und makiert die aktuelle <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> mit einem Pfeil. </p>
+<p>Writes the instruction pointed at by the index variable (ind) and the instruction next to it onto the display together with line numbers and an arrow pointing at the active iinstruction. </p>
+<p>The active instruction will always be the one on the bottom, except for when the index (ind) is zero. In this case the arrow will point at line number zero at the top, with line 1 being underneith it. </p>
 
 </div>
 </div>
@@ -444,10 +450,10 @@ Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft</h1>
       </table>
 </div><div class="memdoc">
 
-<p>Schreibt bis zu 3 Zeichen an die aktuelle Position des Cursors. </p>
+<p>Writes up to 3 characters at the current position of the cursor variable (cursPos) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">str[3]</td><td>Zeichen, die geschrieben werden sollen </td></tr>
+    <tr><td class="paramname">str</td><td>Characters to be written (character that equal 0 will be ignored) </td></tr>
   </table>
   </dd>
 </dl>
@@ -486,12 +492,12 @@ Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft</h1>
       </table>
 </div><div class="memdoc">
 
-<p>Schreibt den Inhalt von zwei Instructions zusammen mit den dazugehörigen Zeilennummern auf das Display. </p>
+<p>Writes the contents of two instructions onto the display together with line numbers. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i1</td><td>Erste <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a>, die abgebildet werden soll </td></tr>
-    <tr><td class="paramname">i2</td><td>Zweite <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a>, die abgebildet werden soll </td></tr>
-    <tr><td class="paramname">pIndex</td><td>Index, an dem die Insructions liegen </td></tr>
+    <tr><td class="paramname">i1</td><td>The first instruction to be displayed </td></tr>
+    <tr><td class="paramname">i2</td><td>The second instruction to be displayed </td></tr>
+    <tr><td class="paramname">pIndex</td><td>Index of the first instruction (used for line numbers) </td></tr>
   </table>
   </dd>
 </dl>
@@ -511,7 +517,7 @@ Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft</h1>
       </table>
 </div><div class="memdoc">
 
-<p>Position des Cursors während der Ausgabe von Zeichen durch PCH und PTR. </p>
+<p>Position of the cursor for PCH and PTR commands. </p>
 
 </div>
 </div>
@@ -527,7 +533,7 @@ Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft</h1>
       </table>
 </div><div class="memdoc">
 
-<p>Leere <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> (Wird beim Einfügen von Programmzeilen benötigt) </p>
+<p>Empty instruction (is inserted when an instruction is deleted) </p>
 
 </div>
 </div>
@@ -543,7 +549,7 @@ Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft</h1>
       </table>
 </div><div class="memdoc">
 
-<p>Aktuelle Programmposition (sowohl bei der Programmierung, als auch bei Ausführen des Programms) </p>
+<p>Current position in the programm (both used in programming and executing) </p>
 
 </div>
 </div>
@@ -559,7 +565,7 @@ Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft</h1>
       </table>
 </div><div class="memdoc">
 
-<p>Die Werte der 100 Speicherregister. </p>
+<p>Values of the 100 virtual storage registers. </p>
 
 </div>
 </div>
@@ -575,7 +581,7 @@ Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft</h1>
       </table>
 </div><div class="memdoc">
 
-<p>Speichert, welches Register durch den Befehl PIC ausgewählt wurde. </p>
+<p>Points at the chosen register (used by PIC and other register commands) </p>
 
 </div>
 </div>

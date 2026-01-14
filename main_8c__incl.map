@@ -4,17 +4,17 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,33,159,49,106,74,57,108,36,129,18,153,14,167,14,183,26,212,21,214,9,184,8,167,14,151,32,126,53,104,103,69,157,44,205,28"/>
 <area shape="rect" id="Node000003" href="$BA__Display_8h.html" title="Provides functions for the use of the OLED&#45;display to other files." alt="" coords="167,152,273,177"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="249,32,238,54,228,79,223,109,222,138,216,138,218,109,223,78,233,52,245,30"/>
-<area shape="rect" id="Node000005" href="$PS2Driver_8h.html" title="Stellt Funktionen zur Benutzung einer PS/2 Tastatur zur Verfügung." alt="" coords="459,79,557,104"/>
+<area shape="rect" id="Node000005" href="$PS2Driver_8h.html" title="Provides function to read input from the PS/2 keyboard to other functions." alt="" coords="459,79,557,104"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="296,28,454,72,453,77,295,33"/>
-<area shape="rect" id="Node000006" href="$InstructionList_8h.html" title="Enthält Funktionen zum Programmieren des PCD und Ausführen des Programms." alt="" coords="455,152,582,177"/>
+<area shape="rect" id="Node000006" href="$InstructionList_8h.html" title="Provides functions for the programming and execution mode to other files as well as the function iden..." alt="" coords="455,152,582,177"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="288,28,340,49,397,76,451,109,495,142,492,146,448,114,395,81,338,54,286,33"/>
-<area shape="rect" id="Node000008" href="$STM__FUNCTIONS_8h.html" title="Enthält alle STM&#45;Spezifischen Funktionen für InstructionList.h." alt="" coords="237,79,384,104"/>
+<area shape="rect" id="Node000008" href="$STM__FUNCTIONS_8h.html" title="Provides STM&#45;specific functions to other files." alt="" coords="237,79,384,104"/>
 <area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="266,29,295,66,291,69,262,33"/>
-<area shape="rect" id="Node000010" href="$BA__EEPROM_8h.html" title="Stellt Funktionen zur Speicherung und Abfrage von Daten aus dem EEPROM&#45;Speicher bereit." alt="" coords="28,152,143,177"/>
+<area shape="rect" id="Node000010" href="$BA__EEPROM_8h.html" title="Provides functions for the use of the EEPROM to other files." alt="" coords="28,152,143,177"/>
 <area shape="poly" id="edge16_Node000001_Node000010" title=" " alt="" coords="243,33,111,145,108,141,239,29"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="97,225,167,251"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="208,179,159,219,155,214,204,175"/>
-<area shape="rect" id="Node000007" href="$Instruction_8h.html" title="Definiert Struct Instruction." alt="" coords="259,225,362,251"/>
+<area shape="rect" id="Node000007" href="$Instruction_8h.html" title="Defines the struct &quot;Instruction&quot;." alt="" coords="259,225,362,251"/>
 <area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="486,180,358,223,357,218,484,175"/>
 <area shape="poly" id="edge9_Node000008_Node000003" title=" " alt="" coords="298,106,247,145,244,141,294,102"/>
 <area shape="poly" id="edge14_Node000008_Node000006" title=" " alt="" coords="345,101,473,145,471,150,343,107"/>

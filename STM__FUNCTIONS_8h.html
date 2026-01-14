@@ -81,7 +81,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Enthält alle STM-Spezifischen Funktionen für <a class="el" href="InstructionList_8h.html" title="Enthält Funktionen zum Programmieren des PCD und Ausführen des Programms.">InstructionList.h</a>.  
+<p>Provides STM-specific functions to other files.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="BA__Display_8h_source.html">BA_Display.h</a>&quot;</code><br />
@@ -93,16 +93,16 @@ Include dependency graph for STM_FUNCTIONS.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="STM__FUNCTIONS_8h__incl.png" border="0" usemap="#aCore_2Src_2STM__FUNCTIONS_8h" alt=""/></div>
 <map name="aCore_2Src_2STM__FUNCTIONS_8h" id="aCore_2Src_2STM__FUNCTIONS_8h">
-<area shape="rect" title="Enthält alle STM&#45;Spezifischen Funktionen für InstructionList.h." alt="" coords="198,5,402,31"/>
+<area shape="rect" title="Provides STM&#45;specific functions to other files." alt="" coords="198,5,402,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,88,104"/>
 <area shape="poly" title=" " alt="" coords="260,33,102,77,100,72,259,28"/>
 <area shape="rect" href="BA__Display_8h.html" title="Provides functions for the use of the OLED&#45;display to other files." alt="" coords="112,79,219,104"/>
 <area shape="poly" title=" " alt="" coords="280,33,201,74,198,70,277,28"/>
-<area shape="rect" href="BA__EEPROM_8h.html" title="Stellt Funktionen zur Speicherung und Abfrage von Daten aus dem EEPROM&#45;Speicher bereit." alt="" coords="243,79,357,104"/>
+<area shape="rect" href="BA__EEPROM_8h.html" title="Provides functions for the use of the EEPROM to other files." alt="" coords="243,79,357,104"/>
 <area shape="poly" title=" " alt="" coords="303,31,303,65,297,65,297,31"/>
-<area shape="rect" href="Instruction_8h.html" title="Definiert Struct Instruction." alt="" coords="350,152,453,177"/>
+<area shape="rect" href="Instruction_8h.html" title="Defines the struct &quot;Instruction&quot;." alt="" coords="350,152,453,177"/>
 <area shape="poly" title=" " alt="" coords="320,29,346,50,372,77,388,108,398,137,393,139,383,110,367,80,343,53,317,33"/>
-<area shape="rect" href="InstructionList_8h.html" title="Enthält Funktionen zum Programmieren des PCD und Ausführen des Programms." alt="" coords="433,79,559,104"/>
+<area shape="rect" href="InstructionList_8h.html" title="Provides functions for the programming and execution mode to other files as well as the function iden..." alt="" coords="433,79,559,104"/>
 <area shape="poly" title=" " alt="" coords="332,28,452,71,450,76,331,33"/>
 <area shape="rect" title=" " alt="" coords="150,152,221,177"/>
 <area shape="poly" title=" " alt="" coords="171,104,181,138,176,140,166,105"/>
@@ -118,14 +118,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="STM__FUNCTIONS_8h__dep__incl.png" border="0" usemap="#aCore_2Src_2STM__FUNCTIONS_8hdep" alt=""/></div>
 <map name="aCore_2Src_2STM__FUNCTIONS_8hdep" id="aCore_2Src_2STM__FUNCTIONS_8hdep">
-<area shape="rect" title="Enthält alle STM&#45;Spezifischen Funktionen für InstructionList.h." alt="" coords="377,5,581,31"/>
+<area shape="rect" title="Provides STM&#45;specific functions to other files." alt="" coords="377,5,581,31"/>
 <area shape="rect" href="BA__Display_8c.html" title="Implementation of Display&#45;Functions." alt="" coords="5,79,168,104"/>
 <area shape="poly" title=" " alt="" coords="403,36,151,81,150,76,402,30"/>
-<area shape="rect" href="BA__EEPROM_8c.html" title=" " alt="" coords="192,79,363,104"/>
+<area shape="rect" href="BA__EEPROM_8c.html" title="Implementation of EEPROM&#45;Functions." alt="" coords="192,79,363,104"/>
 <area shape="poly" title=" " alt="" coords="434,38,311,81,309,76,432,33"/>
-<area shape="rect" href="InstructionList_8c.html" title=" " alt="" coords="387,79,570,104"/>
+<area shape="rect" href="InstructionList_8c.html" title="Implementation of the main program logic for writing and executing commands." alt="" coords="387,79,570,104"/>
 <area shape="poly" title=" " alt="" coords="481,44,481,79,476,79,476,44"/>
-<area shape="rect" href="STM__FUNCTIONS_8c.html" title=" " alt="" coords="595,79,797,104"/>
+<area shape="rect" href="STM__FUNCTIONS_8c.html" title="Inplementation of STM32&#45;specific functions." alt="" coords="595,79,797,104"/>
 <area shape="poly" title=" " alt="" coords="527,32,662,76,660,81,526,37"/>
 <area shape="rect" href="main_8c.html" title=": Main program body" alt="" coords="822,79,946,104"/>
 <area shape="poly" title=" " alt="" coords="558,30,822,77,821,82,557,36"/>
@@ -137,50 +137,50 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a317f0121a0363b016a7352e26489f283" id="r_a317f0121a0363b016a7352e26489f283"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8h.html#a317f0121a0363b016a7352e26489f283">isButton1Pressed</a>()&#160;&#160;&#160;(HAL_GPIO_ReadPin(Button1_GPIO_Port, Button1_Pin) == GPIO_PIN_RESET)</td></tr>
-<tr class="memdesc:a317f0121a0363b016a7352e26489f283"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prüft, ob der erste Taster gedrückt ist.  <br /></td></tr>
+<tr class="memdesc:a317f0121a0363b016a7352e26489f283"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if the first button is being pressed.  <br /></td></tr>
 <tr class="separator:a317f0121a0363b016a7352e26489f283"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acda813f18383630e220b0535394c146e" id="r_acda813f18383630e220b0535394c146e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8h.html#acda813f18383630e220b0535394c146e">isButton2Pressed</a>()&#160;&#160;&#160;(HAL_GPIO_ReadPin(Button2_GPIO_Port, Button2_Pin) == GPIO_PIN_RESET)</td></tr>
-<tr class="memdesc:acda813f18383630e220b0535394c146e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prüft, ob der zweite Taster gedrückt ist.  <br /></td></tr>
+<tr class="memdesc:acda813f18383630e220b0535394c146e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if the second button is being pressed.  <br /></td></tr>
 <tr class="separator:acda813f18383630e220b0535394c146e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f88b4a68176f280a8e0539a12abccea" id="r_a1f88b4a68176f280a8e0539a12abccea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8h.html#a1f88b4a68176f280a8e0539a12abccea">isButton3Pressed</a>()&#160;&#160;&#160;(HAL_GPIO_ReadPin(Button3_GPIO_Port, Button3_Pin) == GPIO_PIN_RESET)</td></tr>
-<tr class="memdesc:a1f88b4a68176f280a8e0539a12abccea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prüft, ob der dritte Taster gedrückt ist.  <br /></td></tr>
+<tr class="memdesc:a1f88b4a68176f280a8e0539a12abccea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if the third button is being pressed.  <br /></td></tr>
 <tr class="separator:a1f88b4a68176f280a8e0539a12abccea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a342cdc92a8e4e42b49e7f9ec5d61361f" id="r_a342cdc92a8e4e42b49e7f9ec5d61361f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8h.html#a342cdc92a8e4e42b49e7f9ec5d61361f">isButton4Pressed</a>()&#160;&#160;&#160;(HAL_GPIO_ReadPin(Button4_GPIO_Port, Button4_Pin) == GPIO_PIN_RESET)</td></tr>
-<tr class="memdesc:a342cdc92a8e4e42b49e7f9ec5d61361f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prüft, ob der vierte Taster gedrückt ist.  <br /></td></tr>
+<tr class="memdesc:a342cdc92a8e4e42b49e7f9ec5d61361f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if the fourth button is being pressed.  <br /></td></tr>
 <tr class="separator:a342cdc92a8e4e42b49e7f9ec5d61361f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56372b0eac17f8aade7c2d5efa488fbb" id="r_a56372b0eac17f8aade7c2d5efa488fbb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8h.html#a56372b0eac17f8aade7c2d5efa488fbb">isProgrammingMode</a>()&#160;&#160;&#160;HAL_GPIO_ReadPin(ModeSwitch_GPIO_Port, ModeSwitch_Pin)</td></tr>
-<tr class="memdesc:a56372b0eac17f8aade7c2d5efa488fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prüft, ob der Modusschalter auf "Programmieren" steht.  <br /></td></tr>
+<tr class="memdesc:a56372b0eac17f8aade7c2d5efa488fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if the mode switch is set to programming mode.  <br /></td></tr>
 <tr class="separator:a56372b0eac17f8aade7c2d5efa488fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af794d80aeb10203cf729c57421906915" id="r_af794d80aeb10203cf729c57421906915"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8h.html#af794d80aeb10203cf729c57421906915">wait</a> (uint16_t pData)</td></tr>
-<tr class="memdesc:af794d80aeb10203cf729c57421906915"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wartet um die gegebene Zeit in 1/10 Sekunden.  <br /></td></tr>
+<tr class="memdesc:af794d80aeb10203cf729c57421906915"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits the given amount of time (in 1/10 seconds)  <br /></td></tr>
 <tr class="separator:af794d80aeb10203cf729c57421906915"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac41e72d1cb0cdad75c06207a3a4dba3e" id="r_ac41e72d1cb0cdad75c06207a3a4dba3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8h.html#ac41e72d1cb0cdad75c06207a3a4dba3e">setLED</a> (uint8_t fNumber, char colour)</td></tr>
-<tr class="memdesc:ac41e72d1cb0cdad75c06207a3a4dba3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt eine der beiden LEDs auf eine gegebene Farbe.  <br /></td></tr>
+<tr class="memdesc:ac41e72d1cb0cdad75c06207a3a4dba3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the colour of one of the two RGB-LEDs.  <br /></td></tr>
 <tr class="separator:ac41e72d1cb0cdad75c06207a3a4dba3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37db92a99aad8080dbea375f75062701" id="r_a37db92a99aad8080dbea375f75062701"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8h.html#a37db92a99aad8080dbea375f75062701">activateBuzzer</a> (<a class="el" href="structInstruction.html">Instruction</a> ex)</td></tr>
-<tr class="memdesc:a37db92a99aad8080dbea375f75062701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aktiviert den Lautsprecher anhand der in der gegebenen <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> gespeicherten Noteninformation.  <br /></td></tr>
+<tr class="memdesc:a37db92a99aad8080dbea375f75062701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates the buzzer with the tone and pitch information provided by an instruction.  <br /></td></tr>
 <tr class="separator:a37db92a99aad8080dbea375f75062701"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22120fdb929bf877ebb26aa37d70fd82" id="r_a22120fdb929bf877ebb26aa37d70fd82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8h.html#a22120fdb929bf877ebb26aa37d70fd82">STM_readADC</a> (uint8_t channel)</td></tr>
-<tr class="memdesc:a22120fdb929bf877ebb26aa37d70fd82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liest einen der 9 ADC-Kanäle aus.  <br /></td></tr>
+<tr class="memdesc:a22120fdb929bf877ebb26aa37d70fd82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads one of the 9 ADC-Channels.  <br /></td></tr>
 <tr class="separator:a22120fdb929bf877ebb26aa37d70fd82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaf36553c82be62ce182afd61123e530" id="r_aeaf36553c82be62ce182afd61123e530"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8h.html#aeaf36553c82be62ce182afd61123e530">isInputHigh</a> (uint8_t port)</td></tr>
-<tr class="memdesc:aeaf36553c82be62ce182afd61123e530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prüft, ob ein gegebener Input logisch 1 ist.  <br /></td></tr>
+<tr class="memdesc:aeaf36553c82be62ce182afd61123e530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines, if a certain input is high.  <br /></td></tr>
 <tr class="separator:aeaf36553c82be62ce182afd61123e530"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a260ea484ef349f73162eb2ccd424bc92" id="r_a260ea484ef349f73162eb2ccd424bc92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8h.html#a260ea484ef349f73162eb2ccd424bc92">number3ToChar</a> (uint16_t pNum, char pOut[3])</td></tr>
-<tr class="memdesc:a260ea484ef349f73162eb2ccd424bc92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt eine Zeichenfolge für eine dreistellige Zahl zurück.  <br /></td></tr>
+<tr class="memdesc:a260ea484ef349f73162eb2ccd424bc92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the chars corresponding to a number with 3 decimal places.  <br /></td></tr>
 <tr class="separator:a260ea484ef349f73162eb2ccd424bc92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:acfe673e00caa8638b31004fa18f17680" id="r_acfe673e00caa8638b31004fa18f17680"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8h.html#acfe673e00caa8638b31004fa18f17680">lastTick</a></td></tr>
-<tr class="memdesc:acfe673e00caa8638b31004fa18f17680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speichert die Systemzeit seit dem letzten WAI-Befehl. Wird zur Synchronisierung benutzt.  <br /></td></tr>
+<tr class="memdesc:acfe673e00caa8638b31004fa18f17680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the system time of the last WAI instruction to allow for compensation of other functions runtime.  <br /></td></tr>
 <tr class="separator:acfe673e00caa8638b31004fa18f17680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Enthält alle STM-Spezifischen Funktionen für <a class="el" href="InstructionList_8h.html" title="Enthält Funktionen zum Programmieren des PCD und Ausführen des Programms.">InstructionList.h</a>. </p>
+<div class="textblock"><p>Provides STM-specific functions to other files. </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a317f0121a0363b016a7352e26489f283" name="a317f0121a0363b016a7352e26489f283"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a317f0121a0363b016a7352e26489f283">&#9670;&#160;</a></span>isButton1Pressed</h2>
@@ -197,7 +197,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Prüft, ob der erste Taster gedrückt ist. </p>
+<p>Determines if the first button is being pressed. </p>
 
 </div>
 </div>
@@ -216,7 +216,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Prüft, ob der zweite Taster gedrückt ist. </p>
+<p>Determines if the second button is being pressed. </p>
 
 </div>
 </div>
@@ -235,7 +235,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Prüft, ob der dritte Taster gedrückt ist. </p>
+<p>Determines if the third button is being pressed. </p>
 
 </div>
 </div>
@@ -254,7 +254,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Prüft, ob der vierte Taster gedrückt ist. </p>
+<p>Determines if the fourth button is being pressed. </p>
 
 </div>
 </div>
@@ -273,7 +273,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Prüft, ob der Modusschalter auf "Programmieren" steht. </p>
+<p>Determines if the mode switch is set to programming mode. </p>
 
 </div>
 </div>
@@ -294,10 +294,10 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Aktiviert den Lautsprecher anhand der in der gegebenen <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> gespeicherten Noteninformation. </p>
+<p>Activates the buzzer with the tone and pitch information provided by an instruction. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ex</td><td>Die <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a>, die die Note enthält </td></tr>
+    <tr><td class="paramname">ex</td><td><a class="el" href="structInstruction.html" title="Struct to store an instruction containing a function number and 3 bytes of data.">Instruction</a> containing the tone's information </td></tr>
   </table>
   </dd>
 </dl>
@@ -320,14 +320,14 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Prüft, ob ein gegebener Input logisch 1 ist. </p>
+<p>Determines, if a certain input is high. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">port</td><td>Der Input, der geprüft werden soll: 0: Taster 1, 1: Taster 2, 2: Taster 3, 3: Taster 4 </td></tr>
+    <tr><td class="paramname">port</td><td>The input to be processed: 0: Button 1, 1: Button 2, 2: Button 3, 3: Button 4 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Wahrheitswert, der angibt, ob der Input logisch 1 ist </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Bool that states if the input is high </dd></dl>
 
 </div>
 </div>
@@ -357,11 +357,11 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gibt eine Zeichenfolge für eine dreistellige Zahl zurück. </p>
+<p>Returns the chars corresponding to a number with 3 decimal places. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pNum</td><td>Die Zahl, die konvertiert werden soll </td></tr>
-    <tr><td class="paramname">pOut</td><td>Das Array, in das die Zeichen geschrieben werden sollen </td></tr>
+    <tr><td class="paramname">pNum</td><td>The number to be converted </td></tr>
+    <tr><td class="paramname">pOut</td><td>The array in which to write the corresponding characters </td></tr>
   </table>
   </dd>
 </dl>
@@ -394,11 +394,11 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Setzt eine der beiden LEDs auf eine gegebene Farbe. </p>
+<p>Sets the colour of one of the two RGB-LEDs. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fNumber</td><td>Position der LED: 0 = LED1 (links), 1 = LED2 (rechts)</td></tr>
-    <tr><td class="paramname">colour</td><td>Gewünschte Farbe: 'R' = Rot, 'G' = Grün, 'B' = Blau, 'O' = Orange, 'V' = Violett, 'T' = Türkis, 'W' = Weiß, 'A' = Aus </td></tr>
+    <tr><td class="paramname">fNumber</td><td>Position of the LED: 0 = first, 1 = second</td></tr>
+    <tr><td class="paramname">colour</td><td>Wanted colour: 'R' = red, 'G' = green, 'B' = blue, 'O' = orange, 'V' = violet, 'T' = turquoise, 'W' = white, Everything else = off </td></tr>
   </table>
   </dd>
 </dl>
@@ -421,14 +421,14 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Liest einen der 9 ADC-Kanäle aus. </p>
+<p>Reads one of the 9 ADC-Channels. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">channel</td><td>Der gewünschte Kanal </td></tr>
+    <tr><td class="paramname">channel</td><td>The chosen channel </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Der analoge 8-Bit-Wert des Kanals </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The analog value of the channel </dd></dl>
 
 </div>
 </div>
@@ -448,10 +448,10 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Wartet um die gegebene Zeit in 1/10 Sekunden. </p>
+<p>Waits the given amount of time (in 1/10 seconds) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pData</td><td>Die Zeit, um die das Programm angehalten werden soll in 1/10 Sekunden </td></tr>
+    <tr><td class="paramname">pData</td><td>Delay time (in 1/10 seconds) </td></tr>
   </table>
   </dd>
 </dl>
@@ -479,7 +479,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Speichert die Systemzeit seit dem letzten WAI-Befehl. Wird zur Synchronisierung benutzt. </p>
+<p>Saves the system time of the last WAI instruction to allow for compensation of other functions runtime. </p>
+<p>(system time rolls over every 50 days so roll over protection is unnecessary) </p>
 
 </div>
 </div>

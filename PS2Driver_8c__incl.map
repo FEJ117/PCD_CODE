@@ -1,6 +1,6 @@
 <map id="Core/Src/PS2Driver.c" name="Core/Src/PS2Driver.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="30,5,185,31"/>
-<area shape="rect" id="Node000002" href="$PS2Driver_8h.html" title="Stellt Funktionen zur Benutzung einer PS/2 Tastatur zur Verfügung." alt="" coords="5,79,103,104"/>
+<area shape="rect" id="Node000001" title="Inplementation of function to use a PS/2 keyboard." alt="" coords="30,5,185,31"/>
+<area shape="rect" id="Node000002" href="$PS2Driver_8h.html" title="Provides function to read input from the PS/2 keyboard to other functions." alt="" coords="5,79,103,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,33,73,69,69,66,96,29"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="127,79,194,104"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="118,29,146,66,142,69,114,33"/>

@@ -80,6 +80,9 @@ $(function() {
   <div class="headertitle"><div class="title">STM_FUNCTIONS.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Inplementation of STM32-specific functions.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="InstructionList_8h_source.html">InstructionList.h</a>&quot;</code><br />
@@ -92,22 +95,22 @@ Include dependency graph for STM_FUNCTIONS.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="STM__FUNCTIONS_8c__incl.png" border="0" usemap="#aCore_2Src_2STM__FUNCTIONS_8c" alt=""/></div>
 <map name="aCore_2Src_2STM__FUNCTIONS_8c" id="aCore_2Src_2STM__FUNCTIONS_8c">
-<area shape="rect" title=" " alt="" coords="296,5,499,31"/>
+<area shape="rect" title="Inplementation of STM32&#45;specific functions." alt="" coords="296,5,499,31"/>
 <area shape="rect" title=" " alt="" coords="5,152,88,177"/>
 <area shape="poly" title=" " alt="" coords="339,33,263,52,182,81,123,113,74,146,71,142,120,109,180,76,261,47,337,28"/>
 <area shape="rect" title=" " alt="" coords="467,225,538,251"/>
 <area shape="poly" title=" " alt="" coords="426,28,463,46,504,73,544,108,561,128,575,151,578,171,569,190,555,207,537,220,534,216,551,203,565,187,572,170,569,153,556,131,540,111,501,77,460,51,424,33"/>
-<area shape="rect" href="InstructionList_8h.html" title="Enthält Funktionen zum Programmieren des PCD und Ausführen des Programms." alt="" coords="113,152,239,177"/>
+<area shape="rect" href="InstructionList_8h.html" title="Provides functions for the programming and execution mode to other files as well as the function iden..." alt="" coords="113,152,239,177"/>
 <area shape="poly" title=" " alt="" coords="297,33,246,51,223,64,203,81,194,93,187,108,180,139,175,138,182,107,189,91,199,77,220,60,244,46,295,28"/>
 <area shape="rect" href="BA__Display_8h.html" title="Provides functions for the use of the OLED&#45;display to other files." alt="" coords="315,152,421,177"/>
 <area shape="poly" title=" " alt="" coords="398,32,376,139,370,138,392,31"/>
-<area shape="rect" href="BA__EEPROM_8h.html" title="Stellt Funktionen zur Speicherung und Abfrage von Daten aus dem EEPROM&#45;Speicher bereit." alt="" coords="445,152,560,177"/>
+<area shape="rect" href="BA__EEPROM_8h.html" title="Provides functions for the use of the EEPROM to other files." alt="" coords="445,152,560,177"/>
 <area shape="poly" title=" " alt="" coords="408,30,488,139,484,142,404,33"/>
 <area shape="rect" title=" " alt="" coords="588,225,655,251"/>
 <area shape="poly" title=" " alt="" coords="443,28,493,47,542,77,571,108,593,144,608,180,618,211,613,213,603,182,588,146,567,111,538,81,490,52,441,33"/>
-<area shape="rect" href="STM__FUNCTIONS_8h.html" title="Enthält alle STM&#45;Spezifischen Funktionen für InstructionList.h." alt="" coords="213,79,360,104"/>
+<area shape="rect" href="STM__FUNCTIONS_8h.html" title="Provides STM&#45;specific functions to other files." alt="" coords="213,79,360,104"/>
 <area shape="poly" title=" " alt="" coords="381,33,318,73,315,69,378,28"/>
-<area shape="rect" href="Instruction_8h.html" title="Definiert Struct Instruction." alt="" coords="226,225,329,251"/>
+<area shape="rect" href="Instruction_8h.html" title="Defines the struct &quot;Instruction&quot;." alt="" coords="226,225,329,251"/>
 <area shape="poly" title=" " alt="" coords="194,175,251,215,248,219,191,180"/>
 <area shape="poly" title=" " alt="" coords="391,175,470,216,467,221,388,180"/>
 <area shape="poly" title=" " alt="" coords="505,178,505,212,500,212,500,178"/>
@@ -124,49 +127,51 @@ Include dependency graph for STM_FUNCTIONS.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNoteEntry.html">NoteEntry</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct zum Speichern der Frequenz einer Note, sowie der Frequenz des Halbtons über der Note.  <a href="structNoteEntry.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct to save the frequency of a note together with the semitone above it.  <a href="structNoteEntry.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af794d80aeb10203cf729c57421906915" id="r_af794d80aeb10203cf729c57421906915"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8c.html#af794d80aeb10203cf729c57421906915">wait</a> (uint16_t pData)</td></tr>
-<tr class="memdesc:af794d80aeb10203cf729c57421906915"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wartet um die gegebene Zeit in 1/10 Sekunden.  <br /></td></tr>
+<tr class="memdesc:af794d80aeb10203cf729c57421906915"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits the given amount of time (in 1/10 seconds)  <br /></td></tr>
 <tr class="separator:af794d80aeb10203cf729c57421906915"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac41e72d1cb0cdad75c06207a3a4dba3e" id="r_ac41e72d1cb0cdad75c06207a3a4dba3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8c.html#ac41e72d1cb0cdad75c06207a3a4dba3e">setLED</a> (uint8_t fNumber, char colour)</td></tr>
-<tr class="memdesc:ac41e72d1cb0cdad75c06207a3a4dba3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setzt eine der beiden LEDs auf eine gegebene Farbe.  <br /></td></tr>
+<tr class="memdesc:ac41e72d1cb0cdad75c06207a3a4dba3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the colour of one of the two RGB-LEDs.  <br /></td></tr>
 <tr class="separator:ac41e72d1cb0cdad75c06207a3a4dba3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37db92a99aad8080dbea375f75062701" id="r_a37db92a99aad8080dbea375f75062701"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8c.html#a37db92a99aad8080dbea375f75062701">activateBuzzer</a> (<a class="el" href="structInstruction.html">Instruction</a> ex)</td></tr>
-<tr class="memdesc:a37db92a99aad8080dbea375f75062701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aktiviert den Lautsprecher anhand der in der gegebenen <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> gespeicherten Noteninformation.  <br /></td></tr>
+<tr class="memdesc:a37db92a99aad8080dbea375f75062701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates the buzzer with the tone and pitch information provided by an instruction.  <br /></td></tr>
 <tr class="separator:a37db92a99aad8080dbea375f75062701"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22120fdb929bf877ebb26aa37d70fd82" id="r_a22120fdb929bf877ebb26aa37d70fd82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8c.html#a22120fdb929bf877ebb26aa37d70fd82">STM_readADC</a> (uint8_t channel)</td></tr>
-<tr class="memdesc:a22120fdb929bf877ebb26aa37d70fd82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liest einen der 9 ADC-Kanäle aus.  <br /></td></tr>
+<tr class="memdesc:a22120fdb929bf877ebb26aa37d70fd82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads one of the 9 ADC-Channels.  <br /></td></tr>
 <tr class="separator:a22120fdb929bf877ebb26aa37d70fd82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaf36553c82be62ce182afd61123e530" id="r_aeaf36553c82be62ce182afd61123e530"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8c.html#aeaf36553c82be62ce182afd61123e530">isInputHigh</a> (uint8_t port)</td></tr>
-<tr class="memdesc:aeaf36553c82be62ce182afd61123e530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prüft, ob ein gegebener Input logisch 1 ist.  <br /></td></tr>
+<tr class="memdesc:aeaf36553c82be62ce182afd61123e530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines, if a certain input is high.  <br /></td></tr>
 <tr class="separator:aeaf36553c82be62ce182afd61123e530"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a260ea484ef349f73162eb2ccd424bc92" id="r_a260ea484ef349f73162eb2ccd424bc92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8c.html#a260ea484ef349f73162eb2ccd424bc92">number3ToChar</a> (uint16_t pNum, char pOut[3])</td></tr>
-<tr class="memdesc:a260ea484ef349f73162eb2ccd424bc92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt eine Zeichenfolge für eine dreistellige Zahl zurück.  <br /></td></tr>
+<tr class="memdesc:a260ea484ef349f73162eb2ccd424bc92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the chars corresponding to a number with 3 decimal places.  <br /></td></tr>
 <tr class="separator:a260ea484ef349f73162eb2ccd424bc92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ab632fb0b4d5156ea4df0b1e15410e913" id="r_ab632fb0b4d5156ea4df0b1e15410e913"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8c.html#ab632fb0b4d5156ea4df0b1e15410e913">frequency</a> = 0</td></tr>
-<tr class="memdesc:ab632fb0b4d5156ea4df0b1e15410e913"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tonfrequenz des Lautsprechers.  <br /></td></tr>
+<tr class="memdesc:ab632fb0b4d5156ea4df0b1e15410e913"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frequency of the buzzer.  <br /></td></tr>
 <tr class="separator:ab632fb0b4d5156ea4df0b1e15410e913"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfe673e00caa8638b31004fa18f17680" id="r_acfe673e00caa8638b31004fa18f17680"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8c.html#acfe673e00caa8638b31004fa18f17680">lastTick</a> = 0</td></tr>
-<tr class="memdesc:acfe673e00caa8638b31004fa18f17680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speichert die Systemzeit seit dem letzten WAI-Befehl. Wird zur Synchronisierung benutzt.  <br /></td></tr>
+<tr class="memdesc:acfe673e00caa8638b31004fa18f17680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the system time of the last WAI instruction to allow for compensation of other functions runtime.  <br /></td></tr>
 <tr class="separator:acfe673e00caa8638b31004fa18f17680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4b8faf50eeb07577983d36e4c3894b8" id="r_ae4b8faf50eeb07577983d36e4c3894b8"><td class="memItemLeft" align="right" valign="top">TIM_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8c.html#ae4b8faf50eeb07577983d36e4c3894b8">htim14</a></td></tr>
-<tr class="memdesc:ae4b8faf50eeb07577983d36e4c3894b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Von HAL erstelltes Timer-Objekt zum Steuern des Lautsprechers.  <br /></td></tr>
+<tr class="memdesc:ae4b8faf50eeb07577983d36e4c3894b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer object used for the buzzer (provided by HAL)  <br /></td></tr>
 <tr class="separator:ae4b8faf50eeb07577983d36e4c3894b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62fcafba91cf315db7e0e0c8f22c656f" id="r_a62fcafba91cf315db7e0e0c8f22c656f"><td class="memItemLeft" align="right" valign="top">ADC_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8c.html#a62fcafba91cf315db7e0e0c8f22c656f">hadc</a></td></tr>
-<tr class="memdesc:a62fcafba91cf315db7e0e0c8f22c656f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Von HAL erstelltes ADC-Objekt zum Auslesen der analogen Eingänge.  <br /></td></tr>
+<tr class="memdesc:a62fcafba91cf315db7e0e0c8f22c656f"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC object for reading analog inputs (provided by HAL)  <br /></td></tr>
 <tr class="separator:a62fcafba91cf315db7e0e0c8f22c656f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfa1ad9faf60728fdf4eb573afbee4ab" id="r_acfa1ad9faf60728fdf4eb573afbee4ab"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structNoteEntry.html">NoteEntry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STM__FUNCTIONS_8c.html#acfa1ad9faf60728fdf4eb573afbee4ab">notes</a> []</td></tr>
-<tr class="memdesc:acfa1ad9faf60728fdf4eb573afbee4ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Noten und ihre Frequenzen (7. Oktave)  <br /></td></tr>
+<tr class="memdesc:acfa1ad9faf60728fdf4eb573afbee4ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">All notes and their frequencies (all pitch 7)  <br /></td></tr>
 <tr class="separator:acfa1ad9faf60728fdf4eb573afbee4ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Inplementation of STM32-specific functions. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a37db92a99aad8080dbea375f75062701" name="a37db92a99aad8080dbea375f75062701"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a37db92a99aad8080dbea375f75062701">&#9670;&#160;</a></span>activateBuzzer()</h2>
 
@@ -183,10 +188,10 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Aktiviert den Lautsprecher anhand der in der gegebenen <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> gespeicherten Noteninformation. </p>
+<p>Activates the buzzer with the tone and pitch information provided by an instruction. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ex</td><td>Die <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a>, die die Note enthält </td></tr>
+    <tr><td class="paramname">ex</td><td><a class="el" href="structInstruction.html" title="Struct to store an instruction containing a function number and 3 bytes of data.">Instruction</a> containing the tone's information </td></tr>
   </table>
   </dd>
 </dl>
@@ -209,14 +214,14 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Prüft, ob ein gegebener Input logisch 1 ist. </p>
+<p>Determines, if a certain input is high. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">port</td><td>Der Input, der geprüft werden soll: 0: Taster 1, 1: Taster 2, 2: Taster 3, 3: Taster 4 </td></tr>
+    <tr><td class="paramname">port</td><td>The input to be processed: 0: Button 1, 1: Button 2, 2: Button 3, 3: Button 4 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Wahrheitswert, der angibt, ob der Input logisch 1 ist </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Bool that states if the input is high </dd></dl>
 
 </div>
 </div>
@@ -246,11 +251,11 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gibt eine Zeichenfolge für eine dreistellige Zahl zurück. </p>
+<p>Returns the chars corresponding to a number with 3 decimal places. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pNum</td><td>Die Zahl, die konvertiert werden soll </td></tr>
-    <tr><td class="paramname">pOut</td><td>Das Array, in das die Zeichen geschrieben werden sollen </td></tr>
+    <tr><td class="paramname">pNum</td><td>The number to be converted </td></tr>
+    <tr><td class="paramname">pOut</td><td>The array in which to write the corresponding characters </td></tr>
   </table>
   </dd>
 </dl>
@@ -283,11 +288,11 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Setzt eine der beiden LEDs auf eine gegebene Farbe. </p>
+<p>Sets the colour of one of the two RGB-LEDs. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fNumber</td><td>Position der LED: 0 = LED1 (links), 1 = LED2 (rechts)</td></tr>
-    <tr><td class="paramname">colour</td><td>Gewünschte Farbe: 'R' = Rot, 'G' = Grün, 'B' = Blau, 'O' = Orange, 'V' = Violett, 'T' = Türkis, 'W' = Weiß, 'A' = Aus </td></tr>
+    <tr><td class="paramname">fNumber</td><td>Position of the LED: 0 = first, 1 = second</td></tr>
+    <tr><td class="paramname">colour</td><td>Wanted colour: 'R' = red, 'G' = green, 'B' = blue, 'O' = orange, 'V' = violet, 'T' = turquoise, 'W' = white, Everything else = off </td></tr>
   </table>
   </dd>
 </dl>
@@ -310,14 +315,14 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Liest einen der 9 ADC-Kanäle aus. </p>
+<p>Reads one of the 9 ADC-Channels. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">channel</td><td>Der gewünschte Kanal </td></tr>
+    <tr><td class="paramname">channel</td><td>The chosen channel </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Der analoge 8-Bit-Wert des Kanals </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The analog value of the channel </dd></dl>
 
 </div>
 </div>
@@ -337,10 +342,10 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Wartet um die gegebene Zeit in 1/10 Sekunden. </p>
+<p>Waits the given amount of time (in 1/10 seconds) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pData</td><td>Die Zeit, um die das Programm angehalten werden soll in 1/10 Sekunden </td></tr>
+    <tr><td class="paramname">pData</td><td>Delay time (in 1/10 seconds) </td></tr>
   </table>
   </dd>
 </dl>
@@ -360,7 +365,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Tonfrequenz des Lautsprechers. </p>
+<p>Frequency of the buzzer. </p>
 
 </div>
 </div>
@@ -384,7 +389,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Von HAL erstelltes ADC-Objekt zum Auslesen der analogen Eingänge. </p>
+<p>ADC object for reading analog inputs (provided by HAL) </p>
 
 </div>
 </div>
@@ -408,7 +413,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Von HAL erstelltes Timer-Objekt zum Steuern des Lautsprechers. </p>
+<p>Timer object used for the buzzer (provided by HAL) </p>
 
 </div>
 </div>
@@ -424,7 +429,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Speichert die Systemzeit seit dem letzten WAI-Befehl. Wird zur Synchronisierung benutzt. </p>
+<p>Saves the system time of the last WAI instruction to allow for compensation of other functions runtime. </p>
+<p>(system time rolls over every 50 days so roll over protection is unnecessary) </p>
 
 </div>
 </div>
@@ -457,7 +463,7 @@ Variables</h2></td></tr>
 <div class="line">    {<span class="charliteral">&#39;H&#39;</span>, 39511, 41860},</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p>Noten und ihre Frequenzen (7. Oktave) </p>
+<p>All notes and their frequencies (all pitch 7) </p>
 
 </div>
 </div>

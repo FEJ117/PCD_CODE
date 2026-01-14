@@ -78,6 +78,9 @@ $(function() {
   <div class="headertitle"><div class="title">PS2Driver.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Inplementation of function to use a PS/2 keyboard.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="PS2Driver_8h_source.html">PS2Driver.h</a>&quot;</code><br />
 <code>#include &quot;main.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -85,8 +88,8 @@ Include dependency graph for PS2Driver.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="PS2Driver_8c__incl.png" border="0" usemap="#aCore_2Src_2PS2Driver_8c" alt=""/></div>
 <map name="aCore_2Src_2PS2Driver_8c" id="aCore_2Src_2PS2Driver_8c">
-<area shape="rect" title=" " alt="" coords="30,5,185,31"/>
-<area shape="rect" href="PS2Driver_8h.html" title="Stellt Funktionen zur Benutzung einer PS/2 Tastatur zur Verfügung." alt="" coords="5,79,103,104"/>
+<area shape="rect" title="Inplementation of function to use a PS/2 keyboard." alt="" coords="30,5,185,31"/>
+<area shape="rect" href="PS2Driver_8h.html" title="Provides function to read input from the PS/2 keyboard to other functions." alt="" coords="5,79,103,104"/>
 <area shape="poly" title=" " alt="" coords="101,33,73,69,69,66,96,29"/>
 <area shape="rect" title=" " alt="" coords="127,79,194,104"/>
 <area shape="poly" title=" " alt="" coords="118,29,146,66,142,69,114,33"/>
@@ -96,10 +99,12 @@ Include dependency graph for PS2Driver.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a2da36c055d23bb1f20f20bfabbb40661" id="r_a2da36c055d23bb1f20f20bfabbb40661"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="PS2Driver_8c.html#a2da36c055d23bb1f20f20bfabbb40661">getKey</a> ()</td></tr>
-<tr class="memdesc:a2da36c055d23bb1f20f20bfabbb40661"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gibt die letzte Taste auf der Tastatur aus, die gedrückt wurde (nur ausgewählte Tasten) und leert den Buffer.  <br /></td></tr>
+<tr class="memdesc:a2da36c055d23bb1f20f20bfabbb40661"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the key last pressed on the keyboard and empties the buffer.  <br /></td></tr>
 <tr class="separator:a2da36c055d23bb1f20f20bfabbb40661"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Inplementation of function to use a PS/2 keyboard. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a2da36c055d23bb1f20f20bfabbb40661" name="a2da36c055d23bb1f20f20bfabbb40661"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2da36c055d23bb1f20f20bfabbb40661">&#9670;&#160;</a></span>getKey()</h2>
 
@@ -115,10 +120,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gibt die letzte Taste auf der Tastatur aus, die gedrückt wurde (nur ausgewählte Tasten) und leert den Buffer. </p>
+<p>Returns the key last pressed on the keyboard and empties the buffer. </p>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">Taste,die</td><td>gedrückt wurde als Zeichen </td></tr>
+    <tr><td class="paramname">Key</td><td>that has been pressed (not all keys supported. Unsupported keys result in return 0) </td></tr>
   </table>
   </dd>
 </dl>

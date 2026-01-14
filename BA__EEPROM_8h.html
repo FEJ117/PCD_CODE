@@ -79,7 +79,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Stellt Funktionen zur Speicherung und Abfrage von Daten aus dem EEPROM-Speicher bereit.  
+<p>Provides functions for the use of the EEPROM to other files.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;main.h&quot;</code><br />
@@ -89,12 +89,12 @@ Include dependency graph for BA_EEPROM.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="BA__EEPROM_8h__incl.png" border="0" usemap="#aCore_2Src_2BA__EEPROM_8h" alt=""/></div>
 <map name="aCore_2Src_2BA__EEPROM_8h" id="aCore_2Src_2BA__EEPROM_8h">
-<area shape="rect" title="Stellt Funktionen zur Speicherung und Abfrage von Daten aus dem EEPROM&#45;Speicher bereit." alt="" coords="48,5,220,31"/>
+<area shape="rect" title="Provides functions for the use of the EEPROM to other files." alt="" coords="48,5,220,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,76,104"/>
 <area shape="poly" title=" " alt="" coords="121,33,68,72,65,68,117,29"/>
 <area shape="rect" title=" " alt="" coords="101,79,167,104"/>
 <area shape="poly" title=" " alt="" coords="137,31,137,65,131,65,131,31"/>
-<area shape="rect" href="Instruction_8h.html" title="Definiert Struct Instruction." alt="" coords="192,79,295,104"/>
+<area shape="rect" href="Instruction_8h.html" title="Defines the struct &quot;Instruction&quot;." alt="" coords="192,79,295,104"/>
 <area shape="poly" title=" " alt="" coords="153,28,215,69,212,73,150,33"/>
 </map>
 </div>
@@ -103,14 +103,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="BA__EEPROM_8h__dep__incl.png" border="0" usemap="#aCore_2Src_2BA__EEPROM_8hdep" alt=""/></div>
 <map name="aCore_2Src_2BA__EEPROM_8hdep" id="aCore_2Src_2BA__EEPROM_8hdep">
-<area shape="rect" title="Stellt Funktionen zur Speicherung und Abfrage von Daten aus dem EEPROM&#45;Speicher bereit." alt="" coords="403,5,575,31"/>
-<area shape="rect" href="BA__EEPROM_8c.html" title=" " alt="" coords="5,152,176,177"/>
+<area shape="rect" title="Provides functions for the use of the EEPROM to other files." alt="" coords="403,5,575,31"/>
+<area shape="rect" href="BA__EEPROM_8c.html" title="Implementation of EEPROM&#45;Functions." alt="" coords="5,152,176,177"/>
 <area shape="poly" title=" " alt="" coords="446,38,123,154,121,149,444,33"/>
-<area shape="rect" href="InstructionList_8c.html" title=" " alt="" coords="201,152,383,177"/>
+<area shape="rect" href="InstructionList_8c.html" title="Implementation of the main program logic for writing and executing commands." alt="" coords="201,152,383,177"/>
 <area shape="poly" title=" " alt="" coords="450,39,413,57,376,81,334,119,303,154,299,150,330,115,373,77,410,53,448,34"/>
-<area shape="rect" href="STM__FUNCTIONS_8c.html" title=" " alt="" coords="595,152,797,177"/>
+<area shape="rect" href="STM__FUNCTIONS_8c.html" title="Inplementation of STM32&#45;specific functions." alt="" coords="595,152,797,177"/>
 <area shape="poly" title=" " alt="" coords="529,34,566,53,604,76,652,115,687,150,683,154,648,119,601,81,564,58,527,39"/>
-<area shape="rect" href="STM__FUNCTIONS_8h.html" title="Enthält alle STM&#45;Spezifischen Funktionen für InstructionList.h." alt="" coords="387,79,591,104"/>
+<area shape="rect" href="STM__FUNCTIONS_8h.html" title="Provides STM&#45;specific functions to other files." alt="" coords="387,79,591,104"/>
 <area shape="poly" title=" " alt="" coords="492,44,492,79,487,79,487,44"/>
 <area shape="rect" href="main_8c.html" title=": Main program body" alt="" coords="822,152,946,177"/>
 <area shape="poly" title=" " alt="" coords="534,33,854,149,852,154,532,38"/>
@@ -128,20 +128,20 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a01518e29577173c26383fdcdce0e7b2a" id="r_a01518e29577173c26383fdcdce0e7b2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structInstruction.html">Instruction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="BA__EEPROM_8h.html#a01518e29577173c26383fdcdce0e7b2a">getInstruction</a> (int position)</td></tr>
-<tr class="memdesc:a01518e29577173c26383fdcdce0e7b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liest eine <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> aus dem EEPROM-Speicher.  <br /></td></tr>
+<tr class="memdesc:a01518e29577173c26383fdcdce0e7b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an instruction from the EEPROM.  <br /></td></tr>
 <tr class="separator:a01518e29577173c26383fdcdce0e7b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaedd081264fc312e12035dd9f5aebb27" id="r_aaedd081264fc312e12035dd9f5aebb27"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="BA__EEPROM_8h.html#aaedd081264fc312e12035dd9f5aebb27">getFunctionNumberByPosition</a> (int position)</td></tr>
-<tr class="memdesc:aaedd081264fc312e12035dd9f5aebb27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liest die Funktionsnummer einer <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> and einer gegebenen Position im EEPROM.  <br /></td></tr>
+<tr class="memdesc:aaedd081264fc312e12035dd9f5aebb27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the function number of an instruction in the EEPROM.  <br /></td></tr>
 <tr class="separator:aaedd081264fc312e12035dd9f5aebb27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a054467629e212e68ea643f35cabf8dd6" id="r_a054467629e212e68ea643f35cabf8dd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="BA__EEPROM_8h.html#a054467629e212e68ea643f35cabf8dd6">putInstruction</a> (<a class="el" href="structInstruction.html">Instruction</a> in, int position)</td></tr>
-<tr class="memdesc:a054467629e212e68ea643f35cabf8dd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schreibt eine <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> an gegebener Position in den EEPROM-Speicher.  <br /></td></tr>
+<tr class="memdesc:a054467629e212e68ea643f35cabf8dd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an instruction into EEPROM at the given position.  <br /></td></tr>
 <tr class="separator:a054467629e212e68ea643f35cabf8dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7597b11ac3eca9100e163a3b18c2a2d" id="r_aa7597b11ac3eca9100e163a3b18c2a2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="BA__EEPROM_8h.html#aa7597b11ac3eca9100e163a3b18c2a2d">EEPROM_eraseAll</a> ()</td></tr>
-<tr class="memdesc:aa7597b11ac3eca9100e163a3b18c2a2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Löscht den gesamten EEPROM-Speicher.  <br /></td></tr>
+<tr class="memdesc:aa7597b11ac3eca9100e163a3b18c2a2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all bits of the EEPROM to zero.  <br /></td></tr>
 <tr class="separator:aa7597b11ac3eca9100e163a3b18c2a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Stellt Funktionen zur Speicherung und Abfrage von Daten aus dem EEPROM-Speicher bereit. </p>
+<div class="textblock"><p>Provides functions for the use of the EEPROM to other files. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="aa7597b11ac3eca9100e163a3b18c2a2d" name="aa7597b11ac3eca9100e163a3b18c2a2d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa7597b11ac3eca9100e163a3b18c2a2d">&#9670;&#160;</a></span>EEPROM_eraseAll()</h2>
@@ -158,7 +158,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Löscht den gesamten EEPROM-Speicher. </p>
+<p>Sets all bits of the EEPROM to zero. </p>
 
 </div>
 </div>
@@ -178,14 +178,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Liest die Funktionsnummer einer <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> and einer gegebenen Position im EEPROM. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Reads the function number of an instruction in the EEPROM. </p>
+<p>Position 0 equals the first instruction, 1 the seconds and so on. Even though the instructions take up 4 bytes of space this is accounted for inside the function </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">position</td><td>Die Position der <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a>, von der die Funktionsnummer bestimmt werden soll </td></tr>
+    <tr><td class="paramname">position</td><td>Position of the instruction </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Die Funktionsnummer der <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Function number of the instruction </dd></dl>
 
 </div>
 </div>
@@ -205,14 +205,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Liest eine <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> aus dem EEPROM-Speicher. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Reads an instruction from the EEPROM. </p>
+<p>0 equals the first <a class="el" href="structInstruction.html" title="Struct to store an instruction containing a function number and 3 bytes of data.">Instruction</a> 1 the seconds and so on. Even though the instructions take up 4 bytes of space this is accounted for inside the function </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">position</td><td>Die Position der <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> im Speicher </td></tr>
+    <tr><td class="paramname">position</td><td>Position of the instruction </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Gelesene Insruction </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Read instruction </dd></dl>
 
 </div>
 </div>
@@ -242,11 +242,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Schreibt eine <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> an gegebener Position in den EEPROM-Speicher. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Writes an instruction into EEPROM at the given position. </p>
+<p>Position 0 equals the first instruction, 1 the seconds and so on. Even though the instructions take up 4 bytes of space this is accounted for inside the function </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">in</td><td>Die <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a>, die geschrieben werden soll </td></tr>
-    <tr><td class="paramname">position</td><td>Die Position, an der die <a class="el" href="structInstruction.html" title="Struct zum Speichern einer Instruction mit Funktionsnummer und 3 Bytes Daten.">Instruction</a> geschrieben werden soll </td></tr>
+    <tr><td class="paramname">in</td><td>The instruction to be written </td></tr>
+    <tr><td class="paramname">position</td><td>The position at which to write the <a class="el" href="structInstruction.html" title="Struct to store an instruction containing a function number and 3 bytes of data.">Instruction</a>. </td></tr>
   </table>
   </dd>
 </dl>
