@@ -1,10 +1,10 @@
 <map id="Core/Src/BA_Display.c" name="Core/Src/BA_Display.c">
-<area shape="rect" id="Node000001" title="Implementation von Display&#45;Funktionen." alt="" coords="104,5,266,31"/>
+<area shape="rect" id="Node000001" title="Implementation of Display&#45;Functions." alt="" coords="104,5,266,31"/>
 <area shape="rect" id="Node000002" href="$DisplayFonts_8h.html" title="Enthält Schriftart zur Textausgabe auf dem Display." alt="" coords="28,79,147,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,33,117,72,113,68,168,29"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="51,225,122,251"/>
 <area shape="poly" id="edge16_Node000001_Node000003" title=" " alt="" coords="104,30,56,48,35,62,18,80,10,97,8,114,12,132,19,151,41,186,66,214,62,217,37,189,14,153,6,134,3,114,5,95,14,77,32,58,54,43,102,25"/>
-<area shape="rect" id="Node000004" href="$BA__Display_8h.html" title="Stellt Funktionen zur Benutzung des OLED&#45;Displays zur Verfügung." alt="" coords="78,152,185,177"/>
+<area shape="rect" id="Node000004" href="$BA__Display_8h.html" title="Provides functions for the use of the OLED&#45;display to other files." alt="" coords="78,152,185,177"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="184,32,161,105,146,141,141,138,156,103,179,30"/>
 <area shape="rect" id="Node000005" href="$STM__FUNCTIONS_8h.html" title="Enthält alle STM&#45;Spezifischen Funktionen für InstructionList.h." alt="" coords="276,79,422,104"/>
 <area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="213,28,311,71,309,76,210,33"/>

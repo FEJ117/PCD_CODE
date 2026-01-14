@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Enthält alle STM&#45;Spezifischen Funktionen für InstructionList.h." alt="" coords="198,5,402,31"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,79,88,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="260,33,102,77,100,72,259,28"/>
-<area shape="rect" id="Node000003" href="$BA__Display_8h.html" title="Stellt Funktionen zur Benutzung des OLED&#45;Displays zur Verfügung." alt="" coords="112,79,219,104"/>
+<area shape="rect" id="Node000003" href="$BA__Display_8h.html" title="Provides functions for the use of the OLED&#45;display to other files." alt="" coords="112,79,219,104"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="280,33,201,74,198,70,277,28"/>
 <area shape="rect" id="Node000005" href="$BA__EEPROM_8h.html" title="Stellt Funktionen zur Speicherung und Abfrage von Daten aus dem EEPROM&#45;Speicher bereit." alt="" coords="243,79,357,104"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="303,31,303,65,297,65,297,31"/>

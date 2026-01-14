@@ -1,6 +1,6 @@
 <map id="Core/Src/STM_FUNCTIONS.h" name="Core/Src/STM_FUNCTIONS.h">
 <area shape="rect" id="Node000001" title="Enthält alle STM&#45;Spezifischen Funktionen für InstructionList.h." alt="" coords="377,5,581,31"/>
-<area shape="rect" id="Node000002" href="$BA__Display_8c.html" title="Implementation von Display&#45;Funktionen." alt="" coords="5,79,168,104"/>
+<area shape="rect" id="Node000002" href="$BA__Display_8c.html" title="Implementation of Display&#45;Functions." alt="" coords="5,79,168,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="403,36,151,81,150,76,402,30"/>
 <area shape="rect" id="Node000003" href="$BA__EEPROM_8c.html" title=" " alt="" coords="192,79,363,104"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="434,38,311,81,309,76,432,33"/>

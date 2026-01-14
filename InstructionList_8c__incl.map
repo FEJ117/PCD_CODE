@@ -21,7 +21,7 @@
 <area shape="poly" id="edge14_Node000008_Node000007" title=" " alt="" coords="258,107,130,150,129,145,256,101"/>
 <area shape="rect" id="Node000009" title=" " alt="" coords="221,152,304,177"/>
 <area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="288,105,275,140,270,138,284,103"/>
-<area shape="rect" id="Node000010" href="$BA__Display_8h.html" title="Stellt Funktionen zur Benutzung des OLED&#45;Displays zur Verfügung." alt="" coords="328,152,435,177"/>
+<area shape="rect" id="Node000010" href="$BA__Display_8h.html" title="Provides functions for the use of the OLED&#45;display to other files." alt="" coords="328,152,435,177"/>
 <area shape="poly" id="edge11_Node000008_Node000010" title=" " alt="" coords="307,102,357,141,354,145,304,106"/>
 <area shape="poly" id="edge12_Node000010_Node000003" title=" " alt="" coords="387,177,397,211,392,213,382,178"/>
 </map>
