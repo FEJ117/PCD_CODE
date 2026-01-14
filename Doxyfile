@@ -1,5 +1,5 @@
 PROJECT_NAME           = "PCD_CODE"
-INPUT                  = Core/src
+INPUT                  = Core/Src
 RECURSIVE              = YES
 
 EXTRACT_ALL            = YES
