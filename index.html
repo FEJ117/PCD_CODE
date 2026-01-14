@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PCD_CODE: PCD_CODE</title>
+<title>PCD_CODE: Dokumentation hier abrufbar: &lt;a href=&quot;https://FEJ117.github.io/PCD_CODE/index.html&quot; &gt;&lt;img src=&quot;https://img.shields.io/badge/docs-doxygen-blue.svg&quot; alt=&quot;Documentation&quot;/&gt;&lt;/a&gt;</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,14 +69,14 @@ $(function() {
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">PCD_CODE </div></div>
+  <div class="headertitle"><div class="title">Dokumentation hier abrufbar: <a href="https://FEJ117.github.io/PCD_CODE/index.html"><img src="https://img.shields.io/badge/docs-doxygen-blue.svg" alt="Documentation" style="pointer-events: none;" class="inline"/></a> </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> #Dokumentation hier abrufbar: <a href="https://FEJ117.github.io/PCD_CODE/index.html"><img src="https://img.shields.io/badge/docs-doxygen-blue.svg" alt="Documentation" style="pointer-events: none;" class="inline"/></a></p>
-<h1><a class="anchor" id="autotoc_md0"></a>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> </p>
+<h1><a class="anchor" id="autotoc_md1"></a>
 Programmlogik</h1>
 <p>Die Dateien <a class="el" href="InstructionList_8h.html" title="Enthält Funktionen zum Programmieren des PCD und Ausführen des Programms.">InstructionList.h</a>, <a class="el" href="InstructionList_8c.html">InstructionList.c</a> und <a class="el" href="Instruction_8h.html" title="Definiert Struct Instruction.">Instruction.h</a> enthalten die eigentliche Struktur des Programms. Sie enthalten die möglichen Befehle, sowie die Art und Weise in der die Befehle eingegeben und ausgeführt werden. Die Dateien enthalten keine Funktionen, die STM32-Spezifisch sind. Das bedeutet, dass diese Dateien genau so in einem Projekt auf einer anderen Mikroprozessorplattform (Beispielsweise ATMega oder PIC) eingesetzt werden können.</p>
-<h1><a class="anchor" id="autotoc_md1"></a>
+<h1><a class="anchor" id="autotoc_md2"></a>
 STM32-Spezifische Programmelemente</h1>
 <p>Im Gegensatz zu den in "Programmlogik" genannten Dateien enthalten die übrigen Dateien Funktionen, die nur im STM32-Entwicklungsumfeld eingesetzt werden können. Dazu gehören die Steuerung des Displays (<a class="el" href="BA__Display_8c.html" title="Implementation von Display-Funktionen.">BA_Display.c</a> und <a class="el" href="BA__Display_8h.html" title="Stellt Funktionen zur Benutzung des OLED-Displays zur Verfügung.">BA_Display.h</a>), das Auslesen der Tastatur (<a class="el" href="PS2Driver_8c.html">PS2Driver.c</a> und <a class="el" href="PS2Driver_8h.html" title="Stellt Funktionen zur Benutzung einer PS/2 Tastatur zur Verfügung.">PS2Driver.h</a>), das Schreiben und Auslesen des EEPROM-Speichers (<a class="el" href="BA__EEPROM_8c.html">BA_EEPROM.c</a> und <a class="el" href="BA__EEPROM_8h.html" title="Stellt Funktionen zur Speicherung und Abfrage von Daten aus dem EEPROM-Speicher bereit.">BA_EEPROM.h</a>), sowie weitere Funktionen, beispielsweise zur Steuerung der GPIO-Ports (<a class="el" href="STM__FUNCTIONS_8c.html">STM_FUNCTIONS.c</a> und <a class="el" href="STM__FUNCTIONS_8h.html" title="Enthält alle STM-Spezifischen Funktionen für InstructionList.h.">STM_FUNCTIONS.h</a>). Bei einem Wechsel auf eine andere Plattform muss davon ausgegangen werden, dass die in den Dateien enthaltenen Funktionen durch Funktionen ersetzt werden müssen, die mit der neuen Plattform kompatibel sind. Die Headerdateien (.h) geben dabei jeweils an, auf welche der Funktionen von Außen, das heißt innerhalb einer anderen Datei, zugegriffen wird. Die in den Headerdateien angegebenen Funktionen müssen bei einem Wechsel der Plattform zwingend zur Verfügung gestellt werden. </p>
 </div></div><!-- PageDoc -->

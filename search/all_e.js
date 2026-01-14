@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['nächsten_20befehl_20wenn_20die_20bedingung_20zutrifft_0',['Springt zum nächsten Befehl, wenn die Bedingung zutrifft',['../InstructionList_8c.html#autotoc_md4',1,'']]],
+  ['nächsten_20befehl_20wenn_20die_20bedingung_20zutrifft_0',['Springt zum nächsten Befehl, wenn die Bedingung zutrifft',['../InstructionList_8c.html#autotoc_md5',1,'']]],
   ['name_1',['name',['../structFunctionNameEntry.html#a04c4feb7133add050f778f1309f699ed',1,'FunctionNameEntry']]],
-  ['nicht_20zutrifft_2',['nicht zutrifft',['../InstructionList_8c.html#autotoc_md3',1,'Springt hinter den Programmblock, wenn die Bedingung nicht zutrifft'],['../InstructionList_8c.html#autotoc_md5',1,'Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft']]],
+  ['nicht_20zutrifft_2',['nicht zutrifft',['../InstructionList_8c.html#autotoc_md4',1,'Springt hinter den Programmblock, wenn die Bedingung nicht zutrifft'],['../InstructionList_8c.html#autotoc_md6',1,'Springt zum übernächsten Befehl, wenn die Bedingung nicht zutrifft']]],
   ['nmi_5fhandler_3',['NMI_Handler',['../stm32f0xx__it_8c.html#a6ad7a5e3ee69cb6db6a6b9111ba898bc',1,'stm32f0xx_it.c']]],
   ['note_4',['note',['../structNoteEntry.html#abb06ccfbc921fe4c54b323987f1fe21e',1,'NoteEntry']]],
   ['noteentry_5',['NoteEntry',['../structNoteEntry.html',1,'']]],
