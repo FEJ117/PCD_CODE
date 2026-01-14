@@ -1,4 +1,4 @@
-#Dokumentation hier abrufbar: [![Documentation](https://img.shields.io/badge/docs-doxygen-blue.svg)](https://FEJ117.github.io/PCD_CODE/index.html)
+# Dokumentation hier abrufbar: [![Documentation](https://img.shields.io/badge/docs-doxygen-blue.svg)](https://FEJ117.github.io/PCD_CODE/index.html)
 
 # Programmlogik
 Die Dateien InstructionList.h, InstructionList.c und Instruction.h enthalten die eigentliche Struktur des Programms. Sie enthalten die möglichen Befehle, sowie die Art und Weise in der die Befehle eingegeben und ausgeführt werden. Die Dateien enthalten keine Funktionen, die STM32-Spezifisch sind. Das bedeutet, dass diese Dateien genau so in einem Projekt auf einer anderen Mikroprozessorplattform (Beispielsweise ATMega oder PIC) eingesetzt werden können.
