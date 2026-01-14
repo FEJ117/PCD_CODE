@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['pcd_5fcode_20index_20html_20img_20src_20https_3a_20img_20shields_20io_20badge_20docs_20doxygen_20blue_20svg_20alt_20documentation_20a_0',['Dokumentation hier abrufbar: &lt;a href=&quot;https://FEJ117.github.io/PCD_CODE/index.html&quot; &gt;&lt;img src=&quot;https://img.shields.io/badge/docs-doxygen-blue.svg&quot; alt=&quot;Documentation&quot;/&gt;&lt;/a&gt;',['../index.html',1,'']]],
+  ['pcd_5fcode_20index_20html_20img_20src_20https_3a_20img_20shields_20io_20badge_20docs_20doxygen_20blue_20svg_20alt_20documentation_20a_0',['Full documentation can be accessed here: &lt;a href=&quot;https://FEJ117.github.io/PCD_CODE/index.html&quot; &gt;&lt;img src=&quot;https://img.shields.io/badge/docs-doxygen-blue.svg&quot; alt=&quot;Documentation&quot;/&gt;&lt;/a&gt;',['../index.html',1,'']]],
   ['pendsv_5fhandler_1',['PendSV_Handler',['../stm32f0xx__it_8c.html#a6303e1f258cbdc1f970ce579cc015623',1,'stm32f0xx_it.c']]],
   ['position_20after_20beg_2',['If the condition is true: Jump into the block (one position after BEG)',['../InstructionList_8c.html#autotoc_md3',1,'']]],
   ['position_20after_20end_3',['If the condition is false: Jump one position after END',['../InstructionList_8c.html#autotoc_md4',1,'']]],

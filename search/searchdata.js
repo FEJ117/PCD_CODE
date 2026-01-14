@@ -9,7 +9,7 @@ var indexSectionsWithContent =
   6: "f",
   7: "i",
   8: "cs",
-  9: "abdfghips"
+  9: "abcdfghips"
 };
 
 var indexSectionNames =
