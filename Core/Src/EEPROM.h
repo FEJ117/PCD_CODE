@@ -1,5 +1,5 @@
 /**
- * @file BA_EEPROM.h
+ * @file EEPROM.h
  * @brief Provides functions for the use of the EEPROM to other files
  */
 

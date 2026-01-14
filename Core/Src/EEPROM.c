@@ -1,5 +1,5 @@
 /**
- * @file BA_EEPROM.c
+ * @file EEPROM.c
  * @brief Implementation of EEPROM-Functions
  */
 
