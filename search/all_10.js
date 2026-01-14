@@ -8,5 +8,5 @@ var searchData=
   ['programs_20main_20logic_5',['The programs main logic',['../index.html#autotoc_md1',1,'']]],
   ['ps2driver_2ec_6',['PS2Driver.c',['../PS2Driver_8c.html',1,'']]],
   ['ps2driver_2eh_7',['PS2Driver.h',['../PS2Driver_8h.html',1,'']]],
-  ['putinstruction_8',['putinstruction',['../BA__EEPROM_8c.html#a054467629e212e68ea643f35cabf8dd6',1,'putInstruction(Instruction in, int position):&#160;BA_EEPROM.c'],['../BA__EEPROM_8h.html#a054467629e212e68ea643f35cabf8dd6',1,'putInstruction(Instruction in, int position):&#160;BA_EEPROM.c']]]
+  ['putinstruction_8',['putinstruction',['../EEPROM_8c.html#a054467629e212e68ea643f35cabf8dd6',1,'putInstruction(Instruction in, int position):&#160;EEPROM.c'],['../EEPROM_8h.html#a054467629e212e68ea643f35cabf8dd6',1,'putInstruction(Instruction in, int position):&#160;EEPROM.c']]]
 ];
