@@ -18,7 +18,7 @@ extern I2C_HandleTypeDef hi2c1;
   * @param address Address of the byte
   * @return The byte at the given address
   */
-uint8_t EEPROM_ReadByte(uint16_t address)
+static uint8_t EEPROM_ReadByte(uint16_t address)
 {
 	uint8_t data;
 
@@ -38,7 +38,7 @@ uint8_t EEPROM_ReadByte(uint16_t address)
   * @param address Address to write the byte at
   * @param data The byte to be written
   */
-void EEPROM_WriteByte(uint16_t address, uint8_t data)
+static void EEPROM_WriteByte(uint16_t address, uint8_t data)
 {
 
 	HAL_I2C_Mem_Write(&hi2c1,

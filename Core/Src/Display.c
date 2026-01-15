@@ -25,7 +25,7 @@ uint16_t addr = 0x3C;
   * @param pCommands[] List of commands
   * @param pSize Size of pCommands[] in bytes
   */
-void Display_WriteCommands(uint8_t pCommands[], uint16_t pSize)
+static void Display_WriteCommands(uint8_t pCommands[], uint16_t pSize)
 {
 	uint8_t buffer[2];
 	buffer[0] = 0x00;  // Control byte for command
@@ -61,7 +61,7 @@ void Display_SetContrast(uint8_t value)
   * @brief Writes a byte of data to the display (The display automatically increments the cursor psoition)
   * @param data Byte of data that is sent to the Display
   */
-void Display_WriteData(uint8_t data)
+static void Display_WriteData(uint8_t data)
 {
     uint8_t buffer[2]=
 	{

@@ -37,7 +37,7 @@ Instruction emptyInstruction = {0,0,0,0};
   * @brief Deletes the instruction at the given position
   * @param pPos Position of the instruction
   */
-void InstructionList_RemoveInstruction(uint8_t pPos)
+static void InstructionList_RemoveInstruction(uint8_t pPos)
 {
     for(int i = pPos; i < 0xFF0; i++)
     {
@@ -52,7 +52,7 @@ void InstructionList_RemoveInstruction(uint8_t pPos)
   * @brief Inserts an instruction at the given position
   * @param pPos Position at which to insert the instruction
   */
-void InstructionList_InsertEmpty(uint8_t pPos)
+static void InstructionList_InsertEmpty(uint8_t pPos)
 {
 	int firstEmpty = 0;
 	while(EEPROM_GetFunctionNumber(firstEmpty) != FUNCTION_EMPTY){firstEmpty++;}
@@ -71,7 +71,7 @@ void InstructionList_InsertEmpty(uint8_t pPos)
   * @param pIn The instruction to be processed
   * @param arr The array in which to write the identifier
   */
-void InstructionList_GetFunctionName(Instruction pIn, char arr[3])
+static void InstructionList_GetFunctionName(Instruction pIn, char arr[3])
 {
     for (uint16_t i = 0; i < sizeof(functionNames) / sizeof(FunctionNameEntry); i++) {
         if (pIn.functionNumber == functionNames[i].functionNumber) {
@@ -91,7 +91,7 @@ void InstructionList_GetFunctionName(Instruction pIn, char arr[3])
   * @param i2 The second instruction to be displayed
   * @param pIndex Index of the first instruction (used for line numbers)
   */
-void InstructionList_WriteInstructions(Instruction i1, Instruction i2, uint16_t pIndex)
+static void InstructionList_WriteInstructions(Instruction i1, Instruction i2, uint16_t pIndex)
 {
 	char functionName[3];
 	char numChars[3];
@@ -123,7 +123,7 @@ void InstructionList_WriteInstructions(Instruction i1, Instruction i2, uint16_t 
   * @details The active instruction will always be the one on the bottom, except for when the index (programIndex) is zero.
   In this case the arrow will point at line number zero at the top, with line 1 being underneith it.
   */
-void InstructionList_UpdateInstructions()
+static void InstructionList_UpdateInstructions()
 {
 	InstructionList_WriteInstructions(EEPROM_GetInstruction(programIndex-(programIndex != 0)),EEPROM_GetInstruction(programIndex+1-(programIndex != 0)),programIndex-(programIndex != 0));
 	Display_LeftArrow(3*(programIndex != 0));
@@ -139,7 +139,7 @@ void InstructionList_UpdateInstructions()
 * 				# If the contition is false: Jumps to the instruction after the next
   * @param condition The condition which is being processed
   */
-void InstructionList_EvaluateCondition(bool condition) {
+static void InstructionList_EvaluateCondition(bool condition) {
 
 	if(!condition)
 	{
@@ -163,7 +163,7 @@ void InstructionList_EvaluateCondition(bool condition) {
   * @brief Writes up to 3 characters at the current position of the cursor variable (cursPos)
   * @param str Characters to be written (character that equal 0 will be ignored)
   */
-void InstructionList_WriteAtCursor(char str[3])
+static void InstructionList_WriteAtCursor(char str[3])
 {
 	Display_WriteString(str, 3, cursPos, 0);
 	for(uint8_t i = 0; i < 3; i++)
@@ -178,7 +178,7 @@ void InstructionList_WriteAtCursor(char str[3])
   * @param chars The characters representing the function
   * @return The function number corresponding to the characters (or 255 if none was found)
   */
-uint8_t InstructionList_CharsToFunctionNumber(char chars[3])
+static uint8_t InstructionList_CharsToFunctionNumber(char chars[3])
 {
 	for (uint16_t i = 0; i < sizeof(functionNames) / sizeof(FunctionNameEntry); i++)
 	{
@@ -196,7 +196,7 @@ uint8_t InstructionList_CharsToFunctionNumber(char chars[3])
 /**
   * @brief Executes the function of the instruction pointed to by the index (programIndex)
   */
-void InstructionList_ExecuteNext() {
+static void InstructionList_ExecuteNext() {
 	Instruction exe = EEPROM_GetInstruction(programIndex);
 	programIndex++;
 	if (exe.data == 'R') {
