@@ -10,6 +10,7 @@ var searchData=
   ['to_20the_20instruction_20after_20the_20next_7',['If the contition is false: Jumps to the instruction after the next',['../InstructionHandlers_8c.html#autotoc_md7',1,'']]],
   ['to_20the_20next_20instruction_8',['If the condition is true: Jumps to the next instruction',['../InstructionHandlers_8c.html#autotoc_md6',1,'']]],
   ['to_20the_20system_9',['Adding commands to the system',['../index.html#autotoc_md3',1,'']]],
-  ['true_3a_20jump_20into_20the_20block_20one_20position_20after_20beg_10',['If the condition is true: Jump into the block (one position after BEG)',['../InstructionHandlers_8c.html#autotoc_md4',1,'']]],
-  ['true_3a_20jumps_20to_20the_20next_20instruction_11',['If the condition is true: Jumps to the next instruction',['../InstructionHandlers_8c.html#autotoc_md6',1,'']]]
+  ['tone_10',['TONE',['../InstructionHandlers_8h.html#addcd08aa8245e9e1fd41eaa8980677c9a80a5e6f3b8ad74e4b51df8375c8d2757',1,'InstructionHandlers.h']]],
+  ['true_3a_20jump_20into_20the_20block_20one_20position_20after_20beg_11',['If the condition is true: Jump into the block (one position after BEG)',['../InstructionHandlers_8c.html#autotoc_md4',1,'']]],
+  ['true_3a_20jumps_20to_20the_20next_20instruction_12',['If the condition is true: Jumps to the next instruction',['../InstructionHandlers_8c.html#autotoc_md6',1,'']]]
 ];

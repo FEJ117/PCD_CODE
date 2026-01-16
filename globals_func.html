@@ -123,12 +123,6 @@ $(function() {
 </ul>
 
 
-<h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
-<li>getDataNumber()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a6e8c6e040308b6950e2bce1c89dd04cb">InstructionHandlers.c</a></li>
-<li>getRegisterNumber()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a8df53372cd050871ee006ade073202ac">InstructionHandlers.c</a></li>
-</ul>
-
-
 <h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
 <li>HAL_ADC_MspDeInit()&#160;:&#160;<a class="el" href="stm32f0xx__hal__msp_8c.html#a39b0f8e80268ab3e660ead921ad4b22f">stm32f0xx_hal_msp.c</a></li>
 <li>HAL_ADC_MspInit()&#160;:&#160;<a class="el" href="stm32f0xx__hal__msp_8c.html#aa30863492d5c3103e3e8ce8a63dadd07">stm32f0xx_hal_msp.c</a></li>
@@ -146,6 +140,7 @@ $(function() {
 <h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
 <li>initialise_monitor_handles()&#160;:&#160;<a class="el" href="syscalls_8c.html#a25c7f100d498300fff65568c2fcfe639">syscalls.c</a></li>
 <li>InstructionHandlers_INIT()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#ae5162be9d6efef3498d92c35ddd35b9d">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#ae5162be9d6efef3498d92c35ddd35b9d">InstructionHandlers.h</a></li>
+<li>InstructionHandlers_ProcessData()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#ae90abcd7f26e21c4b611c13a2f209883">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#ae90abcd7f26e21c4b611c13a2f209883">InstructionHandlers.h</a></li>
 <li>InstructionList_CharsToFunctionNumber()&#160;:&#160;<a class="el" href="InstructionList_8c.html#a6c95fec88dab66a5c26bd0e66a317bee">InstructionList.c</a></li>
 <li>InstructionList_EvaluateCondition()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a54db62794737bdd73d35433ca7e560a5">InstructionHandlers.c</a></li>
 <li>InstructionList_ExecuteNext()&#160;:&#160;<a class="el" href="InstructionList_8c.html#aa5b95f1a574be6c2061f940ff46a7c2a">InstructionList.c</a></li>
@@ -179,32 +174,30 @@ $(function() {
 <li>op_ADD()&#160;:&#160;<a class="el" href="InstructionHandlers_8h.html#ac0cb94f0383c38b04fd78d7cf7feada2">InstructionHandlers.h</a>, <a class="el" href="InstructionHandlers_8c.html#ac0cb94f0383c38b04fd78d7cf7feada2">InstructionHandlers.c</a></li>
 <li>op_ANH()&#160;:&#160;<a class="el" href="InstructionHandlers_8h.html#a790de8543810192dd04cc22d74843f25">InstructionHandlers.h</a>, <a class="el" href="InstructionHandlers_8c.html#a790de8543810192dd04cc22d74843f25">InstructionHandlers.c</a></li>
 <li>op_ANL()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a15ddb849ba8e65144c26b8bb0d13dd76">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#a15ddb849ba8e65144c26b8bb0d13dd76">InstructionHandlers.h</a></li>
-<li>op_AOU()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a5953af9b062e09bc55845f38cbe42d45">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#a5953af9b062e09bc55845f38cbe42d45">InstructionHandlers.h</a></li>
 <li>op_BEG()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a790a939fd69d037b9f83f3b8ba7c613d">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#a790a939fd69d037b9f83f3b8ba7c613d">InstructionHandlers.h</a></li>
 <li>op_BIG()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#ab930b1a92c3b3fd61c9eaa62c4312a36">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#ab930b1a92c3b3fd61c9eaa62c4312a36">InstructionHandlers.h</a></li>
 <li>op_CLR()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#ab0536ef1ae491958672a641359f80a39">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#ab0536ef1ae491958672a641359f80a39">InstructionHandlers.h</a></li>
 <li>op_COP()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#ab82083cbb7660a9798de1a1e46d5a3ba">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#ab82083cbb7660a9798de1a1e46d5a3ba">InstructionHandlers.h</a></li>
-<li>op_DEC()&#160;:&#160;<a class="el" href="InstructionHandlers_8h.html#a8839522aaacae381e752b6a109103d4d">InstructionHandlers.h</a>, <a class="el" href="InstructionHandlers_8c.html#a8839522aaacae381e752b6a109103d4d">InstructionHandlers.c</a></li>
-<li>op_DOU()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#ae86963b2dc34844a7a62ac43a806d285">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#ae86963b2dc34844a7a62ac43a806d285">InstructionHandlers.h</a></li>
+<li>op_DEC()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a8839522aaacae381e752b6a109103d4d">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#a8839522aaacae381e752b6a109103d4d">InstructionHandlers.h</a></li>
 <li>op_EMPTY()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a4a04d4e47f17a9635e7b1ced06c12482">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#a4a04d4e47f17a9635e7b1ced06c12482">InstructionHandlers.h</a></li>
 <li>op_END()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a20a5dea9c1fb3519d45ea249d8f7bbce">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#a20a5dea9c1fb3519d45ea249d8f7bbce">InstructionHandlers.h</a></li>
 <li>op_INC()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a6cb3ab85833d590dced3a0e77ad5b0c8">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#a6cb3ab85833d590dced3a0e77ad5b0c8">InstructionHandlers.h</a></li>
 <li>op_INH()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a6cba0e52abd90a188457993f58d52b90">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#a6cba0e52abd90a188457993f58d52b90">InstructionHandlers.h</a></li>
 <li>op_INL()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a9d54c232128ad556784de9060a35ce98">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#a9d54c232128ad556784de9060a35ce98">InstructionHandlers.h</a></li>
 <li>op_JPO()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#aea958a3b37d20720f2970edf6b3e5830">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#aea958a3b37d20720f2970edf6b3e5830">InstructionHandlers.h</a></li>
-<li>op_JUM()&#160;:&#160;<a class="el" href="InstructionHandlers_8h.html#adf8647b93c1f8bcf76d06f636402c0ec">InstructionHandlers.h</a>, <a class="el" href="InstructionHandlers_8c.html#adf8647b93c1f8bcf76d06f636402c0ec">InstructionHandlers.c</a></li>
-<li>op_LD1()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a947ba87f022c27a36e7f75e6a3620191">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#a947ba87f022c27a36e7f75e6a3620191">InstructionHandlers.h</a></li>
+<li>op_JUM()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#adf8647b93c1f8bcf76d06f636402c0ec">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#adf8647b93c1f8bcf76d06f636402c0ec">InstructionHandlers.h</a></li>
+<li>op_LD1()&#160;:&#160;<a class="el" href="InstructionHandlers_8h.html#a947ba87f022c27a36e7f75e6a3620191">InstructionHandlers.h</a>, <a class="el" href="InstructionHandlers_8c.html#a947ba87f022c27a36e7f75e6a3620191">InstructionHandlers.c</a></li>
 <li>op_LD2()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#ad03bcb0233b75ff98fbedda16dce7f25">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#ad03bcb0233b75ff98fbedda16dce7f25">InstructionHandlers.h</a></li>
 <li>op_PCH()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#aed9e272710bd867cdd795379e5bd9fc6">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#aed9e272710bd867cdd795379e5bd9fc6">InstructionHandlers.h</a></li>
 <li>op_PIC()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#afd655ac144194f1216e850e6e511c44a">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#afd655ac144194f1216e850e6e511c44a">InstructionHandlers.h</a></li>
 <li>op_PTR()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#ad09c6fa23974234fdc240e82a38d10b5">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#ad09c6fa23974234fdc240e82a38d10b5">InstructionHandlers.h</a></li>
 <li>op_REQ()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#af326538823949e9342645e200190384f">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#af326538823949e9342645e200190384f">InstructionHandlers.h</a></li>
 <li>op_RNQ()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a941124d63fe11c91d5b382718980fd4c">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#a941124d63fe11c91d5b382718980fd4c">InstructionHandlers.h</a></li>
-<li>op_SET()&#160;:&#160;<a class="el" href="InstructionHandlers_8h.html#a2f330b4553a6a9c67abfff51431d945d">InstructionHandlers.h</a>, <a class="el" href="InstructionHandlers_8c.html#a2f330b4553a6a9c67abfff51431d945d">InstructionHandlers.c</a></li>
+<li>op_SET()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a2f330b4553a6a9c67abfff51431d945d">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#a2f330b4553a6a9c67abfff51431d945d">InstructionHandlers.h</a></li>
 <li>op_SMA()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a539e16eef014bef46a36a68833b7a031">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#a539e16eef014bef46a36a68833b7a031">InstructionHandlers.h</a></li>
 <li>op_SPO()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a7347fcec4b1ba5ab47a3736d725660c5">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#a7347fcec4b1ba5ab47a3736d725660c5">InstructionHandlers.h</a></li>
 <li>op_SUB()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#af69797c40a75244e8b6e127fba06ce08">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#af69797c40a75244e8b6e127fba06ce08">InstructionHandlers.h</a></li>
-<li>op_SVA()&#160;:&#160;<a class="el" href="InstructionHandlers_8h.html#a8cf53c96af05e65fe241ac2be549df9a">InstructionHandlers.h</a>, <a class="el" href="InstructionHandlers_8c.html#a8cf53c96af05e65fe241ac2be549df9a">InstructionHandlers.c</a></li>
+<li>op_SVA()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a8cf53c96af05e65fe241ac2be549df9a">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#a8cf53c96af05e65fe241ac2be549df9a">InstructionHandlers.h</a></li>
 <li>op_TON()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#af89434180537bb7f40dbcac693b96ecf">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#af89434180537bb7f40dbcac693b96ecf">InstructionHandlers.h</a></li>
 <li>op_VEQ()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#af791404931a92982c5778fa6423676f9">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#af791404931a92982c5778fa6423676f9">InstructionHandlers.h</a></li>
 <li>op_VNQ()&#160;:&#160;<a class="el" href="InstructionHandlers_8c.html#a53797c4bde4d7a75aa9abdcafa8267a3">InstructionHandlers.c</a>, <a class="el" href="InstructionHandlers_8h.html#a53797c4bde4d7a75aa9abdcafa8267a3">InstructionHandlers.h</a></li>

@@ -7,5 +7,7 @@ var searchData=
   ['condition_20is_20true_3a_20jump_20into_20the_20block_20one_20position_20after_20beg_4',['If the condition is true: Jump into the block (one position after BEG)',['../InstructionHandlers_8c.html#autotoc_md4',1,'']]],
   ['condition_20is_20true_3a_20jumps_20to_20the_20next_20instruction_5',['If the condition is true: Jumps to the next instruction',['../InstructionHandlers_8c.html#autotoc_md6',1,'']]],
   ['contition_20is_20false_3a_20jumps_20to_20the_20instruction_20after_20the_20next_6',['If the contition is false: Jumps to the instruction after the next',['../InstructionHandlers_8c.html#autotoc_md7',1,'']]],
-  ['curspos_7',['cursPos',['../InstructionHandlers_8c.html#a78354ea40ba9e3948ef0fc399e6f4adf',1,'InstructionHandlers.c']]]
+  ['currentdata_7',['currentData',['../InstructionHandlers_8c.html#aca76923b7ec0f81726a2a4ec66abfc43',1,'InstructionHandlers.c']]],
+  ['currentdatatype_8',['currentDataType',['../InstructionHandlers_8c.html#ac200ef5eca6a835f27eab9bb9360f407',1,'InstructionHandlers.c']]],
+  ['curspos_9',['cursPos',['../InstructionHandlers_8c.html#a78354ea40ba9e3948ef0fc399e6f4adf',1,'InstructionHandlers.c']]]
 ];

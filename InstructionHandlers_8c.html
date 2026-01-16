@@ -74,13 +74,13 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">InstructionHandlers.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="Instruction_8h_source.html">Instruction.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="InstructionHandlers_8h_source.html">InstructionHandlers.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Instruction_8h_source.html">Instruction.h</a>&quot;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="Display_8h_source.html">Display.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="EEPROM_8h_source.html">EEPROM.h</a>&quot;</code><br />
@@ -91,51 +91,43 @@ Include dependency graph for InstructionHandlers.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="InstructionHandlers_8c__incl.png" border="0" usemap="#aCore_2Src_2InstructionHandlers_8c" alt=""/></div>
 <map name="aCore_2Src_2InstructionHandlers_8c" id="aCore_2Src_2InstructionHandlers_8c">
-<area shape="rect" title=" " alt="" coords="172,5,391,31"/>
-<area shape="rect" href="Instruction_8h.html" title="Defines the struct &quot;Instruction&quot;." alt="" coords="267,299,370,324"/>
-<area shape="poly" title=" " alt="" coords="258,33,193,69,156,94,120,122,91,153,73,185,69,201,69,217,74,233,83,249,110,267,153,281,254,300,253,305,151,286,107,271,79,253,69,235,64,218,64,200,68,183,87,150,117,118,153,90,191,64,256,28"/>
-<area shape="rect" title=" " alt="" coords="405,372,475,397"/>
-<area shape="poly" title=" " alt="" coords="182,33,121,49,65,74,42,91,24,112,12,136,8,164,8,239,11,253,19,266,51,291,98,312,156,331,283,359,391,375,391,380,282,364,155,336,96,317,48,295,15,270,6,255,3,240,3,163,7,134,20,109,38,87,62,70,120,44,181,28"/>
-<area shape="rect" href="Display_8h.html" title="Provides functions for the use of the OLED&#45;display to other files." alt="" coords="578,152,659,177"/>
-<area shape="poly" title=" " alt="" coords="337,28,410,47,488,76,546,109,595,142,592,146,544,113,486,81,408,53,336,33"/>
-<area shape="rect" href="EEPROM_8h.html" title="Provides functions for the use of the EEPROM to other files." alt="" coords="465,152,554,177"/>
-<area shape="poly" title=" " alt="" coords="350,28,406,46,434,60,459,77,485,106,502,138,498,141,481,109,456,81,431,64,404,51,349,33"/>
-<area shape="rect" href="InstructionList_8h.html" title="Provides functions for the programming and execution mode to other files as well as the function iden..." alt="" coords="155,152,282,177"/>
-<area shape="poly" title=" " alt="" coords="279,32,232,140,227,138,274,30"/>
-<area shape="rect" href="STM__FUNCTIONS_8h.html" title="Provides STM&#45;specific functions to other files." alt="" coords="299,79,445,104"/>
-<area shape="poly" title=" " alt="" coords="298,29,348,68,345,72,294,33"/>
-<area shape="poly" title=" " alt="" coords="340,322,410,363,407,367,337,326"/>
-<area shape="poly" title=" " alt="" coords="611,179,461,362,457,359,607,176"/>
-<area shape="poly" title=" " alt="" coords="508,179,491,214,478,235,462,253,422,279,379,297,377,292,419,274,458,249,474,231,487,212,503,176"/>
-<area shape="poly" title=" " alt="" coords="509,178,491,251,452,360,447,358,485,250,504,177"/>
-<area shape="rect" title=" " alt="" coords="381,225,448,251"/>
-<area shape="poly" title=" " alt="" coords="496,179,443,219,440,215,493,175"/>
-<area shape="poly" title=" " alt="" coords="231,176,269,224,308,285,303,288,264,227,227,179"/>
+<area shape="rect" title=" " alt="" coords="133,5,352,31"/>
 <area shape="rect" href="InstructionHandlers_8h.html" title=" " alt="" coords="94,225,255,251"/>
-<area shape="poly" title=" " alt="" coords="214,179,191,215,187,212,209,176"/>
+<area shape="poly" title=" " alt="" coords="236,32,201,83,184,117,171,153,168,183,171,211,166,212,162,183,165,151,179,114,197,80,231,29"/>
+<area shape="rect" href="Instruction_8h.html" title="Defines the struct &quot;Instruction&quot;." alt="" coords="267,299,370,324"/>
+<area shape="poly" title=" " alt="" coords="225,33,171,70,140,96,111,125,87,156,73,187,71,219,76,234,85,249,111,266,153,281,254,300,253,305,152,286,108,271,81,253,71,236,66,220,68,186,83,153,107,121,137,92,168,66,222,29"/>
+<area shape="rect" title=" " alt="" coords="405,372,475,397"/>
+<area shape="poly" title=" " alt="" coords="175,33,120,49,65,75,42,93,24,113,12,136,8,164,8,239,11,253,19,266,51,291,98,312,156,331,283,359,391,375,391,380,282,364,155,336,96,317,48,295,15,270,6,255,3,240,3,163,7,135,20,110,39,89,62,71,118,44,174,28"/>
+<area shape="rect" href="Display_8h.html" title="Provides functions for the use of the OLED&#45;display to other files." alt="" coords="602,152,683,177"/>
+<area shape="poly" title=" " alt="" coords="324,28,412,47,505,76,567,108,618,142,615,146,565,113,503,81,411,52,323,33"/>
+<area shape="rect" href="EEPROM_8h.html" title="Provides functions for the use of the EEPROM to other files." alt="" coords="489,152,578,177"/>
+<area shape="poly" title=" " alt="" coords="350,28,414,46,446,59,475,77,504,106,525,138,520,141,500,109,472,81,443,64,412,51,348,33"/>
+<area shape="rect" href="InstructionList_8h.html" title="Provides functions for the programming and execution mode to other files as well as the function iden..." alt="" coords="179,152,306,177"/>
+<area shape="poly" title=" " alt="" coords="245,31,245,138,240,138,240,31"/>
+<area shape="rect" href="STM__FUNCTIONS_8h.html" title="Provides STM&#45;specific functions to other files." alt="" coords="315,79,461,104"/>
+<area shape="poly" title=" " alt="" coords="267,28,353,70,351,75,265,33"/>
 <area shape="poly" title=" " alt="" coords="199,248,284,290,282,295,197,253"/>
-<area shape="poly" title=" " alt="" coords="368,105,348,153,332,225,324,286,318,285,326,224,343,151,363,103"/>
-<area shape="poly" title=" " alt="" coords="412,101,566,146,565,151,411,107"/>
-<area shape="poly" title=" " alt="" coords="395,102,476,143,474,148,393,106"/>
-<area shape="poly" title=" " alt="" coords="348,106,257,149,255,144,346,102"/>
-<area shape="rect" title=" " alt="" coords="357,152,440,177"/>
-<area shape="poly" title=" " alt="" coords="379,103,392,138,387,140,374,105"/>
+<area shape="poly" title=" " alt="" coords="340,322,410,363,407,367,337,326"/>
+<area shape="poly" title=" " alt="" coords="634,180,462,363,459,360,630,176"/>
+<area shape="poly" title=" " alt="" coords="528,179,501,215,462,253,418,278,373,297,371,292,415,274,458,249,497,211,524,176"/>
+<area shape="poly" title=" " alt="" coords="531,179,453,360,448,358,526,177"/>
+<area shape="rect" title=" " alt="" coords="381,225,448,251"/>
+<area shape="poly" title=" " alt="" coords="516,180,447,220,445,216,513,175"/>
+<area shape="poly" title=" " alt="" coords="233,180,197,217,193,213,230,176"/>
+<area shape="poly" title=" " alt="" coords="251,177,309,285,304,288,247,179"/>
+<area shape="poly" title=" " alt="" coords="387,105,329,286,324,284,382,104"/>
+<area shape="poly" title=" " alt="" coords="430,101,590,146,588,151,428,107"/>
+<area shape="poly" title=" " alt="" coords="413,102,499,144,496,148,410,106"/>
+<area shape="poly" title=" " alt="" coords="366,106,280,148,277,144,363,102"/>
+<area shape="rect" title=" " alt="" coords="381,152,464,177"/>
+<area shape="poly" title=" " alt="" coords="396,103,413,138,409,141,391,106"/>
 </map>
 </div>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:aa5203dcd1e5afc35c7e9fb5ed6c88ccc" id="r_aa5203dcd1e5afc35c7e9fb5ed6c88ccc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8c.html#aa5203dcd1e5afc35c7e9fb5ed6c88ccc">regNumber</a>&#160;&#160;&#160;<a class="el" href="InstructionHandlers_8c.html#a8df53372cd050871ee006ade073202ac">getRegisterNumber</a>(exe)</td></tr>
-<tr class="separator:aa5203dcd1e5afc35c7e9fb5ed6c88ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc881e48ee522fbb47243c2eb259354f" id="r_abc881e48ee522fbb47243c2eb259354f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8c.html#abc881e48ee522fbb47243c2eb259354f">datNumber</a>&#160;&#160;&#160;<a class="el" href="InstructionHandlers_8c.html#a6e8c6e040308b6950e2bce1c89dd04cb">getDataNumber</a>(exe)</td></tr>
-<tr class="separator:abc881e48ee522fbb47243c2eb259354f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8df53372cd050871ee006ade073202ac" id="r_a8df53372cd050871ee006ade073202ac"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8c.html#a8df53372cd050871ee006ade073202ac">getRegisterNumber</a> (<a class="el" href="structInstruction.html">Instruction</a> *exe)</td></tr>
-<tr class="separator:a8df53372cd050871ee006ade073202ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e8c6e040308b6950e2bce1c89dd04cb" id="r_a6e8c6e040308b6950e2bce1c89dd04cb"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8c.html#a6e8c6e040308b6950e2bce1c89dd04cb">getDataNumber</a> (<a class="el" href="structInstruction.html">Instruction</a> *exe)</td></tr>
-<tr class="separator:a6e8c6e040308b6950e2bce1c89dd04cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae90abcd7f26e21c4b611c13a2f209883" id="r_ae90abcd7f26e21c4b611c13a2f209883"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8c.html#ae90abcd7f26e21c4b611c13a2f209883">InstructionHandlers_ProcessData</a> (<a class="el" href="structInstruction.html">Instruction</a> *exe)</td></tr>
+<tr class="separator:ae90abcd7f26e21c4b611c13a2f209883"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54db62794737bdd73d35433ca7e560a5" id="r_a54db62794737bdd73d35433ca7e560a5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8c.html#a54db62794737bdd73d35433ca7e560a5">InstructionList_EvaluateCondition</a> (bool condition)</td></tr>
 <tr class="memdesc:a54db62794737bdd73d35433ca7e560a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates, if a condition is true.  <br /></td></tr>
 <tr class="separator:a54db62794737bdd73d35433ca7e560a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,10 +164,6 @@ Functions</h2></td></tr>
 <tr class="separator:af791404931a92982c5778fa6423676f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53797c4bde4d7a75aa9abdcafa8267a3" id="r_a53797c4bde4d7a75aa9abdcafa8267a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8c.html#a53797c4bde4d7a75aa9abdcafa8267a3">op_VNQ</a> (<a class="el" href="structInstruction.html">Instruction</a> *exe)</td></tr>
 <tr class="separator:a53797c4bde4d7a75aa9abdcafa8267a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5953af9b062e09bc55845f38cbe42d45" id="r_a5953af9b062e09bc55845f38cbe42d45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8c.html#a5953af9b062e09bc55845f38cbe42d45">op_AOU</a> (<a class="el" href="structInstruction.html">Instruction</a> *exe)</td></tr>
-<tr class="separator:a5953af9b062e09bc55845f38cbe42d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae86963b2dc34844a7a62ac43a806d285" id="r_ae86963b2dc34844a7a62ac43a806d285"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8c.html#ae86963b2dc34844a7a62ac43a806d285">op_DOU</a> (<a class="el" href="structInstruction.html">Instruction</a> *exe)</td></tr>
-<tr class="separator:ae86963b2dc34844a7a62ac43a806d285"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a790de8543810192dd04cc22d74843f25" id="r_a790de8543810192dd04cc22d74843f25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8c.html#a790de8543810192dd04cc22d74843f25">op_ANH</a> (<a class="el" href="structInstruction.html">Instruction</a> *exe)</td></tr>
 <tr class="separator:a790de8543810192dd04cc22d74843f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15ddb849ba8e65144c26b8bb0d13dd76" id="r_a15ddb849ba8e65144c26b8bb0d13dd76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8c.html#a15ddb849ba8e65144c26b8bb0d13dd76">op_ANL</a> (<a class="el" href="structInstruction.html">Instruction</a> *exe)</td></tr>
@@ -219,94 +207,17 @@ Variables</h2></td></tr>
 <tr class="memitem:a5ebea196b48e08b90ba84e31f7a516cf" id="r_a5ebea196b48e08b90ba84e31f7a516cf"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8c.html#a5ebea196b48e08b90ba84e31f7a516cf">registers</a> []</td></tr>
 <tr class="memdesc:a5ebea196b48e08b90ba84e31f7a516cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Values of the 100 virtual storage registers.  <br /></td></tr>
 <tr class="separator:a5ebea196b48e08b90ba84e31f7a516cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac200ef5eca6a835f27eab9bb9360f407" id="r_ac200ef5eca6a835f27eab9bb9360f407"><td class="memItemLeft" align="right" valign="top"><a class="el" href="InstructionHandlers_8h.html#addcd08aa8245e9e1fd41eaa8980677c9">Instruction_DataType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8c.html#ac200ef5eca6a835f27eab9bb9360f407">currentDataType</a></td></tr>
+<tr class="separator:ac200ef5eca6a835f27eab9bb9360f407"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca76923b7ec0f81726a2a4ec66abfc43" id="r_aca76923b7ec0f81726a2a4ec66abfc43"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8c.html#aca76923b7ec0f81726a2a4ec66abfc43">currentData</a></td></tr>
+<tr class="separator:aca76923b7ec0f81726a2a4ec66abfc43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78354ea40ba9e3948ef0fc399e6f4adf" id="r_a78354ea40ba9e3948ef0fc399e6f4adf"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8c.html#a78354ea40ba9e3948ef0fc399e6f4adf">cursPos</a> = 0</td></tr>
 <tr class="memdesc:a78354ea40ba9e3948ef0fc399e6f4adf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position of the cursor for PCH and PTR commands.  <br /></td></tr>
 <tr class="separator:a78354ea40ba9e3948ef0fc399e6f4adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebd3255f4f68515cb15d2cb3c47c7a8a" id="r_aebd3255f4f68515cb15d2cb3c47c7a8a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8c.html#aebd3255f4f68515cb15d2cb3c47c7a8a">programIndex</a></td></tr>
 <tr class="separator:aebd3255f4f68515cb15d2cb3c47c7a8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="abc881e48ee522fbb47243c2eb259354f" name="abc881e48ee522fbb47243c2eb259354f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc881e48ee522fbb47243c2eb259354f">&#9670;&#160;</a></span>datNumber</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define datNumber&#160;&#160;&#160;<a class="el" href="InstructionHandlers_8c.html#a6e8c6e040308b6950e2bce1c89dd04cb">getDataNumber</a>(exe)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa5203dcd1e5afc35c7e9fb5ed6c88ccc" name="aa5203dcd1e5afc35c7e9fb5ed6c88ccc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5203dcd1e5afc35c7e9fb5ed6c88ccc">&#9670;&#160;</a></span>regNumber</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define regNumber&#160;&#160;&#160;<a class="el" href="InstructionHandlers_8c.html#a8df53372cd050871ee006ade073202ac">getRegisterNumber</a>(exe)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a6e8c6e040308b6950e2bce1c89dd04cb" name="a6e8c6e040308b6950e2bce1c89dd04cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e8c6e040308b6950e2bce1c89dd04cb">&#9670;&#160;</a></span>getDataNumber()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static uint8_t getDataNumber </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structInstruction.html">Instruction</a> *&#160;</td>
-          <td class="paramname"><em>exe</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8df53372cd050871ee006ade073202ac" name="a8df53372cd050871ee006ade073202ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8df53372cd050871ee006ade073202ac">&#9670;&#160;</a></span>getRegisterNumber()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static uint8_t getRegisterNumber </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structInstruction.html">Instruction</a> *&#160;</td>
-          <td class="paramname"><em>exe</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ae5162be9d6efef3498d92c35ddd35b9d" name="ae5162be9d6efef3498d92c35ddd35b9d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae5162be9d6efef3498d92c35ddd35b9d">&#9670;&#160;</a></span>InstructionHandlers_INIT()</h2>
 
@@ -317,6 +228,24 @@ Variables</h2></td></tr>
           <td class="memname">void InstructionHandlers_INIT </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae90abcd7f26e21c4b611c13a2f209883" name="ae90abcd7f26e21c4b611c13a2f209883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae90abcd7f26e21c4b611c13a2f209883">&#9670;&#160;</a></span>InstructionHandlers_ProcessData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void InstructionHandlers_ProcessData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structInstruction.html">Instruction</a> *&#160;</td>
+          <td class="paramname"><em>exe</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -460,24 +389,6 @@ If the contition is false: Jumps to the instruction after the next</h1>
 
 </div>
 </div>
-<a id="a5953af9b062e09bc55845f38cbe42d45" name="a5953af9b062e09bc55845f38cbe42d45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5953af9b062e09bc55845f38cbe42d45">&#9670;&#160;</a></span>op_AOU()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void op_AOU </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structInstruction.html">Instruction</a> *&#160;</td>
-          <td class="paramname"><em>exe</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a790a939fd69d037b9f83f3b8ba7c613d" name="a790a939fd69d037b9f83f3b8ba7c613d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a790a939fd69d037b9f83f3b8ba7c613d">&#9670;&#160;</a></span>op_BEG()</h2>
 
@@ -558,24 +469,6 @@ If the contition is false: Jumps to the instruction after the next</h1>
       <table class="memname">
         <tr>
           <td class="memname">void op_DEC </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structInstruction.html">Instruction</a> *&#160;</td>
-          <td class="paramname"><em>exe</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae86963b2dc34844a7a62ac43a806d285" name="ae86963b2dc34844a7a62ac43a806d285"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae86963b2dc34844a7a62ac43a806d285">&#9670;&#160;</a></span>op_DOU()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void op_DOU </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structInstruction.html">Instruction</a> *&#160;</td>
           <td class="paramname"><em>exe</em></td><td>)</td>
@@ -1001,6 +894,34 @@ If the contition is false: Jumps to the instruction after the next</h1>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="aca76923b7ec0f81726a2a4ec66abfc43" name="aca76923b7ec0f81726a2a4ec66abfc43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca76923b7ec0f81726a2a4ec66abfc43">&#9670;&#160;</a></span>currentData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t currentData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac200ef5eca6a835f27eab9bb9360f407" name="ac200ef5eca6a835f27eab9bb9360f407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac200ef5eca6a835f27eab9bb9360f407">&#9670;&#160;</a></span>currentDataType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="InstructionHandlers_8h.html#addcd08aa8245e9e1fd41eaa8980677c9">Instruction_DataType_t</a> currentDataType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a78354ea40ba9e3948ef0fc399e6f4adf" name="a78354ea40ba9e3948ef0fc399e6f4adf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a78354ea40ba9e3948ef0fc399e6f4adf">&#9670;&#160;</a></span>cursPos</h2>
 

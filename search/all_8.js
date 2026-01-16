@@ -10,7 +10,7 @@ var searchData=
   ['hal_5ftim_5fbase_5fmspdeinit_7',['HAL_TIM_Base_MspDeInit',['../stm32f0xx__hal__msp_8c.html#a555b8a2d3c7a07341f8cb1255318fa2b',1,'stm32f0xx_hal_msp.c']]],
   ['hal_5ftim_5fbase_5fmspinit_8',['HAL_TIM_Base_MspInit',['../stm32f0xx__hal__msp_8c.html#abb25ade2f7e3f7aae167bd52270c2b86',1,'stm32f0xx_hal_msp.c']]],
   ['hal_5ftim_5fperiodelapsedcallback_9',['HAL_TIM_PeriodElapsedCallback',['../main_8c.html#a8a3b0ad512a6e6c6157440b68d395eac',1,'main.c']]],
-  ['handler_10',['handler',['../structFunctionNameEntry.html#a6b8abf1f5893bf54e3ec976e966be4b7',1,'FunctionNameEntry']]],
+  ['handler_10',['handler',['../structFunctionDefinition.html#a5e479a9a58d39476e4fde5cf0bc62951',1,'FunctionDefinition']]],
   ['hardfault_5fhandler_11',['HardFault_Handler',['../stm32f0xx__it_8c.html#a2bffc10d5bd4106753b7c30e86903bea',1,'stm32f0xx_it.c']]],
   ['here_3a_20a_20href_20https_3a_20fej117_20github_20io_20pcd_5fcode_20index_20html_20img_20src_20https_3a_20img_20shields_20io_20badge_20docs_20doxygen_20blue_20svg_20alt_20documentation_20a_12',['Full documentation can be accessed here: &lt;a href=&quot;https://FEJ117.github.io/PCD_CODE/index.html&quot; &gt;&lt;img src=&quot;https://img.shields.io/badge/docs-doxygen-blue.svg&quot; alt=&quot;Documentation&quot;/&gt;&lt;/a&gt;',['../index.html',1,'']]],
   ['hi2c1_13',['hi2c1',['../Display_8c.html#af7b2c26e44dadaaa798a5c3d82914ba7',1,'hi2c1:&#160;main.c'],['../main_8c.html#af7b2c26e44dadaaa798a5c3d82914ba7',1,'hi2c1:&#160;main.c'],['../EEPROM_8c.html#af7b2c26e44dadaaa798a5c3d82914ba7',1,'hi2c1:&#160;main.c']]],
