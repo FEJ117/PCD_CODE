@@ -1,0 +1,6 @@
+# Add the InstructionHandlers.c file to the source files
+set(SOURCES
+    ...
+    InstructionHandlers.c
+    ...
+)

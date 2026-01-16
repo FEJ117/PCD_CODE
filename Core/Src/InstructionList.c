@@ -23,11 +23,6 @@ uint16_t registers[100];
 uint8_t regPointer = 0;
 
 /**
- * @brief Position of the cursor for PCH and PTR commands
- */
-uint8_t cursPos = 0;
-
-/**
  * @brief Empty instruction (is inserted when an instruction is deleted)
  */
 Instruction emptyInstruction = {0,0,0,0};
@@ -129,49 +124,6 @@ static void InstructionList_UpdateInstructions()
 	Display_LeftArrow(3*(programIndex != 0));
 }
 
-/**
-  * @brief 	Evaluates, if a condition is true
-  * 		- If BEG and END are being used:
-  * 			# If the condition is true: Jump into the block (one position after BEG)
-  * 			# If the condition is false: Jump one position after END
-* 			- If BEG and END are not being used:
-* 				# If the condition is true: Jumps to the next instruction
-* 				# If the contition is false: Jumps to the instruction after the next
-  * @param condition The condition which is being processed
-  */
-static void InstructionList_EvaluateCondition(bool condition) {
-
-	if(!condition)
-	{
-		uint8_t openedBrackets = 1;
-		if (EEPROM_GetFunctionNumber(programIndex) == FUNCTION_BEG) {
-			while (EEPROM_GetFunctionNumber(programIndex) != FUNCTION_END
-					|| openedBrackets > 0) {
-				programIndex++;
-				if (EEPROM_GetFunctionNumber(programIndex) == FUNCTION_BEG)
-					openedBrackets++;
-				if (EEPROM_GetFunctionNumber(programIndex) == FUNCTION_END)
-					openedBrackets--;
-			}
-		}
-		programIndex++;
-	}
-}
-
-
-/**
-  * @brief Writes up to 3 characters at the current position of the cursor variable (cursPos)
-  * @param str Characters to be written (character that equal 0 will be ignored)
-  */
-static void InstructionList_WriteAtCursor(char str[3])
-{
-	Display_WriteString(str, 3, cursPos, 0);
-	for(uint8_t i = 0; i < 3; i++)
-	{
-		if(str[i] != 0)cursPos++;
-	}
-}
-
 
 /**
   * @brief Return the function number corresponding to the given characters
@@ -199,127 +151,7 @@ static uint8_t InstructionList_CharsToFunctionNumber(char chars[3])
 static void InstructionList_ExecuteNext() {
 	Instruction exe = EEPROM_GetInstruction(programIndex);
 	programIndex++;
-	if (exe.data == 'R') {
-		uint8_t regNumber;
-		if (exe.data3 >= 58 || exe.data3 <= 48)
-			regNumber = exe.data2 - 48;
-		else if (exe.data2 >= 58 || exe.data2 <= 48)
-			regNumber = ((exe.data2 - 48) * 10 + exe.data3 - 48);
-
-		switch (exe.functionNumber) {
-		case FUNCTION_PIC:
-			regPointer = regNumber;
-			break;
-		case FUNCTION_COP:
-			registers[regNumber] = registers[regPointer];
-			break;
-		case FUNCTION_ADD:
-			registers[regPointer] += registers[regNumber];
-			break;
-		case FUNCTION_SUB:
-			registers[regPointer] -= registers[regNumber];
-			break;
-		case FUNCTION_SMA:
-			InstructionList_EvaluateCondition(registers[regPointer] < registers[regNumber]);
-			break;
-		case FUNCTION_BIG:
-			InstructionList_EvaluateCondition(registers[regPointer] > registers[regNumber]);
-			break;
-		case FUNCTION_REQ:
-			InstructionList_EvaluateCondition(registers[regPointer] == registers[regNumber]);
-			break;
-		case FUNCTION_RNQ:
-			InstructionList_EvaluateCondition(registers[regPointer] != registers[regNumber]);
-			break;
-		case FUNCTION_PTR:
-			char str[3];
-			STM_Number3ToChar(registers[regNumber], str);
-			InstructionList_WriteAtCursor(str);
-			break;
-		case FUNCTION_SPO:
-			registers[regNumber] = programIndex-1;
-			break;
-		case FUNCTION_JPO:
-			programIndex = registers[regNumber];
-			break;
-		default:
-			Display_ShowErrorMessage(programIndex-1);
-			break;
-		}
-	}
-	else
-	{
-		uint8_t datNumber = 0;
-		if (exe.data >= 48 && exe.data <= 58) {
-			if (exe.data3 >= 48 && exe.data3 <= 58) {
-				datNumber = ((exe.data - 48) * 100 + (exe.data2 - 48) * 10
-						+ exe.data3 - 48);
-			} else if (exe.data2 >= 48 && exe.data2 <= 58) {
-				datNumber = ((exe.data - 48) * 10 + exe.data2 - 48);
-			} else if (exe.data >= 48 && exe.data <= 58) {
-				datNumber = (exe.data - 48);
-			}
-		}
-
-		switch (exe.functionNumber) {
-		case FUNCTION_SET:
-			registers[regPointer] = datNumber;
-			break;
-		case FUNCTION_WAI:
-			STM_Wait(datNumber);
-			break;
-		case FUNCTION_INC:
-			registers[regPointer] = registers[regPointer] + datNumber;
-			break;
-		case FUNCTION_DEC:
-			registers[regPointer] = registers[regPointer] - datNumber;
-			break;
-		case FUNCTION_VEQ:
-			InstructionList_EvaluateCondition(datNumber == registers[regPointer]);
-			break;
-		case FUNCTION_VNQ:
-			InstructionList_EvaluateCondition(!(datNumber == registers[regPointer]));
-			break;
-		case FUNCTION_TON:
-			STM_ActivateBuzzer(exe);
-			break;
-		case FUNCTION_ANH:
-			InstructionList_EvaluateCondition(registers[regPointer] < STM_ReadADC(datNumber));
-			break;
-		case FUNCTION_ANL:
-			InstructionList_EvaluateCondition(!(registers[regPointer] < STM_ReadADC(datNumber)));
-			break;
-		case FUNCTION_SVA:
-			registers[regPointer] = STM_ReadADC(datNumber);
-			break;
-		case FUNCTION_INH:
-			InstructionList_EvaluateCondition(STM_IsInputHigh(datNumber));
-			break;
-		case FUNCTION_INL:
-			InstructionList_EvaluateCondition(!(STM_IsInputHigh(datNumber)));
-			break;
-		case FUNCTION_JUM:
-			programIndex = datNumber;
-			break;
-		case FUNCTION_LD1:
-		case FUNCTION_LD2:
-			STM_SetLED(exe.functionNumber, exe.data);
-			break;
-		case FUNCTION_PCH:
-			char str[] = {exe.data, exe.data2, exe.data3};
-			InstructionList_WriteAtCursor(str);
-			break;
-		case FUNCTION_CLR:
-			cursPos = 0;
-			Display_FillBlack();
-			break;
-		case FUNCTION_EMPTY:
-			break;
-		default:
-			Display_ShowErrorMessage(programIndex-1);
-			break;
-		}
-	}
+	functionNames[exe.functionNumber].handler(&exe);
 }
 
 
@@ -442,15 +274,7 @@ void InstructionList_ExecutingMode(void)
 
     Display_ShowExecutingMessage();
 
-    for(uint8_t i = 0; i < 100; i++)
-    {
-    	registers[i] = 0;
-    }
-    programIndex = 0;
-    regPointer = 0;
-    cursPos = 0;
-
-    lastWaitTick = HAL_GetTick();
+    InstructionHandlers_INIT();
     while(!(isProgrammingMode()))
     {
         if(EEPROM_GetFunctionNumber(programIndex) == FUNCTION_EMPTY || programIndex > 0xFF0)

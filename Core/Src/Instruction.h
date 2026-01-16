@@ -5,6 +5,7 @@
 
 #ifndef INSTRUCTION_H
 #define INSTRUCTION_H
+#include <stdint.h>
 /**
  * @brief Struct to store an instruction containing a function number and 3 bytes of data
  */

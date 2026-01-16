@@ -6,6 +6,7 @@
 #ifndef INSTRUCTIONLIST_H
 #define	INSTRUCTIONLIST_H
 #include "Instruction.h"
+#include "InstructionHandlers.h"
 /**
  * @brief Defines all function numbers
  */
@@ -45,6 +46,8 @@ typedef enum {
     FUNCTION_LD2
 } Function_t;
 
+typedef void (*InstructionHandler)(Instruction *exe);
+
 /**
  * @brief Struct which allows for allocating a function number to a function identifier
  */
@@ -54,49 +57,56 @@ typedef struct {
 	 */
     uint8_t functionNumber;
 
-    /**
-     * @brief Function identifier
-     */
-    const char name[3];
+  /**
+    * @brief Function identifier
+    */
+  const char name[3];
+
+  /**
+  * @brief The function that is called when the function is being executed
+  */
+  InstructionHandler handler;
+
+    
 } FunctionNameEntry;
 
 /**
  * @brief All function numbers and allocated function identifiers
  */
 static const FunctionNameEntry functionNames[] = {
-	{ FUNCTION_EMPTY, { ' ', ' ', ' ' } },
-	{ FUNCTION_PIC,   { 'P', 'I', 'C' } },
-	{ FUNCTION_SET,   { 'S', 'E', 'T' } },
-	{ FUNCTION_INC,   { 'I', 'N', 'C' } },
-	{ FUNCTION_DEC,   { 'D', 'E', 'C' } },
-	{ FUNCTION_COP,   { 'C', 'O', 'P' } },
-	{ FUNCTION_ADD,   { 'A', 'D', 'D' } },
-	{ FUNCTION_SUB,   { 'S', 'U', 'B' } },
-	{ FUNCTION_SMA,   { 'S', 'M', 'A' } },
-	{ FUNCTION_BIG,   { 'B', 'I', 'G' } },
-	{ FUNCTION_REQ,   { 'R', 'E', 'Q' } },
-	{ FUNCTION_RNQ,   { 'R', 'N', 'Q' } },
-	{ FUNCTION_VEQ,   { 'V', 'E', 'Q' } },
-	{ FUNCTION_VNQ,   { 'V', 'N', 'Q' } },
-	{ FUNCTION_AOU,   { 'A', 'O', 'U' } },
-	{ FUNCTION_DOU,   { 'D', 'O', 'U' } },
-	{ FUNCTION_ANH,   { 'A', 'N', 'H' } },
-	{ FUNCTION_ANL,   { 'A', 'N', 'L' } },
-	{ FUNCTION_INH,   { 'I', 'N', 'H' } },
-	{ FUNCTION_INL,   { 'I', 'N', 'L' } },
-	{ FUNCTION_TON,   { 'T', 'O', 'N' } },
-	{ FUNCTION_WAI,   { 'W', 'A', 'I' } },
-	{ FUNCTION_JUM,   { 'J', 'U', 'M' } },
-	{ FUNCTION_PTR,   { 'P', 'T', 'R' } },
-	{ FUNCTION_PCH,   { 'P', 'C', 'H' } },
-	{ FUNCTION_CLR,   { 'C', 'L', 'R' } },
-	{ FUNCTION_BEG,   { 'B', 'E', 'G' } },
-	{ FUNCTION_END,   { 'E', 'N', 'D' } },
-	{ FUNCTION_SPO,   { 'S', 'P', 'O' } },
-	{ FUNCTION_JPO,   { 'J', 'P', 'O' } },
-	{ FUNCTION_SVA,   { 'S', 'V', 'A' } },
-	{ FUNCTION_LD1,   { 'L', 'D', '1' } },
-	{ FUNCTION_LD2,   { 'L', 'D', '2' } }
+  { FUNCTION_EMPTY, { ' ', ' ', ' ' }, op_EMPTY},
+  { FUNCTION_PIC,   { 'P', 'I', 'C' }, op_PIC},
+  { FUNCTION_SET,   { 'S', 'E', 'T' }, op_SET},
+  { FUNCTION_INC,   { 'I', 'N', 'C' }, op_INC},
+  { FUNCTION_DEC,   { 'D', 'E', 'C' }, op_DEC},
+  { FUNCTION_COP,   { 'C', 'O', 'P' }, op_COP},
+  { FUNCTION_ADD,   { 'A', 'D', 'D' }, op_ADD},
+  { FUNCTION_SUB,   { 'S', 'U', 'B' }, op_SUB},
+  { FUNCTION_SMA,   { 'S', 'M', 'A' }, op_SMA},
+  { FUNCTION_BIG,   { 'B', 'I', 'G' }, op_BIG},
+  { FUNCTION_REQ,   { 'R', 'E', 'Q' }, op_REQ},
+  { FUNCTION_RNQ,   { 'R', 'N', 'Q' }, op_RNQ},
+  { FUNCTION_VEQ,   { 'V', 'E', 'Q' }, op_VEQ},
+  { FUNCTION_VNQ,   { 'V', 'N', 'Q' }, op_VNQ},
+  { FUNCTION_AOU,   { 'A', 'O', 'U' }, op_AOU},
+  { FUNCTION_DOU,   { 'D', 'O', 'U' }, op_DOU},
+  { FUNCTION_ANH,   { 'A', 'N', 'H' }, op_ANH},
+  { FUNCTION_ANL,   { 'A', 'N', 'L' }, op_ANL},
+  { FUNCTION_SVA,   { 'S', 'V', 'A' }, op_SVA},
+  { FUNCTION_INH,   { 'I', 'N', 'H' }, op_INH},
+  { FUNCTION_INL,   { 'I', 'N', 'L' }, op_INL},
+  { FUNCTION_TON,   { 'T', 'O', 'N' }, op_TON},
+  { FUNCTION_PTR,   { 'P', 'T', 'R' }, op_PTR},
+  { FUNCTION_PCH,   { 'P', 'C', 'H' }, op_PCH},
+  { FUNCTION_CLR,   { 'C', 'L', 'R' }, op_CLR},
+  { FUNCTION_BEG,   { 'B', 'E', 'G' }, op_BEG},
+  { FUNCTION_END,   { 'E', 'N', 'D' }, op_END},
+  { FUNCTION_WAI,   { 'W', 'A', 'I' }, op_WAI},
+  { FUNCTION_SPO,   { 'S', 'P', 'O' }, op_SPO},
+  { FUNCTION_JPO,   { 'J', 'P', 'O' }, op_JPO},
+  { FUNCTION_JUM,   { 'J', 'U', 'M' }, op_JUM},
+  { FUNCTION_LD1,   { 'L', 'D', '1' }, op_LD1},
+  { FUNCTION_LD2,   { 'L', 'D', '2' }, op_LD2}
 };
 
 /**
