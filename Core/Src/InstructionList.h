@@ -11,7 +11,7 @@
  * @brief Defines all function numbers
  */
 typedef enum {
-    FUNCTION_EMPTY = 0,
+    FUNCTION_EMP = 0,
     FUNCTION_PIC,
     FUNCTION_SET,
     FUNCTION_INC,
@@ -69,37 +69,37 @@ typedef struct {
  * @brief All function numbers and allocated function identifiers
  */
 static const FunctionDefinition definedFunctions[] = {
-  [FUNCTION_EMPTY] = { { ' ', ' ', ' ' }, op_EMPTY},
+  [FUNCTION_EMP] = {{ ' ', ' ', ' ' }, op_EMP_BEG_END},
   [FUNCTION_PIC] = {{ 'P', 'I', 'C' }, op_PIC},
   [FUNCTION_SET] = {{ 'S', 'E', 'T' }, op_SET},
-  [FUNCTION_INC] = {{ 'I', 'N', 'C' }, op_INC},
-  [FUNCTION_DEC] = {{ 'D', 'E', 'C' }, op_DEC},
+  [FUNCTION_INC] = {{ 'I', 'N', 'C' }, op_INC_DEC},
+  [FUNCTION_DEC] = {{ 'D', 'E', 'C' }, op_INC_DEC},
   [FUNCTION_COP] = {{ 'C', 'O', 'P' }, op_COP},
-  [FUNCTION_ADD] = {{ 'A', 'D', 'D' }, op_ADD},
-  [FUNCTION_SUB] = {{ 'S', 'U', 'B' }, op_SUB},
-  [FUNCTION_SMA] = {{ 'S', 'M', 'A' }, op_SMA},
-  [FUNCTION_BIG] = {{ 'B', 'I', 'G' }, op_BIG},
-  [FUNCTION_REQ] = {{ 'R', 'E', 'Q' }, op_REQ},
-  [FUNCTION_RNQ] = {{ 'R', 'N', 'Q' }, op_RNQ},
-  [FUNCTION_VEQ] = {{ 'V', 'E', 'Q' }, op_VEQ},
-  [FUNCTION_VNQ] = {{ 'V', 'N', 'Q' }, op_VNQ},
-  [FUNCTION_ANH] = {{ 'A', 'N', 'H' }, op_ANH},
-  [FUNCTION_ANL] = {{ 'A', 'N', 'L' }, op_ANL},
+  [FUNCTION_ADD] = {{ 'A', 'D', 'D' }, op_ADD_SUB},
+  [FUNCTION_SUB] = {{ 'S', 'U', 'B' }, op_ADD_SUB},
+  [FUNCTION_SMA] = {{ 'S', 'M', 'A' }, op_SMA_BIG},
+  [FUNCTION_BIG] = {{ 'B', 'I', 'G' }, op_SMA_BIG},
+  [FUNCTION_REQ] = {{ 'R', 'E', 'Q' }, op_REQ_RNQ},
+  [FUNCTION_RNQ] = {{ 'R', 'N', 'Q' }, op_REQ_RNQ},
+  [FUNCTION_VEQ] = {{ 'V', 'E', 'Q' }, op_VEQ_VNQ},
+  [FUNCTION_VNQ] = {{ 'V', 'N', 'Q' }, op_VEQ_VNQ},
+  [FUNCTION_ANH] = {{ 'A', 'N', 'H' }, op_ANH_ANL},
+  [FUNCTION_ANL] = {{ 'A', 'N', 'L' }, op_ANH_ANL},
   [FUNCTION_SVA] = {{ 'S', 'V', 'A' }, op_SVA},
-  [FUNCTION_INH] = {{ 'I', 'N', 'H' }, op_INH},
-  [FUNCTION_INL] = {{ 'I', 'N', 'L' }, op_INL},
+  [FUNCTION_INH] = {{ 'I', 'N', 'H' }, op_INH_INL},
+  [FUNCTION_INL] = {{ 'I', 'N', 'L' }, op_INH_INL},
   [FUNCTION_TON] = {{ 'T', 'O', 'N' }, op_TON},
   [FUNCTION_PTR] = {{ 'P', 'T', 'R' }, op_PTR},
   [FUNCTION_PCH] = {{ 'P', 'C', 'H' }, op_PCH},
   [FUNCTION_CLR] = {{ 'C', 'L', 'R' }, op_CLR},
-  [FUNCTION_BEG] = {{ 'B', 'E', 'G' }, op_BEG},
-  [FUNCTION_END] = {{ 'E', 'N', 'D' }, op_END},
+  [FUNCTION_BEG] = {{ 'B', 'E', 'G' }, op_EMP_BEG_END},
+  [FUNCTION_END] = {{ 'E', 'N', 'D' }, op_EMP_BEG_END},
   [FUNCTION_WAI] = {{ 'W', 'A', 'I' }, op_WAI},
   [FUNCTION_SPO] = {{ 'S', 'P', 'O' }, op_SPO},
   [FUNCTION_JPO] = {{ 'J', 'P', 'O' }, op_JPO},
   [FUNCTION_JUM] = {{ 'J', 'U', 'M' }, op_JUM},
-  [FUNCTION_LD1] = {{ 'L', 'D', '1' }, op_LD1},
-  [FUNCTION_LD2] = {{ 'L', 'D', '2' }, op_LD2}
+  [FUNCTION_LD1] = {{ 'L', 'D', '1' }, op_LD1_LD2},
+  [FUNCTION_LD2] = {{ 'L', 'D', '2' }, op_LD1_LD2}
   //Add your own here
 };
 

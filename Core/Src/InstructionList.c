@@ -38,7 +38,7 @@ static void InstructionList_RemoveInstruction(uint8_t pPos)
     {
     	Instruction in = EEPROM_GetInstruction(i+1);
     	EEPROM_PutInstruction(in,i);
-    	if(in.functionNumber == FUNCTION_EMPTY) break;
+    	if(in.functionNumber == FUNCTION_EMP) break;
     }
 }
 
@@ -50,7 +50,7 @@ static void InstructionList_RemoveInstruction(uint8_t pPos)
 static void InstructionList_InsertEmpty(uint8_t pPos)
 {
 	int firstEmpty = 0;
-	while(EEPROM_GetFunctionNumber(firstEmpty) != FUNCTION_EMPTY){firstEmpty++;}
+	while(EEPROM_GetFunctionNumber(firstEmpty) != FUNCTION_EMP){firstEmpty++;}
     for(int i = firstEmpty; i > pPos; i--)
     {
     	Instruction in = EEPROM_GetInstruction(i-1);
@@ -176,7 +176,7 @@ void InstructionList_ProgrammingMode(void)
     Display_ShowProgrammingMessage();
 
     programIndex = 0;
-    while((programIndex < 0x0FF0) && !(EEPROM_GetFunctionNumber(programIndex) == FUNCTION_EMPTY))
+    while((programIndex < 0x0FF0) && !(EEPROM_GetFunctionNumber(programIndex) == FUNCTION_EMP))
         programIndex++;
 
     Display_FillBlack();
@@ -275,7 +275,7 @@ void InstructionList_ExecutingMode(void)
     InstructionHandlers_INIT();
     while(!(isProgrammingMode()))
     {
-        if(EEPROM_GetFunctionNumber(programIndex) == FUNCTION_EMPTY || programIndex > 0xFF0)
+        if(EEPROM_GetFunctionNumber(programIndex) == FUNCTION_EMP || programIndex > 0xFF0)
             Display_ShowTerminatedMessage();
         else
             InstructionList_ExecuteNext();
