@@ -25,8 +25,6 @@ typedef enum {
     FUNCTION_RNQ,
     FUNCTION_VEQ,
     FUNCTION_VNQ,
-    FUNCTION_AOU,
-    FUNCTION_DOU,
     FUNCTION_ANH,
     FUNCTION_ANL,
     FUNCTION_SVA,
@@ -43,7 +41,9 @@ typedef enum {
     FUNCTION_JPO,
     FUNCTION_JUM,
     FUNCTION_LD1,
-    FUNCTION_LD2
+    FUNCTION_LD2,
+    //ADD your own here
+    Function_t_MAX
 } Function_t;
 
 typedef void (*InstructionHandler)(Instruction *exe);
@@ -52,11 +52,6 @@ typedef void (*InstructionHandler)(Instruction *exe);
  * @brief Struct which allows for allocating a function number to a function identifier
  */
 typedef struct {
-	/**
-	 * @brief Function number
-	 */
-    uint8_t functionNumber;
-
   /**
     * @brief Function identifier
     */
@@ -68,45 +63,44 @@ typedef struct {
   InstructionHandler handler;
 
     
-} FunctionNameEntry;
+} FunctionDefinition;
 
 /**
  * @brief All function numbers and allocated function identifiers
  */
-static const FunctionNameEntry functionNames[] = {
-  { FUNCTION_EMPTY, { ' ', ' ', ' ' }, op_EMPTY},
-  { FUNCTION_PIC,   { 'P', 'I', 'C' }, op_PIC},
-  { FUNCTION_SET,   { 'S', 'E', 'T' }, op_SET},
-  { FUNCTION_INC,   { 'I', 'N', 'C' }, op_INC},
-  { FUNCTION_DEC,   { 'D', 'E', 'C' }, op_DEC},
-  { FUNCTION_COP,   { 'C', 'O', 'P' }, op_COP},
-  { FUNCTION_ADD,   { 'A', 'D', 'D' }, op_ADD},
-  { FUNCTION_SUB,   { 'S', 'U', 'B' }, op_SUB},
-  { FUNCTION_SMA,   { 'S', 'M', 'A' }, op_SMA},
-  { FUNCTION_BIG,   { 'B', 'I', 'G' }, op_BIG},
-  { FUNCTION_REQ,   { 'R', 'E', 'Q' }, op_REQ},
-  { FUNCTION_RNQ,   { 'R', 'N', 'Q' }, op_RNQ},
-  { FUNCTION_VEQ,   { 'V', 'E', 'Q' }, op_VEQ},
-  { FUNCTION_VNQ,   { 'V', 'N', 'Q' }, op_VNQ},
-  { FUNCTION_AOU,   { 'A', 'O', 'U' }, op_AOU},
-  { FUNCTION_DOU,   { 'D', 'O', 'U' }, op_DOU},
-  { FUNCTION_ANH,   { 'A', 'N', 'H' }, op_ANH},
-  { FUNCTION_ANL,   { 'A', 'N', 'L' }, op_ANL},
-  { FUNCTION_SVA,   { 'S', 'V', 'A' }, op_SVA},
-  { FUNCTION_INH,   { 'I', 'N', 'H' }, op_INH},
-  { FUNCTION_INL,   { 'I', 'N', 'L' }, op_INL},
-  { FUNCTION_TON,   { 'T', 'O', 'N' }, op_TON},
-  { FUNCTION_PTR,   { 'P', 'T', 'R' }, op_PTR},
-  { FUNCTION_PCH,   { 'P', 'C', 'H' }, op_PCH},
-  { FUNCTION_CLR,   { 'C', 'L', 'R' }, op_CLR},
-  { FUNCTION_BEG,   { 'B', 'E', 'G' }, op_BEG},
-  { FUNCTION_END,   { 'E', 'N', 'D' }, op_END},
-  { FUNCTION_WAI,   { 'W', 'A', 'I' }, op_WAI},
-  { FUNCTION_SPO,   { 'S', 'P', 'O' }, op_SPO},
-  { FUNCTION_JPO,   { 'J', 'P', 'O' }, op_JPO},
-  { FUNCTION_JUM,   { 'J', 'U', 'M' }, op_JUM},
-  { FUNCTION_LD1,   { 'L', 'D', '1' }, op_LD1},
-  { FUNCTION_LD2,   { 'L', 'D', '2' }, op_LD2}
+static const FunctionDefinition definedFunctions[] = {
+  [FUNCTION_EMPTY] = { { ' ', ' ', ' ' }, op_EMPTY},
+  [FUNCTION_PIC] = {{ 'P', 'I', 'C' }, op_PIC},
+  [FUNCTION_SET] = {{ 'S', 'E', 'T' }, op_SET},
+  [FUNCTION_INC] = {{ 'I', 'N', 'C' }, op_INC},
+  [FUNCTION_DEC] = {{ 'D', 'E', 'C' }, op_DEC},
+  [FUNCTION_COP] = {{ 'C', 'O', 'P' }, op_COP},
+  [FUNCTION_ADD] = {{ 'A', 'D', 'D' }, op_ADD},
+  [FUNCTION_SUB] = {{ 'S', 'U', 'B' }, op_SUB},
+  [FUNCTION_SMA] = {{ 'S', 'M', 'A' }, op_SMA},
+  [FUNCTION_BIG] = {{ 'B', 'I', 'G' }, op_BIG},
+  [FUNCTION_REQ] = {{ 'R', 'E', 'Q' }, op_REQ},
+  [FUNCTION_RNQ] = {{ 'R', 'N', 'Q' }, op_RNQ},
+  [FUNCTION_VEQ] = {{ 'V', 'E', 'Q' }, op_VEQ},
+  [FUNCTION_VNQ] = {{ 'V', 'N', 'Q' }, op_VNQ},
+  [FUNCTION_ANH] = {{ 'A', 'N', 'H' }, op_ANH},
+  [FUNCTION_ANL] = {{ 'A', 'N', 'L' }, op_ANL},
+  [FUNCTION_SVA] = {{ 'S', 'V', 'A' }, op_SVA},
+  [FUNCTION_INH] = {{ 'I', 'N', 'H' }, op_INH},
+  [FUNCTION_INL] = {{ 'I', 'N', 'L' }, op_INL},
+  [FUNCTION_TON] = {{ 'T', 'O', 'N' }, op_TON},
+  [FUNCTION_PTR] = {{ 'P', 'T', 'R' }, op_PTR},
+  [FUNCTION_PCH] = {{ 'P', 'C', 'H' }, op_PCH},
+  [FUNCTION_CLR] = {{ 'C', 'L', 'R' }, op_CLR},
+  [FUNCTION_BEG] = {{ 'B', 'E', 'G' }, op_BEG},
+  [FUNCTION_END] = {{ 'E', 'N', 'D' }, op_END},
+  [FUNCTION_WAI] = {{ 'W', 'A', 'I' }, op_WAI},
+  [FUNCTION_SPO] = {{ 'S', 'P', 'O' }, op_SPO},
+  [FUNCTION_JPO] = {{ 'J', 'P', 'O' }, op_JPO},
+  [FUNCTION_JUM] = {{ 'J', 'U', 'M' }, op_JUM},
+  [FUNCTION_LD1] = {{ 'L', 'D', '1' }, op_LD1},
+  [FUNCTION_LD2] = {{ 'L', 'D', '2' }, op_LD2}
+  //Add your own here
 };
 
 /**

@@ -3,7 +3,17 @@
 
 #include "Instruction.h"
 
+typedef enum{
+REG_NUMBER = 0,
+INT_NUMBER = 1,
+TONE = 2
+}Instruction_DataType_t;
+
 void InstructionHandlers_INIT();
+
+void InstructionHandlers_ProcessData(Instruction *exe);
+
+//Add your own here
 
 void op_EMPTY(Instruction *exe);
     
@@ -57,15 +67,7 @@ void op_VEQ(Instruction *exe);
 
 
 void op_VNQ(Instruction *exe);
-    
 
-
-void op_AOU(Instruction *exe);
-    
-
-
-void op_DOU(Instruction *exe);
-    
 
 
 void op_ANH(Instruction *exe);

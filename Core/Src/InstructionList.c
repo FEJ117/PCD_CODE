@@ -68,16 +68,13 @@ static void InstructionList_InsertEmpty(uint8_t pPos)
   */
 static void InstructionList_GetFunctionName(Instruction pIn, char arr[3])
 {
-    for (uint16_t i = 0; i < sizeof(functionNames) / sizeof(FunctionNameEntry); i++) {
-        if (pIn.functionNumber == functionNames[i].functionNumber) {
-            arr[0] = functionNames[i].name[0];
-            arr[1] = functionNames[i].name[1];
-            arr[2] = functionNames[i].name[2];
-            return;
-        }
-    }
-
-    arr[0] = 'X'; arr[1] = 'X'; arr[2] = 'X';
+	if(pIn.functionNumber < Function_t_MAX)
+	{
+		arr[0] = definedFunctions[pIn.functionNumber].name[0];
+		arr[1] = definedFunctions[pIn.functionNumber].name[1];
+		arr[2] = definedFunctions[pIn.functionNumber].name[2];
+		return;
+	}
 }
 
 /**
@@ -132,11 +129,11 @@ static void InstructionList_UpdateInstructions()
   */
 static uint8_t InstructionList_CharsToFunctionNumber(char chars[3])
 {
-	for (uint16_t i = 0; i < sizeof(functionNames) / sizeof(FunctionNameEntry); i++)
+	for (uint16_t i = 0; i < sizeof(definedFunctions) / sizeof(FunctionDefinition); i++)
 	{
-		if (chars[0] == functionNames[i].name[0]&&chars[1] == functionNames[i].name[1]&&chars[2] == functionNames[i].name[2])
+		if (chars[0] == definedFunctions[i].name[0]&&chars[1] == definedFunctions[i].name[1]&&chars[2] == definedFunctions[i].name[2])
 		{
-			return(functionNames[i].functionNumber);
+			return(i);
 		}
 	}
 	return(255);
@@ -151,7 +148,8 @@ static uint8_t InstructionList_CharsToFunctionNumber(char chars[3])
 static void InstructionList_ExecuteNext() {
 	Instruction exe = EEPROM_GetInstruction(programIndex);
 	programIndex++;
-	functionNames[exe.functionNumber].handler(&exe);
+	InstructionHandlers_ProcessData(&exe);
+	definedFunctions[exe.functionNumber].handler(&exe);
 }
 
 

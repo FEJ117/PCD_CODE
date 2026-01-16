@@ -1,3 +1,4 @@
+#include "InstructionHandlers.h"
 #include "Instruction.h"
 #include <stdint.h>
 #include "Display.h"
@@ -5,11 +6,10 @@
 #include "InstructionList.h"
 #include "STM_FUNCTIONS.h"
 
-#define regNumber getRegisterNumber(exe)
-#define datNumber getDataNumber(exe)
-
 extern uint8_t regPointer;
 extern uint8_t registers[];
+Instruction_DataType_t currentDataType;
+uint8_t currentData;
 
 /**
  * @brief Position of the cursor for PCH and PTR commands
@@ -18,29 +18,31 @@ uint8_t cursPos = 0;
 
 extern uint16_t programIndex;
 
-static uint8_t getRegisterNumber(Instruction *exe)
+void InstructionHandlers_ProcessData(Instruction *exe)
 {
-    if (exe->data3 >= 58 || exe->data3 <= 48)
-        return(exe->data2 - 48);
-    else if (exe->data2 >= 58 || exe->data2 <= 48)
-        return((exe->data2 - 48) * 10 + exe->data3 - 48);
-
-    return 0;
-}
-
-static uint8_t getDataNumber(Instruction *exe)
-{
-    if (exe->data >= 48 && exe->data <= 58) {
+    if(exe->data == 'R')
+    {
+        currentDataType = REG_NUMBER;
+        if (exe->data3 >= 58 || exe->data3 <= 48)
+        currentData = (exe->data2 - 48);
+        else if (exe->data2 >= 58 || exe->data2 <= 48)
+        currentData=((exe->data2 - 48) * 10 + exe->data3 - 48);
+        else currentData = 0; //Throw Exception
+    }
+    else if (exe->data >= 48 && exe->data <= 58) {
+        currentDataType = INT_NUMBER;
         if (exe->data3 >= 48 && exe->data3 <= 58) {
-            return((exe->data - 48) * 100 + (exe->data2 - 48) * 10
+            currentData = ((exe->data - 48) * 100 + (exe->data2 - 48) * 10
                     + exe->data3 - 48);
         } else if (exe->data2 >= 48 && exe->data2 <= 58) {
-            return((exe->data - 48) * 10 + exe->data2 - 48);
-        } else if (exe->data >= 48 && exe->data <= 58) {
-            return(exe->data - 48);
+            currentData = ((exe->data - 48) * 10 + exe->data2 - 48);
+        } else{
+            currentData = (exe->data - 48);
         }
     }
-    return 0;
+    else {
+        currentDataType = TONE;
+    }
 }
 
 /**
@@ -98,6 +100,8 @@ static void InstructionList_WriteAtCursor(char str[3])
 	}
 }
 
+//Add your own here
+
 void op_EMPTY(Instruction *exe)
 {
     
@@ -105,102 +109,92 @@ void op_EMPTY(Instruction *exe)
 
 void op_PIC(Instruction *exe)
 {
-    regPointer = regNumber;
+    regPointer = currentData;
 }
 
 void op_SET(Instruction *exe)
 {
-    registers[regPointer] = datNumber;
+    registers[regPointer] = currentData;
 }
 
 void op_INC(Instruction *exe)
 {
-    registers[regPointer] = registers[regPointer] + datNumber;
+    registers[regPointer] = registers[regPointer] + currentData;
 }
 
 void op_DEC(Instruction *exe)
 {
-    registers[regPointer] = registers[regPointer] - datNumber;
+    registers[regPointer] = registers[regPointer] - currentData;
 }
 
 void op_COP(Instruction *exe)
 {
-    registers[regNumber] = registers[regPointer];
+    registers[currentData] = registers[regPointer];
 }
 
 void op_ADD(Instruction *exe)
 {
-    registers[regPointer] += registers[regNumber];
+    registers[regPointer] += registers[currentData];
 }
 
 void op_SUB(Instruction *exe)
 {
-    registers[regPointer] -= registers[regNumber];
+    registers[regPointer] -= registers[currentData];
 }
 
 void op_SMA(Instruction *exe)
 {
-    InstructionList_EvaluateCondition(registers[regPointer] < registers[regNumber]);
+    InstructionList_EvaluateCondition(registers[regPointer] < registers[currentData]);
 }
 
 void op_BIG(Instruction *exe)
 {
-    InstructionList_EvaluateCondition(registers[regPointer] > registers[regNumber]);
+    InstructionList_EvaluateCondition(registers[regPointer] > registers[currentData]);
 }
 
 void op_REQ(Instruction *exe)
 {
-    InstructionList_EvaluateCondition(registers[regPointer] == registers[regNumber]);
+    InstructionList_EvaluateCondition(registers[regPointer] == registers[currentData]);
 }
 
 void op_RNQ(Instruction *exe)
 {
-    InstructionList_EvaluateCondition(registers[regPointer] != registers[regNumber]);
+    InstructionList_EvaluateCondition(registers[regPointer] != registers[currentData]);
 }
 
 void op_VEQ(Instruction *exe)
 {
-    InstructionList_EvaluateCondition(datNumber == registers[regPointer]);
+    InstructionList_EvaluateCondition(currentData == registers[regPointer]);
 }
 
 void op_VNQ(Instruction *exe)
 {
-    InstructionList_EvaluateCondition(!(datNumber == registers[regPointer]));
-}
-
-void op_AOU(Instruction *exe)
-{
-    
-}
-
-void op_DOU(Instruction *exe)
-{
-    
+    InstructionList_EvaluateCondition(!(currentData == registers[regPointer]));
 }
 
 void op_ANH(Instruction *exe)
 {
-    InstructionList_EvaluateCondition(registers[regPointer] < STM_ReadADC(datNumber));
+    InstructionList_EvaluateCondition(registers[regPointer] < STM_ReadADC(currentData));
 }
 
 void op_ANL(Instruction *exe)
 {
-    InstructionList_EvaluateCondition(!(registers[regPointer] < STM_ReadADC(datNumber)));
+    InstructionList_EvaluateCondition(!(registers[regPointer] < STM_ReadADC(currentData)));
 }
 
 void op_SVA(Instruction *exe)
 {
-    registers[regPointer] = STM_ReadADC(datNumber);
+    registers[regPointer] = STM_ReadADC(currentData);
 }
 
 void op_INH(Instruction *exe)
 {
-    InstructionList_EvaluateCondition(STM_IsInputHigh(datNumber));
+    InstructionList_EvaluateCondition(STM_IsInputHigh(currentData));
 }
 
 void op_INL(Instruction *exe)
 {
-    InstructionList_EvaluateCondition(!(STM_IsInputHigh(datNumber)));
+    InstructionList_EvaluateCondition(!(STM_IsInputHigh(currentData)));
 }
 
 void op_TON(Instruction *exe)
@@ -211,7 +205,7 @@ void op_TON(Instruction *exe)
 void op_PTR(Instruction *exe)
 {
     char str[3];
-    STM_Number3ToChar(registers[regNumber], str);
+    STM_Number3ToChar(registers[currentData], str);
     InstructionList_WriteAtCursor(str);
 }
 
@@ -239,22 +233,22 @@ void op_END(Instruction *exe)
 
 void op_WAI(Instruction *exe)
 {
-    STM_Wait(datNumber);
+    STM_Wait(currentData);
 }
 
 void op_SPO(Instruction *exe)
 {
-    registers[regNumber] = programIndex-1;
+    registers[currentData] = programIndex-1;
 }
 
 void op_JPO(Instruction *exe)
 {
-    programIndex = registers[regNumber];
+    programIndex = registers[currentData];
 }
 
 void op_JUM(Instruction *exe)
 {
-    programIndex = datNumber;
+    programIndex = currentData;
 }
 
 void op_LD1(Instruction *exe)

@@ -10,6 +10,6 @@ When switching platforms, make sure to replace all STM32-specific functions with
 # Adding commands to the system
 To add a command, do the following:
 1. Place FUNCION_XXX in the enum in InstructionList.h
-2. Add a corresponding entry into functionNames. This sets the three characters to use the function.
+2. Add a corresponding entry into definedFunctions. This sets the three characters to use the function.
 3. Depending on whether your instruction expects a register or any other value place a case handling FUNCTION_XXX in the first or second switch/case in InstructionList.c --> InstructionList_ExecuteNext(). Add everything you want the command to be doing here. The function will automatically increment the programIndex. If you do not want that to happen, insert programIndex--; into your case.
 
