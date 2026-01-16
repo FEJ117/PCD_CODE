@@ -87,6 +87,6 @@ var menudata={children:[
 {text:"Enumerator",url:"globals_eval.html",children:[
 {text:"f",url:"globals_eval.html#index_f"},
 {text:"i",url:"globals_eval.html#index_i"},
-{text:"r",url:"globals_eval.html#index_r"},
-{text:"t",url:"globals_eval.html#index_t"}]},
+{text:"o",url:"globals_eval.html#index_o"},
+{text:"r",url:"globals_eval.html#index_r"}]},
 {text:"Macros",url:"globals_defs.html"}]}]}]}
