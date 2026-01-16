@@ -1,0 +1,31 @@
+<map id="Core/Src/InstructionHandlers.c" name="Core/Src/InstructionHandlers.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="172,5,391,31"/>
+<area shape="rect" id="Node000002" href="$Instruction_8h.html" title="Defines the struct &quot;Instruction&quot;." alt="" coords="267,299,370,324"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="258,33,193,69,156,94,120,122,91,153,73,185,69,201,69,217,74,233,83,249,110,267,153,281,254,300,253,305,151,286,107,271,79,253,69,235,64,218,64,200,68,183,87,150,117,118,153,90,191,64,256,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="405,372,475,397"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="182,33,121,49,65,74,42,91,24,112,12,136,8,164,8,239,11,253,19,266,51,291,98,312,156,331,283,359,391,375,391,380,282,364,155,336,96,317,48,295,15,270,6,255,3,240,3,163,7,134,20,109,38,87,62,70,120,44,181,28"/>
+<area shape="rect" id="Node000004" href="$Display_8h.html" title="Provides functions for the use of the OLED&#45;display to other files." alt="" coords="578,152,659,177"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="337,28,410,47,488,76,546,109,595,142,592,146,544,113,486,81,408,53,336,33"/>
+<area shape="rect" id="Node000005" href="$EEPROM_8h.html" title="Provides functions for the use of the EEPROM to other files." alt="" coords="465,152,554,177"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="350,28,406,46,434,60,459,77,485,106,502,138,498,141,481,109,456,81,431,64,404,51,349,33"/>
+<area shape="rect" id="Node000007" href="$InstructionList_8h.html" title="Provides functions for the programming and execution mode to other files as well as the function iden..." alt="" coords="155,152,282,177"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="279,32,232,140,227,138,274,30"/>
+<area shape="rect" id="Node000009" href="$STM__FUNCTIONS_8h.html" title="Provides STM&#45;specific functions to other files." alt="" coords="299,79,445,104"/>
+<area shape="poly" id="edge14_Node000001_Node000009" title=" " alt="" coords="298,29,348,68,345,72,294,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="340,322,410,363,407,367,337,326"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="611,179,461,362,457,359,607,176"/>
+<area shape="poly" id="edge9_Node000005_Node000002" title=" " alt="" coords="508,179,491,214,478,235,462,253,422,279,379,297,377,292,419,274,458,249,474,231,487,212,503,176"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="509,178,491,251,452,360,447,358,485,250,504,177"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="381,225,448,251"/>
+<area shape="poly" id="edge8_Node000005_Node000006" title=" " alt="" coords="496,179,443,219,440,215,493,175"/>
+<area shape="poly" id="edge11_Node000007_Node000002" title=" " alt="" coords="231,176,269,224,308,285,303,288,264,227,227,179"/>
+<area shape="rect" id="Node000008" href="$InstructionHandlers_8h.html" title=" " alt="" coords="94,225,255,251"/>
+<area shape="poly" id="edge12_Node000007_Node000008" title=" " alt="" coords="214,179,191,215,187,212,209,176"/>
+<area shape="poly" id="edge13_Node000008_Node000002" title=" " alt="" coords="199,248,284,290,282,295,197,253"/>
+<area shape="poly" id="edge19_Node000009_Node000002" title=" " alt="" coords="368,105,348,153,332,225,324,286,318,285,326,224,343,151,363,103"/>
+<area shape="poly" id="edge16_Node000009_Node000004" title=" " alt="" coords="412,101,566,146,565,151,411,107"/>
+<area shape="poly" id="edge17_Node000009_Node000005" title=" " alt="" coords="395,102,476,143,474,148,393,106"/>
+<area shape="poly" id="edge18_Node000009_Node000007" title=" " alt="" coords="348,106,257,149,255,144,346,102"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="357,152,440,177"/>
+<area shape="poly" id="edge15_Node000009_Node000010" title=" " alt="" coords="379,103,392,138,387,140,374,105"/>
+</map>

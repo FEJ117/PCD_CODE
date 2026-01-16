@@ -1,20 +1,24 @@
 <map id="Core/Src/STM_FUNCTIONS.h" name="Core/Src/STM_FUNCTIONS.h">
-<area shape="rect" id="Node000001" title="Provides STM&#45;specific functions to other files." alt="" coords="161,5,365,31"/>
+<area shape="rect" id="Node000001" title="Provides STM&#45;specific functions to other files." alt="" coords="74,5,278,31"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,79,88,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,33,95,77,94,72,227,28"/>
-<area shape="rect" id="Node000003" href="$Display_8h.html" title="Provides functions for the use of the OLED&#45;display to other files." alt="" coords="113,79,194,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="247,33,184,73,181,69,244,28"/>
-<area shape="rect" id="Node000005" href="$EEPROM_8h.html" title="Provides functions for the use of the EEPROM to other files." alt="" coords="218,79,307,104"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="265,31,265,65,260,65,260,31"/>
-<area shape="rect" id="Node000007" href="$Instruction_8h.html" title="Defines the struct &quot;Instruction&quot;." alt="" coords="317,152,419,177"/>
-<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="277,29,321,77,359,139,354,141,317,80,273,33"/>
-<area shape="rect" id="Node000008" href="$InstructionList_8h.html" title="Provides functions for the programming and execution mode to other files as well as the function iden..." alt="" coords="383,79,510,104"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="293,28,405,71,403,76,291,33"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="126,152,197,177"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="157,104,161,138,156,139,152,105"/>
-<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="248,106,191,146,188,142,245,102"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="225,152,292,177"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="265,104,263,139,257,138,259,104"/>
-<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="281,102,341,142,338,147,278,106"/>
-<area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="436,106,393,145,389,141,432,102"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,33,81,74,79,69,154,28"/>
+<area shape="rect" id="Node000003" href="$Display_8h.html" title="Provides functions for the use of the OLED&#45;display to other files." alt="" coords="10,152,91,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="168,33,72,143,68,140,164,29"/>
+<area shape="rect" id="Node000005" href="$EEPROM_8h.html" title="Provides functions for the use of the EEPROM to other files." alt="" coords="115,152,205,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="177,31,165,139,160,138,172,31"/>
+<area shape="rect" id="Node000007" href="$Instruction_8h.html" title="Defines the struct &quot;Instruction&quot;." alt="" coords="230,225,333,251"/>
+<area shape="poly" id="edge13_Node000001_Node000007" title=" " alt="" coords="184,30,272,212,267,214,179,32"/>
+<area shape="rect" id="Node000008" href="$InstructionList_8h.html" title="Provides functions for the programming and execution mode to other files as well as the function iden..." alt="" coords="281,79,407,104"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="204,28,305,71,303,76,202,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="66,299,137,324"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="57,177,95,285,90,287,52,179"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="155,179,129,226,110,286,105,284,124,224,150,176"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="139,225,205,251"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="165,177,170,211,165,212,159,178"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="181,175,251,216,249,221,178,180"/>
+<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="253,253,144,296,142,291,251,248"/>
+<area shape="poly" id="edge10_Node000008_Node000007" title=" " alt="" coords="341,106,294,214,289,211,336,103"/>
+<area shape="rect" id="Node000009" href="$InstructionHandlers_8h.html" title=" " alt="" coords="331,152,493,177"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="357,102,393,140,389,144,353,106"/>
+<area shape="poly" id="edge12_Node000009_Node000007" title=" " alt="" coords="392,180,316,221,313,216,390,175"/>
 </map>

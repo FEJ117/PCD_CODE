@@ -75,6 +75,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -85,14 +86,20 @@ $(function() {
 <p>Provides functions for the programming and execution mode to other files as well as the function identifiers.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="Instruction_8h_source.html">Instruction.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="InstructionHandlers_8h_source.html">InstructionHandlers.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for InstructionList.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="InstructionList_8h__incl.png" border="0" usemap="#aCore_2Src_2InstructionList_8h" alt=""/></div>
 <map name="aCore_2Src_2InstructionList_8h" id="aCore_2Src_2InstructionList_8h">
 <area shape="rect" title="Provides functions for the programming and execution mode to other files as well as the function iden..." alt="" coords="5,5,189,31"/>
-<area shape="rect" href="Instruction_8h.html" title="Defines the struct &quot;Instruction&quot;." alt="" coords="46,79,149,104"/>
-<area shape="poly" title=" " alt="" coords="100,31,100,65,95,65,95,31"/>
+<area shape="rect" href="Instruction_8h.html" title="Defines the struct &quot;Instruction&quot;." alt="" coords="46,152,149,177"/>
+<area shape="poly" title=" " alt="" coords="91,32,78,54,68,79,67,95,69,110,83,139,78,141,64,112,61,95,63,78,73,51,87,29"/>
+<area shape="rect" href="InstructionHandlers_8h.html" title=" " alt="" coords="77,79,238,104"/>
+<area shape="poly" title=" " alt="" coords="109,29,141,66,137,70,105,33"/>
+<area shape="rect" title=" " alt="" coords="62,225,133,251"/>
+<area shape="poly" title=" " alt="" coords="100,178,100,212,95,212,95,178"/>
+<area shape="poly" title=" " alt="" coords="149,106,118,143,114,140,145,103"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -100,23 +107,26 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="InstructionList_8h__dep__incl.png" border="0" usemap="#aCore_2Src_2InstructionList_8hdep" alt=""/></div>
 <map name="aCore_2Src_2InstructionList_8hdep" id="aCore_2Src_2InstructionList_8hdep">
-<area shape="rect" title="Provides functions for the programming and execution mode to other files as well as the function iden..." alt="" coords="361,5,545,31"/>
+<area shape="rect" title="Provides functions for the programming and execution mode to other files as well as the function iden..." alt="" coords="488,5,672,31"/>
 <area shape="rect" href="EEPROM_8c.html" title="Implementation of EEPROM&#45;Functions." alt="" coords="5,152,152,177"/>
-<area shape="poly" title=" " alt="" coords="411,38,109,154,107,149,409,33"/>
-<area shape="rect" href="InstructionList_8c.html" title="Implementation of the main program logic for writing and executing commands." alt="" coords="177,152,359,177"/>
-<area shape="poly" title=" " alt="" coords="412,39,376,57,340,81,303,118,278,153,273,150,299,115,337,77,373,53,410,34"/>
-<area shape="rect" href="STM__FUNCTIONS_8c.html" title="Inplementation of STM32&#45;specific functions." alt="" coords="547,152,749,177"/>
-<area shape="poly" title=" " alt="" coords="495,34,531,53,568,77,611,115,641,150,637,154,607,119,565,81,529,57,492,39"/>
-<area shape="rect" href="STM__FUNCTIONS_8h.html" title="Provides STM&#45;specific functions to other files." alt="" coords="351,79,555,104"/>
-<area shape="poly" title=" " alt="" coords="456,44,456,79,451,79,451,44"/>
-<area shape="rect" href="main_8c.html" title=": Main program body" alt="" coords="774,152,898,177"/>
-<area shape="poly" title=" " alt="" coords="498,33,807,149,805,154,496,38"/>
-<area shape="poly" title=" " alt="" coords="380,109,140,155,139,149,380,104"/>
-<area shape="poly" title=" " alt="" coords="412,111,299,154,297,149,410,106"/>
-<area shape="poly" title=" " alt="" coords="498,106,617,149,615,154,496,111"/>
-<area shape="rect" href="Display_8c.html" title="Implementation of Display&#45;Functions." alt="" coords="384,152,523,177"/>
-<area shape="poly" title=" " alt="" coords="456,118,456,152,451,152,451,118"/>
-<area shape="poly" title=" " alt="" coords="529,104,775,149,774,155,528,109"/>
+<area shape="poly" title=" " alt="" coords="528,37,119,154,118,149,527,32"/>
+<area shape="rect" href="InstructionHandlers_8c.html" title=" " alt="" coords="176,152,395,177"/>
+<area shape="poly" title=" " alt="" coords="545,39,310,154,307,150,543,34"/>
+<area shape="rect" href="InstructionList_8c.html" title="Implementation of the main program logic for writing and executing commands." alt="" coords="419,152,602,177"/>
+<area shape="poly" title=" " alt="" coords="563,43,538,80,524,119,515,153,510,151,518,117,534,77,559,40"/>
+<area shape="rect" href="STM__FUNCTIONS_8c.html" title="Inplementation of STM32&#45;specific functions." alt="" coords="789,152,992,177"/>
+<area shape="poly" title=" " alt="" coords="641,32,702,51,765,76,829,114,878,150,875,154,826,119,763,81,700,56,640,37"/>
+<area shape="rect" href="STM__FUNCTIONS_8h.html" title="Provides STM&#45;specific functions to other files." alt="" coords="549,79,753,104"/>
+<area shape="poly" title=" " alt="" coords="603,39,641,77,637,80,599,43"/>
+<area shape="rect" href="main_8c.html" title=": Main program body" alt="" coords="1017,152,1141,177"/>
+<area shape="poly" title=" " alt="" coords="640,32,806,76,1044,149,1043,154,805,81,638,37"/>
+<area shape="poly" title=" " alt="" coords="542,108,164,155,153,156,152,151,164,149,541,103"/>
+<area shape="poly" title=" " alt="" coords="579,109,345,155,344,149,578,104"/>
+<area shape="poly" title=" " alt="" coords="617,113,535,154,532,149,615,108"/>
+<area shape="poly" title=" " alt="" coords="703,105,853,149,851,154,702,110"/>
+<area shape="rect" href="Display_8c.html" title="Implementation of Display&#45;Functions." alt="" coords="627,152,765,177"/>
+<area shape="poly" title=" " alt="" coords="668,114,691,150,686,153,663,117"/>
+<area shape="poly" title=" " alt="" coords="733,104,1017,150,1016,156,732,109"/>
 </map>
 </div>
 </div>
@@ -127,6 +137,11 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFunctionNameEntry.html">FunctionNameEntry</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct which allows for allocating a function number to a function identifier.  <a href="structFunctionNameEntry.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a947bb4064b70148f6aa10fbe823f4786" id="r_a947bb4064b70148f6aa10fbe823f4786"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8h.html#a947bb4064b70148f6aa10fbe823f4786">InstructionHandler</a>) (<a class="el" href="structInstruction.html">Instruction</a> *exe)</td></tr>
+<tr class="separator:a947bb4064b70148f6aa10fbe823f4786"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -200,7 +215,22 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides functions for the programming and execution mode to other files as well as the function identifiers. </p>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a947bb4064b70148f6aa10fbe823f4786" name="a947bb4064b70148f6aa10fbe823f4786"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a947bb4064b70148f6aa10fbe823f4786">&#9670;&#160;</a></span>InstructionHandler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(* InstructionHandler) (<a class="el" href="structInstruction.html">Instruction</a> *exe)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a514b244a43fdf1f593554612d7f4b437" name="a514b244a43fdf1f593554612d7f4b437"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a514b244a43fdf1f593554612d7f4b437">&#9670;&#160;</a></span>Function_t</h2>
 

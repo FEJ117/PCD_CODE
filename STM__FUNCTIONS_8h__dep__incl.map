@@ -1,13 +1,15 @@
 <map id="Core/Src/STM_FUNCTIONS.h" name="Core/Src/STM_FUNCTIONS.h">
-<area shape="rect" id="Node000001" title="Provides STM&#45;specific functions to other files." alt="" coords="329,5,533,31"/>
+<area shape="rect" id="Node000001" title="Provides STM&#45;specific functions to other files." alt="" coords="458,5,662,31"/>
 <area shape="rect" id="Node000002" href="$Display_8c.html" title="Implementation of Display&#45;Functions." alt="" coords="5,79,144,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="361,36,133,81,132,76,360,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="469,35,145,83,144,77,468,30"/>
 <area shape="rect" id="Node000003" href="$EEPROM_8c.html" title="Implementation of EEPROM&#45;Functions." alt="" coords="168,79,315,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="388,38,273,81,271,76,387,33"/>
-<area shape="rect" id="Node000004" href="$InstructionList_8c.html" title="Implementation of the main program logic for writing and executing commands." alt="" coords="339,79,522,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="433,44,433,79,428,79,428,44"/>
-<area shape="rect" id="Node000005" href="$STM__FUNCTIONS_8c.html" title="Inplementation of STM32&#45;specific functions." alt="" coords="547,79,749,104"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="479,32,614,76,612,81,478,37"/>
-<area shape="rect" id="Node000006" href="$main_8c.html" title=": Main program body" alt="" coords="774,79,898,104"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="510,30,774,77,773,82,509,36"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="496,36,294,81,292,76,495,31"/>
+<area shape="rect" id="Node000004" href="$InstructionHandlers_8c.html" title=" " alt="" coords="339,79,557,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="532,40,468,81,465,76,529,36"/>
+<area shape="rect" id="Node000005" href="$InstructionList_8c.html" title="Implementation of the main program logic for writing and executing commands." alt="" coords="582,79,765,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="592,36,656,76,653,81,589,40"/>
+<area shape="rect" id="Node000006" href="$STM__FUNCTIONS_8c.html" title="Inplementation of STM32&#45;specific functions." alt="" coords="789,79,992,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="627,31,838,76,837,81,626,36"/>
+<area shape="rect" id="Node000007" href="$main_8c.html" title=": Main program body" alt="" coords="1017,79,1141,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="662,30,1004,76,1017,78,1016,83,1004,81,662,35"/>
 </map>
