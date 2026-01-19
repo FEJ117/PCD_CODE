@@ -8,5 +8,5 @@ All other files contain functions specific to the STM32 environment. This includ
 When switching platforms, make sure to replace all STM32-specific functions with those suitable for your platform. The headers (.h) contain all functions accessed by outside functions in other files. Make sure to provide all of those functions.
 
 # Adding commands to the system
-To add a command, dplease follow the instructions provided in the documentation of InstructionHandlers.h.
+To add a command, please follow the instructions provided in the documentation of InstructionHandlers.h.
 
