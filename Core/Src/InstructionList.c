@@ -9,18 +9,10 @@
 #include "InstructionList.h"
 #include "STM_FUNCTIONS.h"
 
-//Documented in .h
+/**
+ * @brief Current position in the programm (both used in programming and executing)
+ */
 uint16_t programIndex = 0;
-
-/**
- * @brief Values of the 100 virtual storage registers
- */
-uint16_t registers[100];
-
-/**
- * @brief Points at the chosen register (used by PIC and other register commands)
- */
-uint8_t regPointer = 0;
 
 /**
  * @brief Empty instruction (is inserted when an instruction is deleted)
@@ -150,16 +142,6 @@ static void InstructionList_ExecuteNext() {
 	programIndex++;
 	InstructionHandlers_ProcessData(&exe);
 	definedFunctions[exe.functionNumber].handler(&exe);
-}
-
-
-//Documented in .h
-void InstructionList_Init()
-{
-    for(uint16_t i = 0; i < 100; i++)
-    {
-    	registers[i] = 0;
-    }
 }
 
 

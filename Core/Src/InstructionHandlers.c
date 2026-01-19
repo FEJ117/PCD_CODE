@@ -6,9 +6,25 @@
 #include "InstructionList.h"
 #include "STM_FUNCTIONS.h"
 
-extern uint8_t regPointer;
-extern uint8_t registers[];
+/**
+ * @brief Points at the chosen register (used by PIC and other register commands)
+ */
+uint8_t regPointer = 0;
+
+
+/**
+ * @brief Values of the 100 virtual storage registers
+ */
+uint16_t registers[100];
+
+/**
+* @brief The data type determined by InstructionHandlers_ProcessData()
+*/
 Instruction_DataType_t currentDataType;
+
+/**
+* @brief The data value processed by InstructionHandlers_ProcessData()
+*/
 uint8_t currentData;
 
 /**
@@ -16,8 +32,15 @@ uint8_t currentData;
  */
 uint8_t cursPos = 0;
 
+/**
+* @brief The current program index provided by InstructionList.h
+*/
 extern uint16_t programIndex;
 
+/**
+* @brief Processes the data stored in the current instruction and sets the data type processed.
+* @details The datatype can be used by the functions to determine if the data provided has the right format.
+*/
 void InstructionHandlers_ProcessData(Instruction *exe)
 {
     if(exe->data == 'R')
@@ -55,7 +78,7 @@ void InstructionHandlers_ProcessData(Instruction *exe)
 * 				# If the contition is false: Jumps to the instruction after the next
   * @param condition The condition which is being processed
   */
-static void InstructionList_EvaluateCondition(bool condition) {
+static void EvaluateCondition(bool condition) {
 
 	if(!condition)
 	{
@@ -74,6 +97,10 @@ static void InstructionList_EvaluateCondition(bool condition) {
 	}
 }
 
+/**
+* @brief Initializes the registers as well as the program index, cursor and register pointer to be 0.
+* @warning Should be called everytime the program switches into executing mode
+*/
 void InstructionHandlers_INIT()
 {
     for(uint8_t i = 0; i < 100; i++)
@@ -91,7 +118,7 @@ void InstructionHandlers_INIT()
   * @brief Writes up to 3 characters at the current position of the cursor variable (cursPos)
   * @param str Characters to be written (character that equal 0 will be ignored)
   */
-static void InstructionList_WriteAtCursor(char str[3])
+static void WriteAtCursor(char str[3])
 {
 	Display_WriteString(str, 3, cursPos, 0);
 	for(uint8_t i = 0; i < 3; i++)
@@ -102,21 +129,34 @@ static void InstructionList_WriteAtCursor(char str[3])
 
 //Add your own here
 
+/** @brief Handler for the instructions EMP, BEG and END. Does nothing. 
+*/
 void op_EMP_BEG_END(Instruction *exe)
 {
     
 }
 
+/** @brief Handler for the instruction PIC. 
+  * @details Sets the register pointer to the desired value specified in the data of the instruction.
+ */
 void op_PIC(Instruction *exe)
 {
     regPointer = currentData;
 }
 
+/** @brief Handler for the instruction SET. 
+  * @details Sets the value of the register pointed to by the register pointer
+  * to the value specified in the data of the instruction.
+ */
 void op_SET(Instruction *exe)
 {
     registers[regPointer] = currentData;
 }
 
+/** @brief Handler for the instructions INC and DEC. 
+  * @details Increments or decrements the register pointed to by the register pointer
+  * by the value specified in the data of the instruction.
+ */
 void op_INC_DEC(Instruction *exe)
 {
     registers[regPointer] = 
@@ -125,11 +165,20 @@ void op_INC_DEC(Instruction *exe)
     (registers[regPointer] - currentData);
 }
 
+
+/** @brief Handler for the instruction COP. 
+  * @details Copies the register pointed to by the register pointer into
+  * the register specified by the data of the instruction.
+ */
 void op_COP(Instruction *exe)
 {
     registers[currentData] = registers[regPointer];
 }
 
+/** @brief Handler for the instructions ADD and SUB. 
+  * @details Adds or subtracts the value of the register specified by the data of the instruction from/to
+  * the register pointed to by the register pointer.
+ */
 void op_ADD_SUB(Instruction *exe)
 {
     registers[regPointer] += 
@@ -138,100 +187,161 @@ void op_ADD_SUB(Instruction *exe)
     (-registers[currentData]);
 }
 
+/** @brief Handler for the instructions SMA and BIG. 
+  * @details Determines, if the value of the register pointed to by the register pointer is
+  * smaller or bigger then the value of the register specified by the data of the instruction.
+ */
 void op_SMA_BIG(Instruction *exe)
 {
-    InstructionList_EvaluateCondition(
+    EvaluateCondition(
         (exe->functionNumber == FUNCTION_SMA) ? 
         (registers[regPointer] < registers[currentData]) :
         (registers[regPointer] > registers[currentData])
     );
 }
 
+/** @brief Handler for the instructions REQ and RNQ. 
+  * @details Determines, if the values of the register pointed to by the register pointer and
+  * the value of the register specified by the data of the instruction are equal or not equal.
+ */
 void op_REQ_RNQ(Instruction *exe)
 {
-    InstructionList_EvaluateCondition(
+    EvaluateCondition(
         (exe->functionNumber == FUNCTION_REQ) ? 
         (registers[regPointer] == registers[currentData]) :
         (registers[regPointer] != registers[currentData])
     );
 }
 
+/** @brief Handler for the instructions VEQ and VNQ. 
+  * @details Determines, if the values of the register pointed to by the register pointer and
+  * the value of the data of the instruction are equal or not equal.
+ */
 void op_VEQ_VNQ(Instruction *exe)
 {
-    InstructionList_EvaluateCondition(
+    EvaluateCondition(
         (exe->functionNumber == FUNCTION_VEQ) ? 
         (currentData == registers[regPointer]) :
         (currentData != registers[regPointer])
     );
 }
 
+/** @brief Handler for the instructions ANH and ANL. 
+  * @details Determines, if the values of the register pointed to by the register pointer and
+  * the value of the analog input provided by the data of the instuction are smaller or bigger.
+  * @warning The value passed in the instruction is the ADC number of the analog input.
+ */
 void op_ANH_ANL(Instruction *exe)
 {
-    InstructionList_EvaluateCondition(
+    EvaluateCondition(
         (exe->functionNumber == FUNCTION_ANH) ? 
         (registers[regPointer] < STM_ReadADC(currentData)):
         (registers[regPointer] > STM_ReadADC(currentData))
     );
 }
 
+/** @brief Handler for the instructions REQ and RNQ. 
+  * @details Determines, if the values of the register pointed to by the register pointer and
+  * the value of the register specified by the data of the instruction are equal or not equal.
+ */
 void op_SVA(Instruction *exe)
 {
     registers[regPointer] = STM_ReadADC(currentData);
 }
 
+/** @brief Handler for the instructions INH and INL. 
+  * @details Determines, if the input specified by the data of the instruction is high or low.
+  * @warning Input0 = Button1, Input1 = Button2, Input2 = Button3, Input3 = Button4
+ */
 void op_INH_INL(Instruction *exe)
 {
-    InstructionList_EvaluateCondition(
+    EvaluateCondition(
         (exe->functionNumber == FUNCTION_INH) ?
         STM_IsInputHigh(currentData):
         STM_IsInputHigh(currentData)
     );
 }
 
+/** @brief Handler for the instruction TON. 
+  * @details Produces a speaker output representing the tone specified in the instruction's data.
+  * @warning The tone must be provided in the following format: C#7, where C is any tone (C, D, E, F, G, A, H),
+  * 7 is the pitch (choose from 1-7) and # indicates the semitone higher then C. # is optional.
+ */
 void op_TON(Instruction *exe)
 {
     STM_ActivateBuzzer(*exe); 
 }
 
+/** @brief Handler for the instruction PTR. 
+  * @details Prints the value of the register provided by the data of the instruction to the cursor position
+  * and increments the cursor position.
+ */
 void op_PTR(Instruction *exe)
 {
     char str[3];
     STM_Number3ToChar(registers[currentData], str);
-    InstructionList_WriteAtCursor(str);
+    WriteAtCursor(str);
 }
 
+/** @brief Handler for the instruction PCH. 
+  * @details Prints any three chars provided by the data of the instruction to the cursor position
+  * and increments the cursor position. Chars which are not provided will be left out.
+ */
 void op_PCH(Instruction *exe)
 {
     char str[] = {exe->data, exe->data2, exe->data3};
-	InstructionList_WriteAtCursor(str);
+	WriteAtCursor(str);
 }
 
+/** @brief Handler for the instruction CLR. 
+  * @details Clears the screen.
+ */
 void op_CLR(Instruction *exe)
 {
     cursPos = 0;
 	Display_FillBlack();
 }
 
+/** @brief Handler for the instruction WAI. 
+  * @details Pauses the program for the amount of time given in the data of the instruction in 1/10 seconds.
+ */
 void op_WAI(Instruction *exe)
 {
     STM_Wait(currentData);
 }
 
+/**
+  * @brief Handler for the instruction SPO.
+  * @details Saves the current position in the program to the register specified by the instruction's data.
+*/
 void op_SPO(Instruction *exe)
 {
     registers[currentData] = programIndex-1;
 }
 
+/**
+  * @brief Handler for the instruction JPO.
+  * @details Jumps to the position pointed to by the register specified by the instruction's data.
+*/
 void op_JPO(Instruction *exe)
 {
     programIndex = registers[currentData];
 }
 
+/**
+  * @brief Handler for the instruction JUM.
+  * @details Jumps to the position specified in the instruction's data.
+*/
 void op_JUM(Instruction *exe)
 {
     programIndex = currentData;
 }
 
+/**
+  * @brief Handler for the instruction LD1 and LD2.
+  * @details Sets one of the LEDs (depending on LD1/LD2) to the colour specified by the instruction's data.
+  * (R = Red, G = Green, B = Blue, O = Orange, T = Turquoise, V = Violett, W = White, Any other = OFF)
+*/
 void op_LD1_LD2(Instruction *exe)
 {
     STM_SetLED(exe->functionNumber, exe->data);

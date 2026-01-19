@@ -1,6 +1,10 @@
 /**
  * @file InstructionList.h
- * @brief Provides functions for the programming and execution mode to other files as well as the function identifiers
+ * @brief Provides functions for the programming and execution mode to other files as well as the function identifiers.
+ * @details To add your own functions to the system, first insert FUNCTION_XXX into the typedef enum, then add the function to
+ * "definedFunctions[]" using the FUNCTION_XXX you just put in above as well as a function Identifier (normally this is the XXX).
+ * Then go on and add the function handler to definedFunctions[]. The function handler must then be defined in InstructionHandlers.h
+ * and implemented in InstructionHandlers.c.
  */
 
 #ifndef INSTRUCTIONLIST_H
@@ -46,6 +50,9 @@ typedef enum {
     Function_t_MAX
 } Function_t;
 
+/**
+* Defines a type for the instruction handlers.
+*/
 typedef void (*InstructionHandler)(Instruction *exe);
 
 /**
@@ -58,7 +65,7 @@ typedef struct {
   const char name[3];
 
   /**
-  * @brief The function that is called when the function is being executed
+  * @brief The handler that is called when the function is being executed
   */
   InstructionHandler handler;
 
@@ -102,16 +109,6 @@ static const FunctionDefinition definedFunctions[] = {
   [FUNCTION_LD2] = {{ 'L', 'D', '2' }, op_LD1_LD2}
   //Add your own here
 };
-
-/**
- * @brief Current position in the programm (both used in programming and executing)
- */
-extern uint16_t programIndex;
-
-/**
-  * @brief Sets all registers to 0
-  */
-void InstructionList_Init();
 
 /**
   * @brief 	Allows for programming the PCD if set into programming mode. Writes instructions into EEPROM
