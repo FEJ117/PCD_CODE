@@ -192,9 +192,6 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae031f51c011a02f75e248276ad067f3b" id="r_ae031f51c011a02f75e248276ad067f3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8h.html#ae031f51c011a02f75e248276ad067f3b">InstructionList_Init</a> ()</td></tr>
-<tr class="memdesc:ae031f51c011a02f75e248276ad067f3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all registers to 0.  <br /></td></tr>
-<tr class="separator:ae031f51c011a02f75e248276ad067f3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bcbf27fb05715578f527c0a5fab1650" id="r_a2bcbf27fb05715578f527c0a5fab1650"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8h.html#a2bcbf27fb05715578f527c0a5fab1650">InstructionList_ProgrammingMode</a> (void)</td></tr>
 <tr class="memdesc:a2bcbf27fb05715578f527c0a5fab1650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows for programming the PCD if set into programming mode. Writes instructions into EEPROM.  <br /></td></tr>
 <tr class="separator:a2bcbf27fb05715578f527c0a5fab1650"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,12 +204,10 @@ Variables</h2></td></tr>
 <tr class="memitem:ad8d23913603b0973cfece89724b5cd74" id="r_ad8d23913603b0973cfece89724b5cd74"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structFunctionDefinition.html">FunctionDefinition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8h.html#ad8d23913603b0973cfece89724b5cd74">definedFunctions</a> []</td></tr>
 <tr class="memdesc:ad8d23913603b0973cfece89724b5cd74"><td class="mdescLeft">&#160;</td><td class="mdescRight">All function numbers and allocated function identifiers.  <br /></td></tr>
 <tr class="separator:ad8d23913603b0973cfece89724b5cd74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebd3255f4f68515cb15d2cb3c47c7a8a" id="r_aebd3255f4f68515cb15d2cb3c47c7a8a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8h.html#aebd3255f4f68515cb15d2cb3c47c7a8a">programIndex</a></td></tr>
-<tr class="memdesc:aebd3255f4f68515cb15d2cb3c47c7a8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current position in the programm (both used in programming and executing)  <br /></td></tr>
-<tr class="separator:aebd3255f4f68515cb15d2cb3c47c7a8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides functions for the programming and execution mode to other files as well as the function identifiers. </p>
+<p>To add your own functions to the system, first insert FUNCTION_XXX into the typedef enum, then add the function to "definedFunctions[]" using the FUNCTION_XXX you just put in above as well as a function Identifier (normally this is the XXX). Then go on and add the function handler to definedFunctions[]. The function handler must then be defined in <a class="el" href="InstructionHandlers_8h.html">InstructionHandlers.h</a> and implemented in <a class="el" href="InstructionHandlers_8c.html">InstructionHandlers.c</a>. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a947bb4064b70148f6aa10fbe823f4786" name="a947bb4064b70148f6aa10fbe823f4786"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a947bb4064b70148f6aa10fbe823f4786">&#9670;&#160;</a></span>InstructionHandler</h2>
@@ -225,6 +220,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Defines a type for the instruction handlers. </p>
 
 </div>
 </div>
@@ -300,25 +296,6 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ae031f51c011a02f75e248276ad067f3b" name="ae031f51c011a02f75e248276ad067f3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae031f51c011a02f75e248276ad067f3b">&#9670;&#160;</a></span>InstructionList_Init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void InstructionList_Init </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sets all registers to 0. </p>
-
-</div>
-</div>
 <a id="a2bcbf27fb05715578f527c0a5fab1650" name="a2bcbf27fb05715578f527c0a5fab1650"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2bcbf27fb05715578f527c0a5fab1650">&#9670;&#160;</a></span>InstructionList_ProgrammingMode()</h2>
 
@@ -361,30 +338,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>All function numbers and allocated function identifiers. </p>
-
-</div>
-</div>
-<a id="aebd3255f4f68515cb15d2cb3c47c7a8a" name="aebd3255f4f68515cb15d2cb3c47c7a8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebd3255f4f68515cb15d2cb3c47c7a8a">&#9670;&#160;</a></span>programIndex</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t programIndex</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Current position in the programm (both used in programming and executing) </p>
 
 </div>
 </div>

@@ -147,9 +147,6 @@ Functions</h2></td></tr>
 <tr class="memitem:aa5b95f1a574be6c2061f940ff46a7c2a" id="r_aa5b95f1a574be6c2061f940ff46a7c2a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#aa5b95f1a574be6c2061f940ff46a7c2a">InstructionList_ExecuteNext</a> ()</td></tr>
 <tr class="memdesc:aa5b95f1a574be6c2061f940ff46a7c2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the function of the instruction pointed to by the index (programIndex)  <br /></td></tr>
 <tr class="separator:aa5b95f1a574be6c2061f940ff46a7c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae031f51c011a02f75e248276ad067f3b" id="r_ae031f51c011a02f75e248276ad067f3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#ae031f51c011a02f75e248276ad067f3b">InstructionList_Init</a> ()</td></tr>
-<tr class="memdesc:ae031f51c011a02f75e248276ad067f3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all registers to 0.  <br /></td></tr>
-<tr class="separator:ae031f51c011a02f75e248276ad067f3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bcbf27fb05715578f527c0a5fab1650" id="r_a2bcbf27fb05715578f527c0a5fab1650"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#a2bcbf27fb05715578f527c0a5fab1650">InstructionList_ProgrammingMode</a> (void)</td></tr>
 <tr class="memdesc:a2bcbf27fb05715578f527c0a5fab1650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows for programming the PCD if set into programming mode. Writes instructions into EEPROM.  <br /></td></tr>
 <tr class="separator:a2bcbf27fb05715578f527c0a5fab1650"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,12 +159,6 @@ Variables</h2></td></tr>
 <tr class="memitem:aebd3255f4f68515cb15d2cb3c47c7a8a" id="r_aebd3255f4f68515cb15d2cb3c47c7a8a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#aebd3255f4f68515cb15d2cb3c47c7a8a">programIndex</a> = 0</td></tr>
 <tr class="memdesc:aebd3255f4f68515cb15d2cb3c47c7a8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current position in the programm (both used in programming and executing)  <br /></td></tr>
 <tr class="separator:aebd3255f4f68515cb15d2cb3c47c7a8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1084087054a873fe97dbe9da7f03a1e0" id="r_a1084087054a873fe97dbe9da7f03a1e0"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#a1084087054a873fe97dbe9da7f03a1e0">registers</a> [100]</td></tr>
-<tr class="memdesc:a1084087054a873fe97dbe9da7f03a1e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Values of the 100 virtual storage registers.  <br /></td></tr>
-<tr class="separator:a1084087054a873fe97dbe9da7f03a1e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5da2ccd484c1fe56118416aa05af48c" id="r_aa5da2ccd484c1fe56118416aa05af48c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#aa5da2ccd484c1fe56118416aa05af48c">regPointer</a> = 0</td></tr>
-<tr class="memdesc:aa5da2ccd484c1fe56118416aa05af48c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Points at the chosen register (used by PIC and other register commands)  <br /></td></tr>
-<tr class="separator:aa5da2ccd484c1fe56118416aa05af48c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad69d0a02f4484ea6d9b958ed438b0827" id="r_ad69d0a02f4484ea6d9b958ed438b0827"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structInstruction.html">Instruction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionList_8c.html#ad69d0a02f4484ea6d9b958ed438b0827">emptyInstruction</a> = {0,0,0,0}</td></tr>
 <tr class="memdesc:ad69d0a02f4484ea6d9b958ed438b0827"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty instruction (is inserted when an instruction is deleted)  <br /></td></tr>
 <tr class="separator:ad69d0a02f4484ea6d9b958ed438b0827"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -299,25 +290,6 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="ae031f51c011a02f75e248276ad067f3b" name="ae031f51c011a02f75e248276ad067f3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae031f51c011a02f75e248276ad067f3b">&#9670;&#160;</a></span>InstructionList_Init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void InstructionList_Init </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sets all registers to 0. </p>
 
 </div>
 </div>
@@ -519,38 +491,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Current position in the programm (both used in programming and executing) </p>
-
-</div>
-</div>
-<a id="a1084087054a873fe97dbe9da7f03a1e0" name="a1084087054a873fe97dbe9da7f03a1e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1084087054a873fe97dbe9da7f03a1e0">&#9670;&#160;</a></span>registers</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t registers[100]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Values of the 100 virtual storage registers. </p>
-
-</div>
-</div>
-<a id="aa5da2ccd484c1fe56118416aa05af48c" name="aa5da2ccd484c1fe56118416aa05af48c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5da2ccd484c1fe56118416aa05af48c">&#9670;&#160;</a></span>regPointer</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t regPointer = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Points at the chosen register (used by PIC and other register commands) </p>
+<p>The current program index provided by <a class="el" href="InstructionList_8h.html" title="Provides functions for the programming and execution mode to other files as well as the function iden...">InstructionList.h</a>. </p>
 
 </div>
 </div>
