@@ -1,6 +1,10 @@
 /**
  * @file InstructionList.c
  * @brief Implementation of the main program logic for writing and executing commands
+ * @details To add your own functions to the system, first insert FUNCTION_XXX into the typedef enum at the end of the file,
+ * then add the function to "definedFunctions[]" using the FUNCTION_XXX you just put in above as well as a function Identifier (normally this is the XXX).
+ * Then go on and add the function handler to definedFunctions[]. The function handler must then be defined in InstructionHandlers.h
+ * and implemented in InstructionHandlers.c.
  */
 
 #include "EEPROM.h"
