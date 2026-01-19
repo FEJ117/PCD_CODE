@@ -110,7 +110,7 @@ Include dependency graph for InstructionList.c:</div>
 <area shape="poly" title=" " alt="" coords="103,176,127,210,159,249,203,288,199,292,156,253,123,213,99,179"/>
 <area shape="poly" title=" " alt="" coords="230,324,230,358,224,358,224,324"/>
 <area shape="poly" title=" " alt="" coords="442,177,450,213,448,233,440,252,416,269,380,283,292,303,291,298,378,278,414,265,435,249,443,232,444,213,437,178"/>
-<area shape="rect" href="InstructionHandlers_8h.html" title=" " alt="" coords="265,225,426,251"/>
+<area shape="rect" href="InstructionHandlers_8h.html" title="Provides all instruction handlers as well as helper functions to outside files." alt="" coords="265,225,426,251"/>
 <area shape="poly" title=" " alt="" coords="422,179,373,219,369,214,419,175"/>
 <area shape="poly" title=" " alt="" coords="328,253,260,294,257,289,325,248"/>
 <area shape="poly" title=" " alt="" coords="265,107,140,150,138,145,263,102"/>
@@ -165,6 +165,7 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of the main program logic for writing and executing commands. </p>
+<p>To add your own functions to the system, first insert FUNCTION_XXX into the typedef enum at the end of the file, then add the function to "definedFunctions[]" using the FUNCTION_XXX you just put in above as well as a function Identifier (normally this is the XXX). Then go on and add the function handler to definedFunctions[]. The function handler must then be defined in <a class="el" href="InstructionHandlers_8h.html" title="Provides all instruction handlers as well as helper functions to outside files.">InstructionHandlers.h</a> and implemented in <a class="el" href="InstructionHandlers_8c.html" title="Implements all instruction handlers as well as helper functions.">InstructionHandlers.c</a>. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a6c95fec88dab66a5c26bd0e66a317bee" name="a6c95fec88dab66a5c26bd0e66a317bee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c95fec88dab66a5c26bd0e66a317bee">&#9670;&#160;</a></span>InstructionList_CharsToFunctionNumber()</h2>

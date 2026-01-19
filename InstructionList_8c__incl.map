@@ -17,7 +17,7 @@
 <area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="103,176,127,210,159,249,203,288,199,292,156,253,123,213,99,179"/>
 <area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="230,324,230,358,224,358,224,324"/>
 <area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="442,177,450,213,448,233,440,252,416,269,380,283,292,303,291,298,378,278,414,265,435,249,443,232,444,213,437,178"/>
-<area shape="rect" id="Node000008" href="$InstructionHandlers_8h.html" title=" " alt="" coords="265,225,426,251"/>
+<area shape="rect" id="Node000008" href="$InstructionHandlers_8h.html" title="Provides all instruction handlers as well as helper functions to outside files." alt="" coords="265,225,426,251"/>
 <area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="422,179,373,219,369,214,419,175"/>
 <area shape="poly" id="edge11_Node000008_Node000005" title=" " alt="" coords="328,253,260,294,257,289,325,248"/>
 <area shape="poly" id="edge16_Node000009_Node000002" title=" " alt="" coords="265,107,140,150,138,145,263,102"/>

@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Provides functions for the programming and execution mode to other files as well as the function iden..." alt="" coords="488,5,672,31"/>
 <area shape="rect" id="Node000002" href="$EEPROM_8c.html" title="Implementation of EEPROM&#45;Functions." alt="" coords="5,152,152,177"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="528,37,119,154,118,149,527,32"/>
-<area shape="rect" id="Node000003" href="$InstructionHandlers_8c.html" title=" " alt="" coords="176,152,395,177"/>
+<area shape="rect" id="Node000003" href="$InstructionHandlers_8c.html" title="Implements all instruction handlers as well as helper functions." alt="" coords="176,152,395,177"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="545,39,310,154,307,150,543,34"/>
 <area shape="rect" id="Node000004" href="$InstructionList_8c.html" title="Implementation of the main program logic for writing and executing commands." alt="" coords="419,152,602,177"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="563,43,538,80,524,119,515,153,510,151,518,117,534,77,559,40"/>
@@ -10,7 +10,7 @@
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="641,32,702,51,765,76,829,114,878,150,875,154,826,119,763,81,700,56,640,37"/>
 <area shape="rect" id="Node000006" href="$STM__FUNCTIONS_8h.html" title="Provides STM&#45;specific functions to other files." alt="" coords="549,79,753,104"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="603,39,641,77,637,80,599,43"/>
-<area shape="rect" id="Node000008" href="$main_8c.html" title=": Main program body" alt="" coords="1017,152,1141,177"/>
+<area shape="rect" id="Node000008" href="$main_8c.html" title="Main program body." alt="" coords="1017,152,1141,177"/>
 <area shape="poly" id="edge12_Node000001_Node000008" title=" " alt="" coords="640,32,806,76,1044,149,1043,154,805,81,638,37"/>
 <area shape="poly" id="edge7_Node000006_Node000002" title=" " alt="" coords="542,108,164,155,153,156,152,151,164,149,541,103"/>
 <area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="579,109,345,155,344,149,578,104"/>

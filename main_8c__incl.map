@@ -1,5 +1,5 @@
 <map id="Core/Src/main.c" name="Core/Src/main.c">
-<area shape="rect" id="Node000001" title=": Main program body" alt="" coords="214,5,338,31"/>
+<area shape="rect" id="Node000001" title="Main program body." alt="" coords="214,5,338,31"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,225,72,251"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,33,200,51,151,76,102,111,61,153,48,182,42,212,37,211,42,181,56,151,98,107,148,72,198,46,240,28"/>
 <area shape="rect" id="Node000003" href="$Display_8h.html" title="Provides functions for the use of the OLED&#45;display to other files." alt="" coords="185,152,266,177"/>
@@ -16,7 +16,7 @@
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="228,178,228,358,223,358,223,178"/>
 <area shape="rect" id="Node000007" href="$Instruction_8h.html" title="Defines the struct &quot;Instruction&quot;." alt="" coords="359,299,462,324"/>
 <area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="506,179,429,289,424,286,502,176"/>
-<area shape="rect" id="Node000008" href="$InstructionHandlers_8h.html" title=" " alt="" coords="499,225,661,251"/>
+<area shape="rect" id="Node000008" href="$InstructionHandlers_8h.html" title="Provides all instruction handlers as well as helper functions to outside files." alt="" coords="499,225,661,251"/>
 <area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="525,176,561,213,557,217,521,180"/>
 <area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="382,327,269,369,267,365,380,322"/>
 <area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="554,253,452,296,450,291,552,248"/>

@@ -74,18 +74,24 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">InstructionHandlers.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provides all instruction handlers as well as helper functions to outside files.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="Instruction_8h_source.html">Instruction.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for InstructionHandlers.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="InstructionHandlers_8h__incl.png" border="0" usemap="#aCore_2Src_2InstructionHandlers_8h" alt=""/></div>
 <map name="aCore_2Src_2InstructionHandlers_8h" id="aCore_2Src_2InstructionHandlers_8h">
-<area shape="rect" title=" " alt="" coords="5,5,224,31"/>
+<area shape="rect" title="Provides all instruction handlers as well as helper functions to outside files." alt="" coords="5,5,224,31"/>
 <area shape="rect" href="Instruction_8h.html" title="Defines the struct &quot;Instruction&quot;." alt="" coords="63,79,166,104"/>
 <area shape="poly" title=" " alt="" coords="117,31,117,65,112,65,112,31"/>
 <area shape="rect" title=" " alt="" coords="79,152,150,177"/>
@@ -97,8 +103,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="InstructionHandlers_8h__dep__incl.png" border="0" usemap="#aCore_2Src_2InstructionHandlers_8hdep" alt=""/></div>
 <map name="aCore_2Src_2InstructionHandlers_8hdep" id="aCore_2Src_2InstructionHandlers_8hdep">
-<area shape="rect" title=" " alt="" coords="143,5,361,31"/>
-<area shape="rect" href="InstructionHandlers_8c.html" title=" " alt="" coords="5,225,224,251"/>
+<area shape="rect" title="Provides all instruction handlers as well as helper functions to outside files." alt="" coords="143,5,361,31"/>
+<area shape="rect" href="InstructionHandlers_8c.html" title="Implements all instruction handlers as well as helper functions." alt="" coords="5,225,224,251"/>
 <area shape="poly" title=" " alt="" coords="240,44,124,226,120,223,235,41"/>
 <area shape="rect" href="InstructionList_8h.html" title="Provides functions for the programming and execution mode to other files as well as the function iden..." alt="" coords="384,79,568,104"/>
 <area shape="poly" title=" " alt="" coords="302,32,441,76,439,81,300,37"/>
@@ -111,7 +117,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <area shape="poly" title=" " alt="" coords="559,104,643,123,730,150,812,187,874,223,871,227,809,192,728,154,641,128,558,109"/>
 <area shape="rect" href="STM__FUNCTIONS_8h.html" title="Provides STM&#45;specific functions to other files." alt="" coords="514,152,718,177"/>
 <area shape="poly" title=" " alt="" coords="512,108,594,149,592,154,509,113"/>
-<area shape="rect" href="main_8c.html" title=": Main program body" alt="" coords="1017,225,1141,251"/>
+<area shape="rect" href="main_8c.html" title="Main program body." alt="" coords="1017,225,1141,251"/>
 <area shape="poly" title=" " alt="" coords="555,104,777,149,924,188,1042,223,1041,228,923,193,775,155,554,109"/>
 <area shape="poly" title=" " alt="" coords="522,182,196,228,195,223,522,177"/>
 <area shape="poly" title=" " alt="" coords="556,183,370,228,368,223,555,178"/>
@@ -125,13 +131,63 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 <p><a href="InstructionHandlers_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFunctionDefinition.html">FunctionDefinition</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct which allows for allocating a function number to a function identifier.  <a href="structFunctionDefinition.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a947bb4064b70148f6aa10fbe823f4786" id="r_a947bb4064b70148f6aa10fbe823f4786"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8h.html#a947bb4064b70148f6aa10fbe823f4786">InstructionHandler</a>) (<a class="el" href="structInstruction.html">Instruction</a> *exe)</td></tr>
+<tr class="separator:a947bb4064b70148f6aa10fbe823f4786"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:addcd08aa8245e9e1fd41eaa8980677c9" id="r_addcd08aa8245e9e1fd41eaa8980677c9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8h.html#addcd08aa8245e9e1fd41eaa8980677c9">Instruction_DataType_t</a> { <a class="el" href="InstructionHandlers_8h.html#addcd08aa8245e9e1fd41eaa8980677c9a14e8fc34f8d15fd490c3066dca0073f1">REG_NUMBER</a> = 0
-, <a class="el" href="InstructionHandlers_8h.html#addcd08aa8245e9e1fd41eaa8980677c9a55ae907fded1d6f69f1ed4350f097cec">INT_NUMBER</a> = 1
-, <a class="el" href="InstructionHandlers_8h.html#addcd08aa8245e9e1fd41eaa8980677c9aed3c5df74ced0119cc21ab03559c9665">OTHER_DATA</a> = 2
+<tr class="memitem:a514b244a43fdf1f593554612d7f4b437" id="r_a514b244a43fdf1f593554612d7f4b437"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437">Function_t</a> { <br />
+&#160;&#160;<a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a5a37a2dce68a63bdac8aab539066c69e">FUNCTION_EMP</a> = 0
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a384a27935b3fa6ac7eba9e245a5ce5a0">FUNCTION_PIC</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437ac1d708e0c3ce5e493079660b9f048cd7">FUNCTION_SET</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437abdc1bbad453fcdb00703feb9094e05bc">FUNCTION_INC</a>
+, <br />
+&#160;&#160;<a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a7728db0de21b9702ffa459785c65f228">FUNCTION_DEC</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a4be0d57a1b456b23ecc2ed578775d011">FUNCTION_COP</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a4b755aabee5155ac85b7cfa4d2c7e88d">FUNCTION_ADD</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a8e34b85bae7c7194ae657ade6922e37d">FUNCTION_SUB</a>
+, <br />
+&#160;&#160;<a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a04328120f26125dc383253680c8ee087">FUNCTION_SMA</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437aff15a40febab9ea736b77c1e54799029">FUNCTION_BIG</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437afda8f24b08073ede85f47de74d6e2f75">FUNCTION_REQ</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437abb971f8aa07086a9c01eb845f90a5556">FUNCTION_RNQ</a>
+, <br />
+&#160;&#160;<a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a1f9ec6afe1ea78e59ae8e8b6a124e449">FUNCTION_VEQ</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a9996ed876428ae3721afb336785c14b2">FUNCTION_VNQ</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437ad45f0e13773afe538aac9967e4190dea">FUNCTION_ANH</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a894b7a1d39f69ff040eecc1476b46056">FUNCTION_ANL</a>
+, <br />
+&#160;&#160;<a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a96695d4f4001f7e3b9b06ad1669e9320">FUNCTION_SVA</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a89a7c2729d05b8cee06f1386e5ac5701">FUNCTION_INH</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a5e5f0398b0f1b330891e0b88db18a944">FUNCTION_INL</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a309776c34fb66b9b4afc95b1f20cd7ff">FUNCTION_TON</a>
+, <br />
+&#160;&#160;<a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437ae40f79fef85397fccde1ea907b7464f7">FUNCTION_PTR</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a80b91a56a0534c7b48e64f599b1c4bb3">FUNCTION_PCH</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a5f106060205b8d2d6c7ed300e837059c">FUNCTION_CLR</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437ae2de2d6204a159e4223c02b8e08229ad">FUNCTION_BEG</a>
+, <br />
+&#160;&#160;<a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437afaa5acebfe1443800351a5ad02c2a53c">FUNCTION_END</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437ae7173c3e153dd69e1c6e3d992ec33d36">FUNCTION_WAI</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437aedb46bf1b05d0f497bbe11136b24fb05">FUNCTION_SPO</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437af16a8487d3c48d0e7fa1f8985c8e26a5">FUNCTION_JPO</a>
+, <br />
+&#160;&#160;<a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437ac158a20f4fb437cdea92195a86074292">FUNCTION_JUM</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a09995a2380d3ad1ed8465efdb7c1f9ae">FUNCTION_LD1</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437a2896909b4afe21c370c9562484d8ae8b">FUNCTION_LD2</a>
+, <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437ac4956c63044464e89cd2fbdee8d97f61">Function_t_MAX</a>
+<br />
  }</td></tr>
-<tr class="separator:addcd08aa8245e9e1fd41eaa8980677c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a514b244a43fdf1f593554612d7f4b437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines all function numbers.  <a href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437">More...</a><br /></td></tr>
+<tr class="separator:a514b244a43fdf1f593554612d7f4b437"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -204,23 +260,78 @@ Functions</h2></td></tr>
 <tr class="memitem:a6f6326299e620e2e37800a9e44f57a43" id="r_a6f6326299e620e2e37800a9e44f57a43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8h.html#a6f6326299e620e2e37800a9e44f57a43">op_LD1_LD2</a> (<a class="el" href="structInstruction.html">Instruction</a> *exe)</td></tr>
 <tr class="memdesc:a6f6326299e620e2e37800a9e44f57a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for the instruction LD1 and LD2.  <br /></td></tr>
 <tr class="separator:a6f6326299e620e2e37800a9e44f57a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ad8d23913603b0973cfece89724b5cd74" id="r_ad8d23913603b0973cfece89724b5cd74"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structFunctionDefinition.html">FunctionDefinition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InstructionHandlers_8h.html#ad8d23913603b0973cfece89724b5cd74">definedFunctions</a> []</td></tr>
+<tr class="memdesc:ad8d23913603b0973cfece89724b5cd74"><td class="mdescLeft">&#160;</td><td class="mdescRight">All function numbers and allocated function identifiers.  <br /></td></tr>
+<tr class="separator:ad8d23913603b0973cfece89724b5cd74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="addcd08aa8245e9e1fd41eaa8980677c9" name="addcd08aa8245e9e1fd41eaa8980677c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#addcd08aa8245e9e1fd41eaa8980677c9">&#9670;&#160;</a></span>Instruction_DataType_t</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides all instruction handlers as well as helper functions to outside files. </p>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a947bb4064b70148f6aa10fbe823f4786" name="a947bb4064b70148f6aa10fbe823f4786"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a947bb4064b70148f6aa10fbe823f4786">&#9670;&#160;</a></span>InstructionHandler</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="InstructionHandlers_8h.html#addcd08aa8245e9e1fd41eaa8980677c9">Instruction_DataType_t</a></td>
+          <td class="memname">typedef void(* InstructionHandler) (<a class="el" href="structInstruction.html">Instruction</a> *exe)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Defines a type for the instruction handlers. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a514b244a43fdf1f593554612d7f4b437" name="a514b244a43fdf1f593554612d7f4b437"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a514b244a43fdf1f593554612d7f4b437">&#9670;&#160;</a></span>Function_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="InstructionHandlers_8h.html#a514b244a43fdf1f593554612d7f4b437">Function_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Defines all function numbers. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="addcd08aa8245e9e1fd41eaa8980677c9a14e8fc34f8d15fd490c3066dca0073f1" name="addcd08aa8245e9e1fd41eaa8980677c9a14e8fc34f8d15fd490c3066dca0073f1"></a>REG_NUMBER&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="addcd08aa8245e9e1fd41eaa8980677c9a55ae907fded1d6f69f1ed4350f097cec" name="addcd08aa8245e9e1fd41eaa8980677c9a55ae907fded1d6f69f1ed4350f097cec"></a>INT_NUMBER&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="addcd08aa8245e9e1fd41eaa8980677c9aed3c5df74ced0119cc21ab03559c9665" name="addcd08aa8245e9e1fd41eaa8980677c9aed3c5df74ced0119cc21ab03559c9665"></a>OTHER_DATA&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a5a37a2dce68a63bdac8aab539066c69e" name="a514b244a43fdf1f593554612d7f4b437a5a37a2dce68a63bdac8aab539066c69e"></a>FUNCTION_EMP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a384a27935b3fa6ac7eba9e245a5ce5a0" name="a514b244a43fdf1f593554612d7f4b437a384a27935b3fa6ac7eba9e245a5ce5a0"></a>FUNCTION_PIC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437ac1d708e0c3ce5e493079660b9f048cd7" name="a514b244a43fdf1f593554612d7f4b437ac1d708e0c3ce5e493079660b9f048cd7"></a>FUNCTION_SET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437abdc1bbad453fcdb00703feb9094e05bc" name="a514b244a43fdf1f593554612d7f4b437abdc1bbad453fcdb00703feb9094e05bc"></a>FUNCTION_INC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a7728db0de21b9702ffa459785c65f228" name="a514b244a43fdf1f593554612d7f4b437a7728db0de21b9702ffa459785c65f228"></a>FUNCTION_DEC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a4be0d57a1b456b23ecc2ed578775d011" name="a514b244a43fdf1f593554612d7f4b437a4be0d57a1b456b23ecc2ed578775d011"></a>FUNCTION_COP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a4b755aabee5155ac85b7cfa4d2c7e88d" name="a514b244a43fdf1f593554612d7f4b437a4b755aabee5155ac85b7cfa4d2c7e88d"></a>FUNCTION_ADD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a8e34b85bae7c7194ae657ade6922e37d" name="a514b244a43fdf1f593554612d7f4b437a8e34b85bae7c7194ae657ade6922e37d"></a>FUNCTION_SUB&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a04328120f26125dc383253680c8ee087" name="a514b244a43fdf1f593554612d7f4b437a04328120f26125dc383253680c8ee087"></a>FUNCTION_SMA&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437aff15a40febab9ea736b77c1e54799029" name="a514b244a43fdf1f593554612d7f4b437aff15a40febab9ea736b77c1e54799029"></a>FUNCTION_BIG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437afda8f24b08073ede85f47de74d6e2f75" name="a514b244a43fdf1f593554612d7f4b437afda8f24b08073ede85f47de74d6e2f75"></a>FUNCTION_REQ&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437abb971f8aa07086a9c01eb845f90a5556" name="a514b244a43fdf1f593554612d7f4b437abb971f8aa07086a9c01eb845f90a5556"></a>FUNCTION_RNQ&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a1f9ec6afe1ea78e59ae8e8b6a124e449" name="a514b244a43fdf1f593554612d7f4b437a1f9ec6afe1ea78e59ae8e8b6a124e449"></a>FUNCTION_VEQ&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a9996ed876428ae3721afb336785c14b2" name="a514b244a43fdf1f593554612d7f4b437a9996ed876428ae3721afb336785c14b2"></a>FUNCTION_VNQ&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437ad45f0e13773afe538aac9967e4190dea" name="a514b244a43fdf1f593554612d7f4b437ad45f0e13773afe538aac9967e4190dea"></a>FUNCTION_ANH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a894b7a1d39f69ff040eecc1476b46056" name="a514b244a43fdf1f593554612d7f4b437a894b7a1d39f69ff040eecc1476b46056"></a>FUNCTION_ANL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a96695d4f4001f7e3b9b06ad1669e9320" name="a514b244a43fdf1f593554612d7f4b437a96695d4f4001f7e3b9b06ad1669e9320"></a>FUNCTION_SVA&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a89a7c2729d05b8cee06f1386e5ac5701" name="a514b244a43fdf1f593554612d7f4b437a89a7c2729d05b8cee06f1386e5ac5701"></a>FUNCTION_INH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a5e5f0398b0f1b330891e0b88db18a944" name="a514b244a43fdf1f593554612d7f4b437a5e5f0398b0f1b330891e0b88db18a944"></a>FUNCTION_INL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a309776c34fb66b9b4afc95b1f20cd7ff" name="a514b244a43fdf1f593554612d7f4b437a309776c34fb66b9b4afc95b1f20cd7ff"></a>FUNCTION_TON&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437ae40f79fef85397fccde1ea907b7464f7" name="a514b244a43fdf1f593554612d7f4b437ae40f79fef85397fccde1ea907b7464f7"></a>FUNCTION_PTR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a80b91a56a0534c7b48e64f599b1c4bb3" name="a514b244a43fdf1f593554612d7f4b437a80b91a56a0534c7b48e64f599b1c4bb3"></a>FUNCTION_PCH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a5f106060205b8d2d6c7ed300e837059c" name="a514b244a43fdf1f593554612d7f4b437a5f106060205b8d2d6c7ed300e837059c"></a>FUNCTION_CLR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437ae2de2d6204a159e4223c02b8e08229ad" name="a514b244a43fdf1f593554612d7f4b437ae2de2d6204a159e4223c02b8e08229ad"></a>FUNCTION_BEG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437afaa5acebfe1443800351a5ad02c2a53c" name="a514b244a43fdf1f593554612d7f4b437afaa5acebfe1443800351a5ad02c2a53c"></a>FUNCTION_END&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437ae7173c3e153dd69e1c6e3d992ec33d36" name="a514b244a43fdf1f593554612d7f4b437ae7173c3e153dd69e1c6e3d992ec33d36"></a>FUNCTION_WAI&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437aedb46bf1b05d0f497bbe11136b24fb05" name="a514b244a43fdf1f593554612d7f4b437aedb46bf1b05d0f497bbe11136b24fb05"></a>FUNCTION_SPO&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437af16a8487d3c48d0e7fa1f8985c8e26a5" name="a514b244a43fdf1f593554612d7f4b437af16a8487d3c48d0e7fa1f8985c8e26a5"></a>FUNCTION_JPO&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437ac158a20f4fb437cdea92195a86074292" name="a514b244a43fdf1f593554612d7f4b437ac158a20f4fb437cdea92195a86074292"></a>FUNCTION_JUM&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a09995a2380d3ad1ed8465efdb7c1f9ae" name="a514b244a43fdf1f593554612d7f4b437a09995a2380d3ad1ed8465efdb7c1f9ae"></a>FUNCTION_LD1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437a2896909b4afe21c370c9562484d8ae8b" name="a514b244a43fdf1f593554612d7f4b437a2896909b4afe21c370c9562484d8ae8b"></a>FUNCTION_LD2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a514b244a43fdf1f593554612d7f4b437ac4956c63044464e89cd2fbdee8d97f61" name="a514b244a43fdf1f593554612d7f4b437ac4956c63044464e89cd2fbdee8d97f61"></a>Function_t_MAX&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -640,7 +751,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Handler for the instructions REQ and RNQ. </p>
-<p>Determines, if the values of the register pointed to by the register pointer and the value of the register specified by the data of the instruction are equal or not equal. </p>
+<p>Determines, if the values of the register pointed to by the register pointer and the value of the register specified by the data of the instruction are equal or not equal.</p>
+<p>Handler for the instructions REQ and RNQ. </p>
 
 </div>
 </div>
@@ -704,6 +816,31 @@ Functions</h2></td></tr>
 
 <p>Handler for the instruction WAI. </p>
 <p>Pauses the program for the amount of time given in the data of the instruction in 1/10 seconds. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ad8d23913603b0973cfece89724b5cd74" name="ad8d23913603b0973cfece89724b5cd74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8d23913603b0973cfece89724b5cd74">&#9670;&#160;</a></span>definedFunctions</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structFunctionDefinition.html">FunctionDefinition</a> definedFunctions[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>All function numbers and allocated function identifiers. </p>
 
 </div>
 </div>

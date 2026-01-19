@@ -1,6 +1,6 @@
 <map id="Core/Src/InstructionHandlers.c" name="Core/Src/InstructionHandlers.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="133,5,352,31"/>
-<area shape="rect" id="Node000002" href="$InstructionHandlers_8h.html" title=" " alt="" coords="94,225,255,251"/>
+<area shape="rect" id="Node000001" title="Implements all instruction handlers as well as helper functions." alt="" coords="133,5,352,31"/>
+<area shape="rect" id="Node000002" href="$InstructionHandlers_8h.html" title="Provides all instruction handlers as well as helper functions to outside files." alt="" coords="94,225,255,251"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,32,201,83,184,117,171,153,168,183,171,211,166,212,162,183,165,151,179,114,197,80,231,29"/>
 <area shape="rect" id="Node000003" href="$Instruction_8h.html" title="Defines the struct &quot;Instruction&quot;." alt="" coords="267,299,370,324"/>
 <area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="225,33,171,70,140,96,111,125,87,156,73,187,71,219,76,234,85,249,111,266,153,281,254,300,253,305,152,286,108,271,81,253,71,236,66,220,68,186,83,153,107,121,137,92,168,66,222,29"/>

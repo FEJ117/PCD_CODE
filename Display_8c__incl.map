@@ -26,7 +26,7 @@
 <area shape="poly" id="edge11_Node000007_Node000009" title=" " alt="" coords="516,179,497,214,482,235,465,253,425,279,383,297,381,292,423,274,462,249,478,231,492,212,511,176"/>
 <area shape="poly" id="edge12_Node000009_Node000003" title=" " alt="" coords="300,326,198,369,196,364,298,322"/>
 <area shape="poly" id="edge14_Node000010_Node000009" title=" " alt="" coords="294,180,261,198,246,211,235,227,232,236,232,245,242,263,261,278,284,291,281,295,258,282,238,266,227,247,226,235,230,224,242,208,258,194,292,175"/>
-<area shape="rect" id="Node000011" href="$InstructionHandlers_8h.html" title=" " alt="" coords="245,225,407,251"/>
+<area shape="rect" id="Node000011" href="$InstructionHandlers_8h.html" title="Provides all instruction handlers as well as helper functions to outside files." alt="" coords="245,225,407,251"/>
 <area shape="poly" id="edge15_Node000010_Node000011" title=" " alt="" coords="329,178,329,212,323,212,323,178"/>
 <area shape="poly" id="edge16_Node000011_Node000009" title=" " alt="" coords="329,251,329,285,323,285,323,251"/>
 </map>
