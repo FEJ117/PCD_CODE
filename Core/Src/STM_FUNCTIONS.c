@@ -34,7 +34,11 @@ extern ADC_HandleTypeDef hadc;
 //Documented in .h
 void STM_Wait(uint16_t pData)
 {
-    lastWaitTick = lastWaitTick+(pData*100);
+	if(lastWaitTick > HAL_GetTick()-100)
+    	lastWaitTick = lastWaitTick+(pData*100);
+	else
+	 	lastWaitTick = HAL_GetTick()+(pData*100);
+
     while(HAL_GetTick() < lastWaitTick && !isProgrammingMode());
 }
 
