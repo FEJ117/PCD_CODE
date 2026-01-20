@@ -9,7 +9,7 @@ EXTRACT_ALL            = YES
 EXTRACT_PRIVATE        = NO
 EXTRACT_STATIC         = YES
 
-EXAMPLE_PATH = CodeExamples.c
+EXAMPLE_PATH = ./CodeExamples.c
 
 FILE_PATTERNS = *.c *.cpp *.h *.hpp
 
