@@ -28,6 +28,9 @@ void InstructionHandlers_ProcessData(Instruction *exe);
 
 
 /** @brief Handler for the instructions EMP, BEG and END. Does nothing. 
+  * @example The code:\INH 0\BEG\LD1 V\WAI 5\LD1 A\WAI 5\END\JUM 0\
+  * will let the left LED blink when the first Button is pressed. Everything between BEG and END
+  * is only being executed, if the condition (INH 0) is true.
 */
 void op_EMP_BEG_END(Instruction *exe);
     
