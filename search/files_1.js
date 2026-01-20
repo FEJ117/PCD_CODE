@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['eeprom_2ec_0',['EEPROM.c',['../EEPROM_8c.html',1,'']]],
-  ['eeprom_2eh_1',['EEPROM.h',['../EEPROM_8h.html',1,'']]]
+  ['display_2ec_0',['Display.c',['../Display_8c.html',1,'']]],
+  ['display_2eh_1',['Display.h',['../Display_8h.html',1,'']]]
 ];
