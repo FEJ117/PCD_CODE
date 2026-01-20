@@ -91,4 +91,5 @@ var menudata={children:[
 {text:"i",url:"globals_eval.html#index_i"},
 {text:"o",url:"globals_eval.html#index_o"},
 {text:"r",url:"globals_eval.html#index_r"}]},
-{text:"Macros",url:"globals_defs.html"}]}]}]}
+{text:"Macros",url:"globals_defs.html"}]}]},
+{text:"Examples",url:"examples.html"}]}
