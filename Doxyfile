@@ -1,5 +1,5 @@
 PROJECT_NAME           = "PCD_CODE"
-INPUT                  = README.md Core/Src
+INPUT                  = README.md CodeExamples.c Core/Src
 RECURSIVE              = YES
 
 MARKDOWN_SUPPORT = YES
