@@ -127,13 +127,13 @@ void Display_LeftArrow(uint8_t line)
 {
     for(uint8_t j = 0; j < 4; j++)
     {
-        Display_SetCursor(112,j);
+        Display_SetCursor(120,j);
         for(uint8_t i = 0; i < 8; i++)
         {
             Display_WriteData(0x00);
         }
     }
-    Display_SetCursor(112,line);
+    Display_SetCursor(120,line);
     for(uint8_t i = 0; i < 8; i++)
     {
         Display_WriteData(leftArrow[i]);

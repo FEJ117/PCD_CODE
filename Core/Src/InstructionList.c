@@ -9,6 +9,7 @@
 
 #include "EEPROM.h"
 #include "Instruction.h"
+#include "InstructionHandlers.h"
 #include "PS2Driver.h"
 #include "InstructionList.h"
 #include "STM_FUNCTIONS.h"
@@ -81,28 +82,68 @@ static void InstructionList_GetFunctionName(Instruction pIn, char arr[3])
   */
 static void InstructionList_WriteInstructions(Instruction i1, Instruction i2, uint16_t pIndex)
 {
-	char functionName[3];
-	char numChars[3];
-	InstructionList_GetFunctionName(i1,functionName);
-	STM_Number3ToChar(pIndex, numChars);
-	char instChars[] =
+	Instruction currentInstruction = i1;
+	for(uint8_t i = 0; i < 2; i++)
 	{
-			numChars[0],numChars[1],numChars[2],' ',':',' ',
+		char functionName[3];
+		char numChars[3];
+		InstructionList_GetFunctionName(currentInstruction,functionName);
+		STM_Number3ToChar(pIndex+i, numChars);
+		char instChars[] =
+		{
+			numChars[0],numChars[1],numChars[2],':',' ',
 			functionName[0],functionName[1],functionName[2],' ',
-			i1.data,i1.data2,i1.data3
-	};
-
-	InstructionList_GetFunctionName(i2,functionName);
-	STM_Number3ToChar(pIndex+1, numChars);
-	char instChars2[] =
-	{
-			numChars[0],numChars[1],numChars[2],' ',':',' ',
-			functionName[0],functionName[1],functionName[2],' ',
-			i2.data,i2.data2,i2.data3
-	};
-
-	Display_WriteString(instChars, sizeof(instChars), 0, 0);
-    Display_WriteString(instChars2, sizeof(instChars2), 0, 2);
+			currentInstruction.data,currentInstruction.data2,currentInstruction.data3,' ', ' ', ' '
+		};
+		if(currentInstruction.functionNumber == IF_REGISTER_REGISTER)
+		{
+			instChars[8] = 'R';
+			instChars[9] = currentInstruction.data2+48;
+			instChars[10] = currentInstruction.data;
+			instChars[11] = 'R';
+			instChars[12] = currentInstruction.data3+48;
+		}
+		else if(currentInstruction.functionNumber == IF_REGISTER_LITERAL)
+		{
+			char literal[3];
+			STM_Number3ToChar(currentInstruction.data3, literal);
+			instChars[8] = 'R';
+			instChars[9] = currentInstruction.data2+48;
+			instChars[10] = currentInstruction.data;
+			instChars[11] = literal[0];
+			instChars[12] = literal[1];
+			instChars[13] = literal[2];
+		}
+		else if(currentInstruction.functionNumber == IF_REGISTER_ANALOG)
+		{
+			instChars[8] = 'R';
+			instChars[9] = currentInstruction.data2+48;
+			instChars[10] = currentInstruction.data;
+			instChars[11] = 'A';
+			instChars[12] = currentInstruction.data3+48;
+		}
+		else if(currentInstruction.functionNumber == IF_ANALOG_LITERAL)
+		{
+			char literal[3];
+			STM_Number3ToChar(currentInstruction.data3, literal);
+			instChars[8] = 'A';
+			instChars[9] = currentInstruction.data2+48;
+			instChars[10] = currentInstruction.data;
+			instChars[11] = literal[0];
+			instChars[12] = literal[1];
+			instChars[13] = literal[2];
+		}
+		else if(currentInstruction.functionNumber == IF_DIGITAL)
+		{
+			instChars[8] = 'D';
+			instChars[9] = currentInstruction.data2+48;
+			instChars[10] = currentInstruction.data;
+			instChars[11] = currentInstruction.data3+48;
+		}
+			
+		Display_WriteString(instChars, sizeof(instChars), 0, 0+2*i);
+		currentInstruction = i2;
+	}
 }
 
 /**
@@ -133,9 +174,7 @@ static uint8_t InstructionList_CharsToFunctionNumber(char chars[3])
 		}
 	}
 	return(255);
-
 }
-
 
 
 /**
@@ -169,8 +208,8 @@ void InstructionList_ProgrammingMode(void)
     InstructionList_UpdateInstructions();
 
     char ch = 0;
-    char linePos = 6;
-    char instructionKeys[] = {0,0,0,0,0,0,0};
+    char linePos = 5;
+    char instructionKeys[] = {0,0,0,0,0,0,0,0,0,0,0};
 
     while(isProgrammingMode())
     {
@@ -181,65 +220,125 @@ void InstructionList_ProgrammingMode(void)
 				return;
 		}
 		Instruction in;
-		if(ch == ']')
+		if(ch == KEY_ENTER)
 		{
 			if(instructionKeys[0] != 0)
 			{
-				char fName[] = {instructionKeys[0],instructionKeys[1],instructionKeys[2]};
-				in.functionNumber = InstructionList_CharsToFunctionNumber(fName);
+				if(instructionKeys[0] == 'I' && instructionKeys[1] == 'F')
+				{
+					in.data = instructionKeys[5];
+					if(instructionKeys[3] == 'R' && instructionKeys[6] == 'R')
+					{
+						in.functionNumber = IF_REGISTER_REGISTER;
+						in.data2 = instructionKeys[4]-48;
+						in.data3 = instructionKeys[7]-48;
+					}
+					else if(instructionKeys[3] == 'R' && instructionKeys[6] < 58 && instructionKeys[6] > 47)
+					{
+						in.functionNumber = IF_REGISTER_LITERAL;
+						in.data2 = instructionKeys[4]-48;
 
-				in.data = instructionKeys[4];
-				in.data2 = instructionKeys[5];
-				in.data3 = instructionKeys[6];
+						uint8_t multiplyBy = 1;
+						in.data3 = 0;
+						for(uint8_t i = 8; i > 5; i--)
+						{
+							if(instructionKeys[i] < 58 && instructionKeys[i] > 47)
+							{
+								in.data3 += (instructionKeys[i]-48)*multiplyBy;
+								multiplyBy = multiplyBy*10;
+							}
+						}
+						
+					}
+					else if(instructionKeys[3] == 'R' && instructionKeys[6] == 'A')
+					{
+						in.functionNumber = IF_REGISTER_ANALOG;
+						in.data2 = instructionKeys[4]-48;
+						in.data3 = instructionKeys[7]-48;
+					}
+					else if(instructionKeys[3] == 'A' && instructionKeys[6] < 58 && instructionKeys[6] > 47)
+					{
+						in.functionNumber = IF_ANALOG_LITERAL;
+						in.data2 = instructionKeys[4]-48;
+						uint8_t multiplyBy = 1;
+						in.data3 = 0;
+						for(uint8_t i = 8; i > 5; i--)
+						{
+							if(instructionKeys[i] < 58 && instructionKeys[i] > 47)
+							{
+								in.data3 += (instructionKeys[i]-48)*multiplyBy;
+								multiplyBy = multiplyBy*10;
+							}
+						}
+					}
+					else if(instructionKeys[3] == 'D' && (instructionKeys[6] == '0' || instructionKeys[6] == '1'))
+					{
+						in.functionNumber = IF_DIGITAL;
+						in.data2 = instructionKeys[4]-48;
+						in.data3 = instructionKeys[6]-48;
+					}
+					
+				}
+				else {
+					char fName[] = {instructionKeys[0],instructionKeys[1],instructionKeys[2]};
+					in.functionNumber = InstructionList_CharsToFunctionNumber(fName);
+					in.data = instructionKeys[4];
+					in.data2 = instructionKeys[5];
+					in.data3 = instructionKeys[6];
+				}
 				EEPROM_PutInstruction(in,programIndex);
 			}
 			programIndex++;
 		}
-		else if(ch == '^' && programIndex > 0)
+		else if(ch == KEY_UP && programIndex > 0)
 		{
 			programIndex--;
 		}
-		else if(ch == '.')
+		else if(ch == KEY_INSERT)
 		{
 			InstructionList_InsertEmpty(programIndex);
 		}
-		else if(ch == ',')
+		else if(ch == KEY_DELETE)
 		{
 			InstructionList_RemoveInstruction(programIndex);
 		}
-		else if(ch == '<')
+		else if(ch == KEY_BACKSPACE)
 		{
-			if(linePos > 6)
+			if(linePos > 5)
 			{
-				instructionKeys[linePos-7] = 0;
+				instructionKeys[linePos-6] = 0;
 				Display_WriteCharacter(' ', --linePos,(programIndex != 0)*2);
 			}
 		}
 		else
 		{
-			if(linePos == 6)
+			if(linePos == 5)
 				for(int i = 0; i < 9; i++)
 				{
 					Display_WriteCharacter(' ',6+i,(programIndex!=0)*2);
 				}
 
-			if(linePos < 13)
+			if(linePos < 15)
 			{
-				instructionKeys[linePos-6] = ch;
+				instructionKeys[linePos-5] = ch;
 				Display_WriteCharacter(ch, linePos++,(programIndex!=0)*2);
 			}
 		}
 
-		if(ch == ']' || ch == '^' || ch == '.' || ch == ',')
+		if(ch == KEY_ENTER || ch == KEY_UP || ch == KEY_INSERT || ch == KEY_DELETE)
 		{
+			for(int i = 5; i < 9; i++)
+			{
+				Display_WriteCharacter(' ',6+i,(programIndex!=0)*2);
+			}
 			InstructionList_UpdateInstructions();
 
-			for(int i = 0; i < 7; i++)
+			for(int i = 0; i < 11; i++)
 			{
 				instructionKeys[i] = 0;
 			}
 
-			linePos = 6;
+			linePos = 5;
 		}
 
 		keyBuffer = 0;

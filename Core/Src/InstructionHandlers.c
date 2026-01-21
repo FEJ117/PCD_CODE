@@ -186,26 +186,6 @@ void op_ADD_SUB(Instruction *exe)
 }
 
 //Documented in .h
-void op_SMA_BIG(Instruction *exe)
-{
-    EvaluateCondition(
-        (exe->functionNumber == FUNCTION_SMA) ? 
-        (registers[regPointer] < registers[currentData]) :
-        (registers[regPointer] > registers[currentData])
-    );
-}
-
-//Documented in .h
-void op_REQ_RNQ(Instruction *exe)
-{
-    EvaluateCondition(
-        (exe->functionNumber == FUNCTION_REQ) ? 
-        (registers[regPointer] == registers[currentData]) :
-        (registers[regPointer] != registers[currentData])
-    );
-}
-
-//Documented in .h
 void op_VEQ_VNQ(Instruction *exe)
 {
     EvaluateCondition(
@@ -215,30 +195,10 @@ void op_VEQ_VNQ(Instruction *exe)
     );
 }
 
-//Documented in .h
-void op_ANH_ANL(Instruction *exe)
-{
-    EvaluateCondition(
-        (exe->functionNumber == FUNCTION_ANH) ? 
-        (registers[regPointer] < STM_ReadADC(currentData)):
-        (registers[regPointer] > STM_ReadADC(currentData))
-    );
-}
-
 ///Documented in .h
 void op_SVA(Instruction *exe)
 {
     registers[regPointer] = STM_ReadADC(currentData);
-}
-
-//Documented in .h
-void op_INH_INL(Instruction *exe)
-{
-    EvaluateCondition(
-        (exe->functionNumber == FUNCTION_INH) ?
-        STM_IsInputHigh(currentData):
-        STM_IsInputHigh(currentData)
-    );
 }
 
 //Documented in .h
@@ -297,4 +257,81 @@ void op_JUM(Instruction *exe)
 void op_LD1_LD2(Instruction *exe)
 {
     STM_SetLED(exe->functionNumber, exe->data);
+}
+
+void op_IF_REG_REG(Instruction *exe)
+{
+    bool condition;
+    uint8_t register1 = registers[exe->data2];
+    uint8_t register2 = registers[exe->data3];
+
+    if(exe->data2 > 9 || exe->data3 > 9) return;
+    else if(exe->data == '=') condition = (register1 == register2);
+    else if(exe->data == '!') condition = (register1 != register2);
+    else if(exe->data == '<') condition = (register1 < register2);
+    else if(exe->data == '>') condition = (register1 > register2);
+    else return;
+
+    EvaluateCondition(condition);
+}
+
+void op_IF_REG_LIT(Instruction *exe)
+{
+    bool condition;
+    uint8_t register1 = registers[exe->data2];
+    uint16_t register2 = exe->data3;
+    
+    if(exe->data2 > 9) return;
+    else if(exe->data == '=') condition = (register1 == register2);
+    else if(exe->data == '!') condition = (register1 != register2);
+    else if(exe->data == '<') condition = (register1 < register2);
+    else if(exe->data == '>') condition = (register1 > register2);
+    else return;
+
+    EvaluateCondition(condition);
+}
+
+void op_IF_REG_AN(Instruction *exe)
+{
+    bool condition;
+    uint8_t register1 = registers[exe->data2];
+    uint8_t register2 = STM_ReadADC(exe->data3);
+    
+    if(exe->data2 > 9 || exe->data3 > 8) return;
+    else if(exe->data == '=') condition = (register1 == register2);
+    else if(exe->data == '!') condition = (register1 != register2);
+    else if(exe->data == '<') condition = (register1 < register2);
+    else if(exe->data == '>') condition = (register1 > register2);
+    else return;
+
+    EvaluateCondition(condition);
+}
+
+void op_IF_AN_LIT(Instruction *exe)
+{
+    bool condition;
+    uint8_t register1 = STM_ReadADC(exe->data2);
+    uint8_t register2 = exe->data3;
+    
+    if(exe->data2 > 9) return;
+    else if(exe->data == '=') condition = (register1 == register2);
+    else if(exe->data == '!') condition = (register1 != register2);
+    else if(exe->data == '<') condition = (register1 < register2);
+    else if(exe->data == '>') condition = (register1 > register2);
+    else return;
+
+    EvaluateCondition(condition);
+}
+
+void op_IF_DIGITAL(Instruction *exe)
+{
+    bool condition;
+    uint8_t input = exe->data2;
+    bool value = exe->data3;
+    
+    if(exe->data2 > 9 || exe->data3 < 2) return;
+    else if(exe->data == '=') condition = (input == value);
+    else return;
+
+    EvaluateCondition(condition);
 }
