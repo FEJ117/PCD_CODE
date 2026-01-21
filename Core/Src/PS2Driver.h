@@ -6,6 +6,19 @@
 #ifndef SRC_PS2DRIVER_H_
 #define SRC_PS2DRIVER_H_
 
+typedef enum{
+	KEY_BACKSPACE = 128,
+	KEY_DEL,
+	KEY_ENTER,
+	KEY_SMALLER,
+	KEY_BIGGER,
+	KEY_EQUAL,
+	KEY_UP,
+	KEY_DOWN,
+	KEY_INSERT,
+	KEY_DELETE
+ } ps2Key_t;
+
 /**
  * @brief Stores the bits last received by the keyboard
  */

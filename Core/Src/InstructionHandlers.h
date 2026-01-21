@@ -69,39 +69,6 @@ void op_COP(Instruction *exe);
   * the register pointed to by the register pointer.
  */
 void op_ADD_SUB(Instruction *exe);
-    
-
-/** @brief Handler for the instructions SMA and BIG. 
-  * @details Determines, if the value of the register pointed to by the register pointer is
-  * smaller or bigger then the value of the register specified by the data of the instruction.
- */
- void op_SMA_BIG(Instruction *exe);
-    
-
-
-/** @brief Handler for the instructions REQ and RNQ. 
-  * @details Determines, if the values of the register pointed to by the register pointer and
-  * the value of the register specified by the data of the instruction are equal or not equal.
- */
-void op_REQ_RNQ(Instruction *exe);
-
-
-
-/** @brief Handler for the instructions VEQ and VNQ. 
-  * @details Determines, if the values of the register pointed to by the register pointer and
-  * the value of the data of the instruction are equal or not equal.
- */
-void op_VEQ_VNQ(Instruction *exe);
-
-
-
-/** @brief Handler for the instructions ANH and ANL. 
-  * @details Determines, if the values of the register pointed to by the register pointer and
-  * the value of the analog input provided by the data of the instuction are smaller or bigger.
-  * @warning The value passed in the instruction is the ADC number of the analog input.
- */
-void op_ANH_ANL(Instruction *exe);
-    
 
 
 /** @brief Handler for the instructions REQ and RNQ. 
@@ -109,14 +76,6 @@ void op_ANH_ANL(Instruction *exe);
   * the value of the register specified by the data of the instruction are equal or not equal.
  */
 void op_SVA(Instruction *exe);
-    
-
-
-/** @brief Handler for the instructions INH and INL. 
-  * @details Determines, if the input specified by the data of the instruction is high or low.
-  * @warning Input0 = Button1, Input1 = Button2, Input2 = Button3, Input3 = Button4
- */
-void op_INH_INL(Instruction *exe);
     
 
 
@@ -190,7 +149,15 @@ void op_JUM(Instruction *exe);
 */
 void op_LD1_LD2(Instruction *exe);
 
+void op_IF_REG_REG(Instruction *exe);
 
+void op_IF_REG_LIT(Instruction *exe);
+
+void op_IF_REG_AN(Instruction *exe);
+
+void op_IF_AN_LIT(Instruction *exe);
+
+void op_IF_DIGITAL(Instruction *exe);
 
 /**
  * @brief Defines all function numbers
@@ -227,12 +194,17 @@ typedef enum {
     FUNCTION_JUM,
     FUNCTION_LD1,
     FUNCTION_LD2,
-    //ADD your own here
+    IF_REGISTER_REGISTER,
+    IF_REGISTER_LITERAL,
+    IF_REGISTER_ANALOG,
+    IF_ANALOG_LITERAL,
+    IF_DIGITAL,
+    //Add your own here
     Function_t_MAX
 } Function_t;
 
 /**
-* Defines a type for the instruction handlers.
+* @brief Defines a type for the instruction handlers.
 */
 typedef void (*InstructionHandler)(Instruction *exe);
 
@@ -265,17 +237,7 @@ static const FunctionDefinition definedFunctions[] = {
   [FUNCTION_COP] = {{ 'C', 'O', 'P' }, op_COP},
   [FUNCTION_ADD] = {{ 'A', 'D', 'D' }, op_ADD_SUB},
   [FUNCTION_SUB] = {{ 'S', 'U', 'B' }, op_ADD_SUB},
-  [FUNCTION_SMA] = {{ 'S', 'M', 'A' }, op_SMA_BIG},
-  [FUNCTION_BIG] = {{ 'B', 'I', 'G' }, op_SMA_BIG},
-  [FUNCTION_REQ] = {{ 'R', 'E', 'Q' }, op_REQ_RNQ},
-  [FUNCTION_RNQ] = {{ 'R', 'N', 'Q' }, op_REQ_RNQ},
-  [FUNCTION_VEQ] = {{ 'V', 'E', 'Q' }, op_VEQ_VNQ},
-  [FUNCTION_VNQ] = {{ 'V', 'N', 'Q' }, op_VEQ_VNQ},
-  [FUNCTION_ANH] = {{ 'A', 'N', 'H' }, op_ANH_ANL},
-  [FUNCTION_ANL] = {{ 'A', 'N', 'L' }, op_ANH_ANL},
   [FUNCTION_SVA] = {{ 'S', 'V', 'A' }, op_SVA},
-  [FUNCTION_INH] = {{ 'I', 'N', 'H' }, op_INH_INL},
-  [FUNCTION_INL] = {{ 'I', 'N', 'L' }, op_INH_INL},
   [FUNCTION_TON] = {{ 'T', 'O', 'N' }, op_TON},
   [FUNCTION_PTR] = {{ 'P', 'T', 'R' }, op_PTR},
   [FUNCTION_PCH] = {{ 'P', 'C', 'H' }, op_PCH},
@@ -287,7 +249,12 @@ static const FunctionDefinition definedFunctions[] = {
   [FUNCTION_JPO] = {{ 'J', 'P', 'O' }, op_JPO},
   [FUNCTION_JUM] = {{ 'J', 'U', 'M' }, op_JUM},
   [FUNCTION_LD1] = {{ 'L', 'D', '1' }, op_LD1_LD2},
-  [FUNCTION_LD2] = {{ 'L', 'D', '2' }, op_LD1_LD2}
+  [FUNCTION_LD2] = {{ 'L', 'D', '2' }, op_LD1_LD2},
+  [IF_REGISTER_REGISTER] = {{ 'I', 'F', ' ' }, op_IF_REG_REG},
+  [IF_REGISTER_LITERAL] = {{ 'I', 'F', ' ' }, op_IF_REG_LIT},
+  [IF_REGISTER_ANALOG] = {{ 'I', 'F', ' ' }, op_IF_REG_AN},
+  [IF_ANALOG_LITERAL] = {{ 'I', 'F', ' ' }, op_IF_AN_LIT},
+  [IF_DIGITAL] = {{ 'I', 'F', ' ' }, op_IF_DIGITAL},
   //Add your own here
 };
     

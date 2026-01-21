@@ -32,23 +32,23 @@ char PS2_GetKey()
 					break;
 
 		case 0x5A:	//Enter
-					return(']');
+					return(KEY_ENTER);
 					break;
 
 		case 0x75:	//Up
-					return('^');
+					return(KEY_UP);
 					break;
 
 		case 0x70:	//Insert
-					return('.');
+					return(KEY_INSERT);
 					break;
 
 		case 0x71:	//Delete
-					return(',');
+					return(KEY_DELETE);
 					break;
 
 		case 0x66:	//Backspace
-					return('<');
+					return(KEY_BACKSPACE);
 					break;
 
 		case 0x29:	//Space
@@ -202,6 +202,19 @@ char PS2_GetKey()
 		case 0x5D:
 					return('#');
 					break;
+
+		case 0x05:
+					return('=');
+					break;
+
+		case 0x06:
+					return('<');
+					break;
+
+		case 0x04:
+					return('>');
+					break;
+
 
 
 	}
