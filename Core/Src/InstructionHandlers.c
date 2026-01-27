@@ -151,18 +151,21 @@ void op_EMP_BEG_END(Instruction *exe)
 //Documented in .h
 void op_PIC(Instruction *exe)
 {
+    if(currentDataType != REG_NUMBER) Display_ShowErrorMessage(programIndex-1);
     regPointer = currentData;
 }
 
 //Documented in .h
 void op_SET(Instruction *exe)
 {
+    if(currentDataType != INT_NUMBER) Display_ShowErrorMessage(programIndex-1);
     registers[regPointer] = currentData;
 }
 
 //Documented in .h
 void op_INC_DEC(Instruction *exe)
 {
+    if(currentDataType != INT_NUMBER) Display_ShowErrorMessage(programIndex-1);
     registers[regPointer] = 
     (exe->functionNumber == FUNCTION_INC) ? 
     (registers[regPointer] + currentData) : 
@@ -173,12 +176,14 @@ void op_INC_DEC(Instruction *exe)
 //Documented in .h
 void op_COP(Instruction *exe)
 {
+    if(currentDataType != REG_NUMBER) Display_ShowErrorMessage(programIndex-1);
     registers[currentData] = registers[regPointer];
 }
 
 //Documented in .h
 void op_ADD_SUB(Instruction *exe)
 {
+    if(currentDataType != REG_NUMBER) Display_ShowErrorMessage(programIndex-1);
     registers[regPointer] += 
     (exe->functionNumber == FUNCTION_ADD) ? 
     (registers[currentData]) :
@@ -188,6 +193,7 @@ void op_ADD_SUB(Instruction *exe)
 //Documented in .h
 void op_SMA_BIG(Instruction *exe)
 {
+    if(currentDataType != REG_NUMBER) Display_ShowErrorMessage(programIndex-1);
     EvaluateCondition(
         (exe->functionNumber == FUNCTION_SMA) ? 
         (registers[regPointer] < registers[currentData]) :
@@ -198,6 +204,7 @@ void op_SMA_BIG(Instruction *exe)
 //Documented in .h
 void op_REQ_RNQ(Instruction *exe)
 {
+    if(currentDataType != REG_NUMBER) Display_ShowErrorMessage(programIndex-1);
     EvaluateCondition(
         (exe->functionNumber == FUNCTION_REQ) ? 
         (registers[regPointer] == registers[currentData]) :
@@ -208,6 +215,7 @@ void op_REQ_RNQ(Instruction *exe)
 //Documented in .h
 void op_VEQ_VNQ(Instruction *exe)
 {
+    if(currentDataType != INT_NUMBER) Display_ShowErrorMessage(programIndex-1);
     EvaluateCondition(
         (exe->functionNumber == FUNCTION_VEQ) ? 
         (currentData == registers[regPointer]) :
@@ -218,6 +226,7 @@ void op_VEQ_VNQ(Instruction *exe)
 //Documented in .h
 void op_ANH_ANL(Instruction *exe)
 {
+    if(currentDataType != REG_NUMBER) Display_ShowErrorMessage(programIndex-1);
     EvaluateCondition(
         (exe->functionNumber == FUNCTION_ANH) ? 
         (registers[regPointer] < STM_ReadADC(currentData)):
@@ -228,12 +237,14 @@ void op_ANH_ANL(Instruction *exe)
 ///Documented in .h
 void op_SVA(Instruction *exe)
 {
+    if(currentDataType != INT_NUMBER) Display_ShowErrorMessage(programIndex-1);
     registers[regPointer] = STM_ReadADC(currentData);
 }
 
 //Documented in .h
 void op_INH_INL(Instruction *exe)
 {
+    if(currentDataType != INT_NUMBER) Display_ShowErrorMessage(programIndex-1);
     EvaluateCondition(
         (exe->functionNumber == FUNCTION_INH) ?
         STM_IsInputHigh(currentData):
@@ -244,12 +255,14 @@ void op_INH_INL(Instruction *exe)
 //Documented in .h
 void op_TON(Instruction *exe)
 {
+    if(currentDataType != OTHER_DATA) Display_ShowErrorMessage(programIndex-1);
     STM_ActivateBuzzer(*exe); 
 }
 
 //Documented in .h
 void op_PTR(Instruction *exe)
 {
+    if(currentDataType != REG_NUMBER) Display_ShowErrorMessage(programIndex-1);
     char str[3];
     STM_Number3ToChar(registers[currentData], str);
     WriteAtCursor(str);
@@ -272,29 +285,34 @@ void op_CLR(Instruction *exe)
 //Documented in .h
 void op_WAI(Instruction *exe)
 {
+    if(currentDataType != INT_NUMBER) Display_ShowErrorMessage(programIndex-1);
     STM_Wait(currentData);
 }
 
 //Documented in .h
 void op_SPO(Instruction *exe)
 {
+    if(currentDataType != REG_NUMBER) Display_ShowErrorMessage(programIndex-1);
     registers[currentData] = programIndex-1;
 }
 
 //Documented in .h
 void op_JPO(Instruction *exe)
 {
+    if(currentDataType != REG_NUMBER) Display_ShowErrorMessage(programIndex-1);
     programIndex = registers[currentData];
 }
 
 //Documented in .h
 void op_JUM(Instruction *exe)
 {
+    if(currentDataType != INT_NUMBER) Display_ShowErrorMessage(programIndex-1);
     programIndex = currentData;
 }
 
 //Documented in .h
 void op_LD1_LD2(Instruction *exe)
 {
+    if(currentDataType != OTHER_DATA) Display_ShowErrorMessage(programIndex-1);
     STM_SetLED(exe->functionNumber, exe->data);
 }
